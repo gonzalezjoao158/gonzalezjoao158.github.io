@@ -1,22 +1,50 @@
 <!doctype html>
 <html lang="pt-PT"><head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- Os textos desta página vêm de i18n.js (português e inglês) e os dados de config.js.
        O conteúdo em português que aparece aqui é só uma cópia de segurança (para quem não tem JavaScript):
        para alterar textos, edita i18n.js. -->
   <title>Gonzalez Coach — Calistenia e Ginásio</title>
   <meta name="description" data-i18n-content="meta.descricao" content="Coaching online de calistenia e ginásio: análise dos teus movimentos por vídeo, videochamada, plano de treino personalizado e revisão dos teus treinos 3 vezes por semana.">
   <meta name="theme-color" content="#0c0e11">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c0e11'/%3E%3Cpath d='M14 34h36M20 24v20M44 24v20M10 28v12M54 28v12' stroke='%23c8ff3d' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="color-scheme" content="dark">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://gonzalezjoao158.github.io/">
+  <!-- Pré-visualização quando o link é partilhado (WhatsApp, Instagram, Facebook, X…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gonzalez Coach">
+  <meta property="og:url" content="https://gonzalezjoao158.github.io/">
+  <meta property="og:title" content="Gonzalez Coach — Coaching online de calistenia e ginásio">
+  <meta property="og:description" content="Plano de treino personalizado, análise dos teus movimentos por vídeo e acompanhamento por WhatsApp. Candidata-te.">
+  <meta property="og:image" content="https://gonzalezjoao158.github.io/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Gonzalez Coach — Coaching online de calistenia e ginásio">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gonzalez Coach — Coaching online de calistenia e ginásio">
+  <meta name="twitter:description" content="Plano de treino personalizado, análise dos teus movimentos por vídeo e acompanhamento por WhatsApp. Candidata-te.">
+  <meta name="twitter:image" content="https://gonzalezjoao158.github.io/og-image.png">
+  <!-- Ícones e ecrã inicial -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Gonzalez Coach">
   <link rel="stylesheet" href="style.css">
+  <script defer src="config.js"></script>
+  <script defer src="i18n.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <a class="saltar" href="#candidatura" data-i18n="saltar">Saltar para a candidatura</a>
 
   <header class="topo">
     <div class="contentor topo__inner">
-      <a class="marca" href="#inicio" data-config="marca">Gonzalez Coach</a>
+      <a class="marca" href="#inicio"><svg class="marca__icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#c8ff3d"></rect><path d="M14 32h36M21 22v20M43 22v20M11 27v10M53 27v10" stroke="#0c0e11" stroke-width="6" stroke-linecap="round"></path></svg><span class="marca__texto" data-config="marca">Gonzalez Coach</span></a>
       <div class="topo__acoes">
         <div class="linguas" role="group" data-i18n-aria="lingua.grupo" aria-label="Língua do site">
           <button type="button" class="linguas__botao" data-lingua="pt" lang="pt" aria-pressed="true">PT</button>
@@ -129,24 +157,24 @@
             <legend><span class="legend__letra">A</span> <span data-i18n="sec.a">Sobre ti</span></legend>
             <div class="campo" data-q="m.nome" data-obrigatorio>
               <label for="nome"><span data-i18n="q.nome">Nome</span> <span class="obrig">*</span></label>
-              <input id="nome" name="nome" type="text" autocomplete="name">
+              <input id="nome" name="nome" type="text" autocomplete="name" autocapitalize="words" enterkeyhint="next">
             </div>
             <div class="campo" data-q="m.instagram" data-obrigatorio>
               <label for="instagram"><span data-i18n="q.instagram">Instagram</span> <span class="obrig">*</span></label>
-              <input id="instagram" name="instagram" type="text" data-i18n-ph="p.instagram" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="@utilizador">
+              <input id="instagram" name="instagram" type="text" data-i18n-ph="p.instagram" autocomplete="off" enterkeyhint="next" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="@utilizador">
             </div>
             <div class="campo" data-q="m.telefone" data-obrigatorio data-tipo="telefone">
               <label for="telefone"><span data-i18n="q.telefone">WhatsApp</span> <span class="obrig">*</span></label>
-              <input id="telefone" name="telefone" type="tel" autocomplete="tel" placeholder="+351 912 345 678">
+              <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="+351 912 345 678">
               <p class="campo__ajuda" data-i18n="a.telefone">É por aqui que entro em contacto contigo.</p>
             </div>
             <div class="campo" data-q="m.email" data-tipo="email">
               <label for="email"><span data-i18n="q.email">Email</span> <small data-i18n="opcional">(opcional)</small></label>
-              <input id="email" name="email" type="email" autocomplete="email">
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" enterkeyhint="next">
             </div>
             <div class="campo" data-q="m.idade" data-obrigatorio data-tipo="idade">
               <label for="idade"><span data-i18n="q.idade">Idade</span> <span class="obrig">*</span></label>
-              <input id="idade" name="idade" type="number" inputmode="numeric" min="14" max="99">
+              <input id="idade" name="idade" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" enterkeyhint="next">
               <p class="campo__ajuda" data-i18n="a.idade">Se tens menos de 18 anos, precisas da autorização dos teus pais ou do encarregado de educação.</p>
             </div>
             <div class="campo campo--consentimento campo--autorizacao" id="autorizacao-wrap" data-q="m.autorizacao" data-obrigatorio data-erro="err.autorizacao" hidden>
@@ -157,19 +185,19 @@
             </div>
             <div class="campo" data-q="m.alturapeso" data-obrigatorio>
               <label for="altura-peso"><span data-i18n="q.alturapeso">Altura e peso</span> <span class="obrig">*</span></label>
-              <input id="altura-peso" name="altura-peso" type="text" data-i18n-ph="p.alturapeso" placeholder="Ex.: 1,78 m · 75 kg">
+              <input id="altura-peso" name="altura-peso" type="text" enterkeyhint="next" data-i18n-ph="p.alturapeso" placeholder="Ex.: 1,78 m · 75 kg">
             </div>
             <div class="campo" data-q="m.localvive" data-obrigatorio>
               <label for="local-vive"><span data-i18n="q.localvive">Onde vives?</span> <span class="obrig">*</span></label>
-              <input id="local-vive" name="local-vive" type="text" data-i18n-ph="p.localvive" autocomplete="address-level2" placeholder="Cidade, país">
+              <input id="local-vive" name="local-vive" type="text" data-i18n-ph="p.localvive" autocomplete="address-level2" enterkeyhint="next" placeholder="Cidade, país">
             </div>
             <div class="campo" data-q="m.profissao" data-obrigatorio>
               <label for="profissao"><span data-i18n="q.profissao">Profissão</span> <span class="obrig">*</span></label>
-              <input id="profissao" name="profissao" type="text" autocomplete="organization-title">
+              <input id="profissao" name="profissao" type="text" autocomplete="organization-title" enterkeyhint="next">
             </div>
             <div class="campo" data-q="m.temposemana" data-obrigatorio>
               <label for="tempo-semana"><span data-i18n="q.temposemana">Quanto tempo tens por semana para treinar?</span> <span class="obrig">*</span></label>
-              <input id="tempo-semana" name="tempo-semana" type="text" data-i18n-ph="p.temposemana" placeholder="Ex.: 4 dias, cerca de 1 hora por dia">
+              <input id="tempo-semana" name="tempo-semana" type="text" enterkeyhint="next" data-i18n-ph="p.temposemana" placeholder="Ex.: 4 dias, cerca de 1 hora por dia">
             </div>
           </fieldset>
 
@@ -181,7 +209,7 @@
               <div class="opcoes" role="group" aria-labelledby="lbl-objetivo" data-opcoes="op.objetivo" data-nome="objetivo" data-tipo="checkbox"><label class="opcao"><input type="checkbox" name="objetivo" value="Físico / estética" data-indice="0"><span>Físico / estética</span></label><label class="opcao"><input type="checkbox" name="objetivo" value="Ganhar massa muscular" data-indice="1"><span>Ganhar massa muscular</span></label><label class="opcao"><input type="checkbox" name="objetivo" value="Perder gordura" data-indice="2"><span>Perder gordura</span></label><label class="opcao"><input type="checkbox" name="objetivo" value="Força" data-indice="3"><span>Força</span></label><label class="opcao"><input type="checkbox" name="objetivo" value="Planche" data-indice="4"><span>Planche</span></label><label class="opcao"><input type="checkbox" name="objetivo" value="Front lever" data-indice="5"><span>Front lever</span></label><label class="opcao"><input type="checkbox" name="objetivo" value="Handstand" data-indice="6"><span>Handstand</span></label><label class="opcao"><input type="checkbox" name="objetivo" value="Muscle-up" data-indice="7"><span>Muscle-up</span></label><label class="opcao"><input type="checkbox" name="objetivo" value="Outro" data-indice="8" data-outro-opcao><span>Outro</span></label></div>
               <div class="campo__extra" id="objetivo-outro-wrap" hidden>
                 <label for="objetivo-outro"><span data-i18n="q.outro">Qual?</span> <span class="obrig">*</span></label>
-                <input id="objetivo-outro" name="objetivo-outro" type="text">
+                <input id="objetivo-outro" name="objetivo-outro" type="text" enterkeyhint="next">
               </div>
             </div>
             <div class="campo" data-q="m.nivel" data-obrigatorio>
@@ -282,9 +310,8 @@
     </div>
   </footer>
 
-  <script src="config.js"></script>
-  <script src="i18n.js"></script>
-  <script src="script.js"></script>
+
+
 
 
 

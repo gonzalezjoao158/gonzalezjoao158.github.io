@@ -441,6 +441,18 @@
       limparErroDe(e);
     });
     form.addEventListener("input", limparErroDe);
+
+    // Tecla "Seguinte"/Enter do teclado do telemóvel: passa ao campo seguinte em vez de enviar a meio.
+    form.addEventListener("keydown", function (e) {
+      var el = e.target;
+      if (e.key !== "Enter" || e.isComposing || !el.matches("input[type=text], input[type=tel], input[type=email]")) return;
+      e.preventDefault();
+      var campos = Array.prototype.filter.call(form.querySelectorAll("input:not([type=hidden]), textarea, select, button[type=submit]"), function (c) {
+        return !c.disabled && !c.closest("[hidden]");
+      });
+      var seguinte = campos[campos.indexOf(el) + 1];
+      if (seguinte) seguinte.focus();
+    });
     var idade = document.getElementById("idade");
     idade.addEventListener("input", atualizarAutorizacao);
     idade.addEventListener("change", atualizarAutorizacao);
