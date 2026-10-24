@@ -7,6 +7,8 @@
        {marca}     → nome da marca (config.js)
        {instagram} → link para o teu Instagram
        {linguas}   → línguas do acompanhamento (config.js → linguas)
+       {vagasTotal}, {vagasRestantes} → vagas de fundador (config.js → vagasFundador)
+       {garantiaDias} → dias da garantia (config.js → garantiaDias)
    - Os textos podem ter HTML simples (<strong>, <span class="destaque">…).
    - Dados (WhatsApp, preço, descontos, línguas…) ficam em config.js.
    ===================================================================== */
@@ -28,16 +30,33 @@ window.TEXTOS = {
 
   /* ---------- Hero ---------- */
   "hero.etiqueta": { pt: "Calistenia · Ginásio · Acompanhamento individual", en: "Calisthenics · Gym · One-to-one coaching" },
+  "hero.credenciais": {
+    pt: "Técnico Especialista em Exercício Físico · Personal Trainer certificado",
+    en: "Certified Exercise Specialist · Certified Personal Trainer"
+  },
   "hero.titulo": {
     pt: "Evolui com um <span class=\"destaque\">plano estruturado</span> e alguém a acompanhar cada passo.",
     en: "Progress with a <span class=\"destaque\">structured plan</span> and someone by your side at every step."
   },
   "hero.texto": {
-    pt: "Treino personalizado para o teu objetivo, o teu nível e o tempo que tens — com análise dos teus movimentos por vídeo, videochamada inicial, revisão dos teus treinos 3 vezes por semana e contacto direto por WhatsApp.",
-    en: "Training built around your goal, your level and the time you actually have — with video analysis of your movements, an initial video call, reviews of your training 3 times a week and direct contact on WhatsApp."
+    pt: "Treino personalizado para o teu objetivo, o teu nível e o tempo que tens — com análise dos teus movimentos por vídeo, videochamada inicial e contacto direto por WhatsApp.",
+    en: "Training built around your goal, your level and the time you actually have — with video analysis of your movements, an initial video call and direct contact on WhatsApp."
+  },
+  // Diferencial: revisão de vídeos 3x por semana (não nomear outros coaches).
+  "hero.diferencial": {
+    pt: "<strong>Revisão dos teus vídeos 3x por semana</strong> — não só o check-in semanal habitual no coaching online.",
+    en: "<strong>Your training videos reviewed 3x a week</strong> — not just the usual weekly check-in of online coaching."
   },
   "hero.cta2": { pt: "Como funciona", en: "How it works" },
   "hero.nota": { pt: "Vagas limitadas · {preco} · sem fidelização", en: "Limited spots · {preco} · no lock-in" },
+
+  /* ---------- Vagas de fundador (aparecem só enquanto config.js → vagasFundador.restantes > 0) ---------- */
+  "fundador.titulo": { pt: "Vagas de fundador", en: "Founding spots" },
+  "fundador.texto": {
+    pt: "Os primeiros {vagasTotal} clientes entram a {preco} e, em troca, autorizam-me a partilhar o seu testemunho.",
+    en: "The first {vagasTotal} clients join at {preco} and, in return, let me share their testimonial."
+  },
+  "fundador.contador": { pt: "{vagasRestantes} de {vagasTotal} vagas disponíveis", en: "{vagasRestantes} of {vagasTotal} spots available" },
 
   /* ---------- Para quem é ---------- */
   "paraquem.titulo": { pt: "Para quem é", en: "Who it's for" },
@@ -119,6 +138,10 @@ window.TEXTOS = {
   },
   "preco.linguas":  { pt: "Acompanhamento em {linguas}", en: "Coaching in {linguas}" },
   "preco.planos":   { pt: "Planos de 3 e 6 meses com desconto — vê as opções no formulário.", en: "3- and 6-month plans come with a discount — see the options in the form." },
+  "preco.garantia": {
+    pt: "<strong>Garantia de {garantiaDias} dias:</strong> se nos primeiros {garantiaDias} dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago.",
+    en: "<strong>{garantiaDias}-day guarantee:</strong> if you're not happy within the first {garantiaDias} days after receiving your plan, you can stop and I'll refund what you paid."
+  },
   "preco.nota": {
     pt: "Pagamento mensal, sem fidelização. O primeiro mês só começa a contar quando receberes o plano.",
     en: "Paid monthly, no lock-in. Your first month only starts counting once you receive your plan."
@@ -139,6 +162,7 @@ window.TEXTOS = {
       { p: "Em que língua é o acompanhamento?", r: "Em {linguas} — escolhes no formulário." },
       { p: "Tenho menos de 18 anos. Posso candidatar-me?", r: "Sim, desde que tenhas autorização dos teus pais ou do encarregado de educação. O formulário pede-te essa confirmação." },
       { p: "Posso cancelar?", r: "Sim. O pagamento é mensal e não há fidelização: se quiseres parar, basta avisar antes do mês seguinte." },
+      { p: "E se não ficar satisfeito na 1.ª semana?", r: "Tens uma garantia: se nos primeiros {garantiaDias} dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago. Basta dizeres-me por WhatsApp." },
       { p: "Há resultados garantidos?", r: "Não prometo resultados garantidos — dependem da tua consistência, do sono, da alimentação e do teu ponto de partida. O que garanto é um plano estruturado, acompanhamento próximo e ajustes sempre que necessário." }
     ],
     en: [
@@ -152,6 +176,7 @@ window.TEXTOS = {
       { p: "What language is the coaching in?", r: "{linguas} — you choose in the form." },
       { p: "I'm under 18. Can I apply?", r: "Yes, as long as you have permission from your parents or legal guardian. The form asks you to confirm this." },
       { p: "Can I cancel?", r: "Yes. You pay monthly and there's no lock-in: if you want to stop, just let me know before the next month." },
+      { p: "What if I'm not happy in the first week?", r: "You're covered by a guarantee: if you're not happy within the first {garantiaDias} days after receiving your plan, you can stop and I'll refund what you paid. Just tell me on WhatsApp." },
       { p: "Are results guaranteed?", r: "I don't promise guaranteed results — they depend on your consistency, sleep, nutrition and starting point. What I do guarantee is a structured plan, close support and adjustments whenever they're needed." }
     ]
   },

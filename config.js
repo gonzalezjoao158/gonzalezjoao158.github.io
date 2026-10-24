@@ -25,6 +25,16 @@ window.CONFIG = {
   preco: 100,
   moeda: "€",
 
+  // Vagas de fundador: os primeiros clientes entram a este preço e autorizam a partilha do testemunho.
+  //   total:     número de vagas de fundador
+  //   restantes: vagas ainda livres — ATUALIZA À MÃO sempre que entrar um fundador.
+  // Com restantes: 0, o destaque das vagas desaparece sozinho do site.
+  vagasFundador: { total: 4, restantes: 4 },
+
+  // Garantia: dias (depois de o cliente receber o plano) em que pode parar e receber o valor pago de volta.
+  // Usado nos textos através do marcador {garantiaDias}.
+  garantiaDias: 7,
+
   // Opções da pergunta "Durante quanto tempo pensas trabalhar comigo?".
   //   meses:    duração do plano
   //   desconto: percentagem de desconto (opcional). O site calcula sozinho o total a partir do preço,

@@ -161,7 +161,7 @@ p { margin: 0 0 1em; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding: 64px 0 72px;
+  padding: 36px 0 64px;
   /* O anel decorativo é um gradiente (não ocupa espaço nem cria scroll horizontal). */
   background:
     radial-gradient(circle at calc(100% - 70px) calc(100% - 70px), transparent 107px, rgba(200, 255, 61, .07) 108px 130px, transparent 131px),
@@ -180,6 +180,37 @@ p { margin: 0 0 1em; }
 .hero__acoes .botao { flex: 1 1 12rem; }
 @media (min-width: 40em) { .hero { padding: 110px 0 120px; } .hero__acoes .botao { flex: 0 0 auto; } }
 .hero__nota { color: var(--texto-2); font-size: .92rem; margin: 0; }
+/* Qualificações logo no topo */
+.hero__credenciais {
+  display: flex; align-items: flex-start; gap: .5rem; max-width: 38rem;
+  margin: -.6rem 0 1.1rem; color: var(--texto); font-size: .92rem; font-weight: 700; line-height: 1.4;
+}
+.hero__credenciais::before {
+  content: ""; flex: none; width: 1.1rem; height: 1.1rem; margin-top: .08rem; border-radius: 50%;
+  background: var(--destaque) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%230c0e11' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 80% no-repeat;
+}
+/* Diferencial: revisão dos vídeos 3x por semana */
+.hero__diferencial {
+  max-width: 38rem; margin: 0 0 1rem; padding: .7rem 1rem;
+  border-left: 3px solid var(--destaque); background: rgba(200, 255, 61, .06);
+  border-radius: 0 10px 10px 0; color: var(--texto-2); font-size: .98rem; line-height: 1.5;
+}
+.hero__diferencial strong { color: var(--texto); }
+
+/* ---------- Vagas de fundador (escondido automaticamente quando restantes = 0) ---------- */
+.fundador {
+  max-width: 38rem; margin: 1rem 0 0; padding: .7rem .9rem;
+  border: 1px solid rgba(200, 255, 61, .55); border-radius: var(--raio);
+  background: var(--cartao);
+}
+.fundador__topo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .35rem .75rem; margin: 0 0 .35rem; }
+.fundador__titulo { color: var(--destaque); font-weight: 900; font-size: .82rem; text-transform: uppercase; letter-spacing: .1em; }
+.fundador__contador {
+  padding: .15rem .65rem; border-radius: 999px;
+  background: var(--destaque); color: var(--sobre-destaque); font-weight: 800; font-size: .85rem;
+}
+.fundador__texto { margin: 0; color: var(--texto); font-size: .93rem; line-height: 1.45; }
+.fundador--preco { margin: 0 0 1.25rem; background: rgba(200, 255, 61, .06); }
 
 /* ---------- Secções ---------- */
 .seccao { padding: 64px 0; }
@@ -267,6 +298,11 @@ p { margin: 0 0 1em; }
 .preco__planos { color: var(--texto-2); font-size: .92rem; text-align: center; margin: 0 0 1rem; }
 .preco__linguas { text-align: center; font-weight: 700; color: var(--destaque); margin: 0 0 1rem; }
 .preco__nota { color: var(--texto-2); font-size: .9rem; text-align: center; margin: .9rem 0 0; }
+.preco__garantia {
+  margin: 1rem 0 0; padding: .75rem .9rem; border: 1px dashed var(--linha); border-radius: 10px;
+  color: var(--texto-2); font-size: .92rem; line-height: 1.5;
+}
+.preco__garantia strong { color: var(--texto); }
 
 /* ---------- Feedbacks ---------- */
 .feedback { margin: 0; }
@@ -404,7 +440,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 
 /* ---------- Modo de alto contraste (Windows) ---------- */
 @media (forced-colors: active) {
-  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado { border: 2px solid CanvasText; }
+  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .fundador, .fundador__contador { border: 2px solid CanvasText; }
   .botao { border-color: ButtonText; }
   .linguas__botao[aria-pressed="true"], .opcao input:checked + span {
     forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight;
@@ -422,7 +458,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
   .topo, .saltar, .hero__acoes, #candidatura, .botao { display: none !important; }
   .hero, .seccao, .seccao--alt { background: none !important; padding: 16pt 0 !important; border: 0 !important; }
   .cartao, .passos li, .preco, .faq details, .chips li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
-  .destaque, .etiqueta, a, .cartao__num, .preco__moeda, .preco__linguas { color: #000 !important; }
+  .destaque, .etiqueta, a, .cartao__num, .preco__moeda, .preco__linguas, .fundador__titulo, .fundador__contador { color: #000 !important; }
   .hero__texto, .seccao__intro, .cartao p, .passos p, .faq details p, .rodape, .sobre__nome { color: #222 !important; }
   .passos li::before { background: #000; color: #fff; }
   h2, h3 { break-after: avoid; }
