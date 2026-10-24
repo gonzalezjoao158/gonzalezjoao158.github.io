@@ -100,14 +100,14 @@ window.TEXTOS = {
 
   /* ---------- Sobre mim ---------- */
   "sobre.titulo": { pt: "Sobre mim", en: "About me" },
-  // Texto curto sobre ti (2–4 frases). Substitui pelo teu texto.
+  // Texto curto sobre ti (2–4 frases).
   "sobre.texto": {
-    pt: "[Escreve aqui 2 a 4 frases sobre ti: há quanto tempo treinas, o que te levou à calistenia e ao ginásio, e como gostas de acompanhar quem treina contigo.]",
-    en: "[Write 2 to 4 sentences about yourself here: how long you've been training, what got you into calisthenics and the gym, and how you like to coach people.]"
+    pt: "Treino desde os 14 anos. Comecei pela musculação, que me deu a base de força e de disciplina, e há 3 anos dedico-me também às skills de calistenia. Juntar os dois mundos ensinou-me que força, técnica e paciência andam sempre juntas. Hoje uso essa experiência e a minha formação para criar planos à medida de cada pessoa e acompanhar de perto a sua evolução.",
+    en: "I've been training since I was 14. I started with strength training in the gym, which gave me a solid base of strength and discipline, and for the last 3 years I've also been focused on calisthenics skills. Combining both worlds taught me that strength, technique and patience always go hand in hand. Today I use that experience and my qualifications to build plans tailored to each person and to follow their progress closely."
   },
   "sobre.qualificacoes": {
     pt: ["Técnico Especialista em Exercício Físico", "Certificação de Personal Trainer"],
-    en: ["Exercise Specialist Technician (Técnico Especialista em Exercício Físico)", "Personal Trainer certification"]
+    en: ["Certified Exercise Specialist", "Personal Trainer certification"]
   },
 
   /* ---------- Preço ---------- */
