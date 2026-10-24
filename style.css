@@ -303,6 +303,7 @@ p { margin: 0 0 1em; }
   color: var(--texto-2); font-size: .92rem; line-height: 1.5;
 }
 .preco__garantia strong { color: var(--texto); }
+.preco__garantia small { display: block; margin-top: .35rem; font-size: .85rem; }
 
 /* ---------- Feedbacks ---------- */
 .feedback { margin: 0; }

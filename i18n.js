@@ -53,8 +53,8 @@ window.TEXTOS = {
   /* ---------- Vagas de fundador (aparecem só enquanto config.js → vagasFundador.restantes > 0) ---------- */
   "fundador.titulo": { pt: "Vagas de fundador", en: "Founding spots" },
   "fundador.texto": {
-    pt: "Os primeiros {vagasTotal} clientes entram a {preco} e, em troca, autorizam-me a partilhar o seu testemunho.",
-    en: "The first {vagasTotal} clients join at {preco} and, in return, let me share their testimonial."
+    pt: "Os primeiros {vagasTotal} clientes entram a {preco} e mantêm esse preço para sempre, mesmo que suba (enquanto continuarem clientes sem interrupção). Em troca, autorizam-me a partilhar o seu testemunho.",
+    en: "The first {vagasTotal} clients join at {preco} and keep that price for good, even if it goes up (as long as they stay clients without a break). In return, they let me share their testimonial."
   },
   "fundador.contador": { pt: "{vagasRestantes} de {vagasTotal} vagas disponíveis", en: "{vagasRestantes} of {vagasTotal} spots available" },
 
@@ -139,8 +139,8 @@ window.TEXTOS = {
   "preco.linguas":  { pt: "Acompanhamento em {linguas}", en: "Coaching in {linguas}" },
   "preco.planos":   { pt: "Planos de 3 e 6 meses com desconto — vê as opções no formulário.", en: "3- and 6-month plans come with a discount — see the options in the form." },
   "preco.garantia": {
-    pt: "<strong>Garantia de {garantiaDias} dias:</strong> se nos primeiros {garantiaDias} dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago.",
-    en: "<strong>{garantiaDias}-day guarantee:</strong> if you're not happy within the first {garantiaDias} days after receiving your plan, you can stop and I'll refund what you paid."
+    pt: "<strong>Garantia de {garantiaDias} dias (plano mensal):</strong> se nos primeiros {garantiaDias} dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago. <small>Os planos de 3 e 6 meses, com desconto, não têm reembolso.</small>",
+    en: "<strong>{garantiaDias}-day guarantee (monthly plan):</strong> if you're not happy within the first {garantiaDias} days after receiving your plan, you can stop and I'll refund what you paid. <small>Discounted 3- and 6-month plans are non-refundable.</small>"
   },
   "preco.nota": {
     pt: "Pagamento mensal, sem fidelização. O primeiro mês só começa a contar quando receberes o plano.",
@@ -162,7 +162,7 @@ window.TEXTOS = {
       { p: "Em que língua é o acompanhamento?", r: "Em {linguas} — escolhes no formulário." },
       { p: "Tenho menos de 18 anos. Posso candidatar-me?", r: "Sim, desde que tenhas autorização dos teus pais ou do encarregado de educação. O formulário pede-te essa confirmação." },
       { p: "Posso cancelar?", r: "Sim. O pagamento é mensal e não há fidelização: se quiseres parar, basta avisar antes do mês seguinte." },
-      { p: "E se não ficar satisfeito na 1.ª semana?", r: "Tens uma garantia: se nos primeiros {garantiaDias} dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago. Basta dizeres-me por WhatsApp." },
+      { p: "E se não ficar satisfeito na 1.ª semana?", r: "No plano mensal tens uma garantia: se nos primeiros {garantiaDias} dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago. Basta dizeres-me por WhatsApp. Os planos de 3 e 6 meses têm desconto e, por isso, não têm reembolso." },
       { p: "Há resultados garantidos?", r: "Não prometo resultados garantidos — dependem da tua consistência, do sono, da alimentação e do teu ponto de partida. O que garanto é um plano estruturado, acompanhamento próximo e ajustes sempre que necessário." }
     ],
     en: [
@@ -176,7 +176,7 @@ window.TEXTOS = {
       { p: "What language is the coaching in?", r: "{linguas} — you choose in the form." },
       { p: "I'm under 18. Can I apply?", r: "Yes, as long as you have permission from your parents or legal guardian. The form asks you to confirm this." },
       { p: "Can I cancel?", r: "Yes. You pay monthly and there's no lock-in: if you want to stop, just let me know before the next month." },
-      { p: "What if I'm not happy in the first week?", r: "You're covered by a guarantee: if you're not happy within the first {garantiaDias} days after receiving your plan, you can stop and I'll refund what you paid. Just tell me on WhatsApp." },
+      { p: "What if I'm not happy in the first week?", r: "The monthly plan comes with a guarantee: if you're not happy within the first {garantiaDias} days after receiving your plan, you can stop and I'll refund what you paid. Just tell me on WhatsApp. The 3- and 6-month plans are discounted and therefore non-refundable." },
       { p: "Are results guaranteed?", r: "I don't promise guaranteed results — they depend on your consistency, sleep, nutrition and starting point. What I do guarantee is a structured plan, close support and adjustments whenever they're needed." }
     ]
   },
@@ -289,6 +289,10 @@ window.TEXTOS = {
     en: ["As soon as possible", "Within the next 2 weeks", "Within a month", "Not sure yet"]
   },
   /* Duração (as opções e os descontos estão em config.js → duracoes) */
+  "a.duracao": {
+    pt: "A garantia de {garantiaDias} dias aplica-se só ao plano mensal; os planos com desconto não têm reembolso.",
+    en: "The {garantiaDias}-day guarantee only applies to the monthly plan; discounted plans are non-refundable."
+  },
   "dur.mes":      { pt: "1 mês", en: "1 month" },
   "dur.meses":    { pt: "{n} meses", en: "{n} months" },
   "dur.mais":     { pt: "Mais de {n} meses", en: "More than {n} months" },
