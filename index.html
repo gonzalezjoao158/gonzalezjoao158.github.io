@@ -34,6 +34,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="apple-mobile-web-app-title" content="Gonzalez Coach">
+  <!-- Dados estruturados para o Google (preenchidos por script.js a partir de config.js e i18n.js) -->
+  <script type="application/ld+json" id="dados-estruturados">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://gonzalezjoao158.github.io/#servico","name":"Gonzalez Coach","url":"https://gonzalezjoao158.github.io/","image":"https://gonzalezjoao158.github.io/og-image.png","logo":"https://gonzalezjoao158.github.io/icon-512.png","description":"Coaching online de calistenia e ginásio: análise dos teus movimentos por vídeo, videochamada, plano de treino personalizado e revisão dos teus treinos 3 vezes por semana.","areaServed":"Worldwide","availableLanguage":["Portuguese","English"],"makesOffer":{"@type":"Offer","name":"Calistenia e Ginásio","price":"100","priceCurrency":"EUR","priceSpecification":{"@type":"UnitPriceSpecification","price":"100","priceCurrency":"EUR","unitCode":"MON"}},"sameAs":["https://instagram.com/ganzalez666"]}</script>
   <link rel="stylesheet" href="style.css">
   <script defer src="config.js"></script>
   <script defer src="i18n.js"></script>
@@ -162,6 +164,12 @@
 
         <form id="form-candidatura" novalidate>
           <div class="erro-resumo" id="erro-resumo" role="alert" hidden></div>
+
+          <!-- Progresso: respostas obrigatórias já preenchidas (fica fixo por baixo do topo ao descer) -->
+          <div class="progresso" id="progresso">
+            <p class="progresso__texto" id="progresso-texto">1 de 19 respostas obrigatórias</p>
+            <div class="progresso__barra" role="progressbar" aria-labelledby="progresso-texto" aria-valuemin="0" aria-valuemax="19" aria-valuenow="1"><span id="progresso-barra" style="width: 5%;"></span></div>
+          </div>
 
           <!-- A -->
           <fieldset>
@@ -314,6 +322,15 @@
     </section>
   </main>
 
+  <!-- Barra fixa no telemóvel: aparece depois do início da página e esconde-se ao chegar ao formulário.
+       Repete o botão do topo, por isso fica fora da navegação por teclado e dos leitores de ecrã. -->
+  <div class="barra-cta" id="barra-cta" aria-hidden="true">
+    <div class="contentor barra-cta__inner">
+      <p class="barra-cta__texto" data-i18n="barra.texto"><strong>100 €/mês</strong> · sem fidelização</p>
+      <a class="botao botao--pequeno" href="#candidatura" tabindex="-1" data-i18n="topo.cta">Candidata-te</a>
+    </div>
+  </div>
+
   <footer class="rodape">
     <div class="contentor rodape__inner">
       <p><span data-config="marca">Gonzalez Coach</span><span id="rodape-nome" hidden> · <span data-config="nome">Gonzalez Coach</span></span></p>
@@ -321,6 +338,7 @@
       <p class="rodape__legal">© <span id="ano">2026</span> · <span data-i18n="rodape.legal">Nenhum dado do formulário é guardado neste site.</span></p>
     </div>
   </footer>
+
 
 
 

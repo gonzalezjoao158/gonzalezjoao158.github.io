@@ -402,6 +402,19 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 .consentimento input { width: 22px; height: 22px; margin: .15rem 0 0; flex: none; accent-color: var(--destaque); }
 .form__nota { color: var(--texto-2); font-size: .88rem; text-align: center; margin-top: .8rem; }
 
+/* Progresso: fica fixo por baixo do topo enquanto se preenche o formulário */
+.progresso {
+  position: sticky; top: calc(var(--altura-topo) + env(safe-area-inset-top, 0px)); z-index: 20;
+  margin: 0 0 18px; padding: .6rem 0 .7rem;
+  background: var(--fundo-2); border-bottom: 1px solid var(--linha);
+}
+/* Campos focados (Tab/"Seguinte") não ficam escondidos por baixo do progresso fixo. */
+#form-candidatura input, #form-candidatura textarea, #form-candidatura select { scroll-margin-top: 5rem; }
+.progresso__texto { margin: 0 0 .4rem; color: var(--texto-2); font-size: .88rem; font-weight: 600; }
+.progresso--completo .progresso__texto { color: var(--destaque); }
+.progresso__barra { height: 6px; border-radius: 999px; background: var(--linha); overflow: hidden; }
+.progresso__barra span { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--destaque); transition: width .25s ease; }
+
 /* Erros */
 .campo--erro input, .campo--erro select, .campo--erro textarea { border-color: var(--erro); }
 .campo--erro .opcao span { border-color: rgba(255, 107, 107, .6); }
@@ -438,10 +451,34 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
   .rodape__legal { grid-column: 1 / -1; }
 }
 
+/* ---------- Barra fixa no telemóvel ---------- */
+.barra-cta { display: none; }
+@media (max-width: 47.9375em) { /* até 767px */
+  .barra-cta {
+    display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    padding: .55rem 0 calc(.55rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(12, 14, 17, .94);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--linha);
+    transform: translateY(100%); visibility: hidden;
+    transition: transform .25s ease, visibility .25s;
+  }
+  .barra-cta--visivel { transform: none; visibility: visible; }
+  /* O fim da página não fica tapado pela barra. */
+  .rodape { padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
+}
+.barra-cta__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1rem; }
+.barra-cta__texto { margin: 0; color: var(--texto-2); font-size: .9rem; line-height: 1.3; }
+.barra-cta__texto strong { color: var(--texto); }
+.barra-cta .botao { flex: 1 1 auto; max-width: 14rem; }
+/* Telemóvel em horizontal: ecrã baixo demais para mais uma barra. */
+@media (max-height: 31.25em) and (orientation: landscape) { .barra-cta { display: none; } }
 
 /* ---------- Modo de alto contraste (Windows) ---------- */
 @media (forced-colors: active) {
-  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .fundador, .fundador__contador { border: 2px solid CanvasText; }
+  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .fundador, .fundador__contador, .barra-cta { border: 2px solid CanvasText; }
+  .progresso__barra { border: 1px solid CanvasText; }
+  .progresso__barra span { forced-color-adjust: none; background: Highlight; }
   .botao { border-color: ButtonText; }
   .linguas__botao[aria-pressed="true"], .opcao input:checked + span {
     forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight;
@@ -456,7 +493,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 @media print {
   :root { color-scheme: light; }
   body { background: #fff; color: #000; font-size: 11pt; }
-  .topo, .saltar, .hero__acoes, #candidatura, .botao { display: none !important; }
+  .topo, .saltar, .hero__acoes, #candidatura, .botao, .barra-cta { display: none !important; }
   .hero, .seccao, .seccao--alt { background: none !important; padding: 16pt 0 !important; border: 0 !important; }
   .cartao, .passos li, .preco, .faq details, .chips li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
   .destaque, .etiqueta, a, .cartao__num, .preco__moeda, .preco__linguas, .fundador__titulo, .fundador__contador { color: #000 !important; }

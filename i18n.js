@@ -298,6 +298,11 @@ window.TEXTOS = {
   "dur.mais":     { pt: "Mais de {n} meses", en: "More than {n} months" },
   "dur.desconto": { pt: "{d}% de desconto · {total}", en: "{d}% off · {total}" },
 
+  /* Progresso do formulário e barra fixa no telemóvel */
+  "prog.texto":    { pt: "{n} de {total} respostas obrigatórias", en: "{n} of {total} required answers" },
+  "prog.completo": { pt: "Tudo preenchido — já podes enviar.", en: "All done — you can send it now." },
+  "barra.texto":   { pt: "<strong>{preco}</strong> · sem fidelização", en: "<strong>{preco}</strong> · no lock-in" },
+
   /* Envio e confirmação */
   "form.enviar": { pt: "Enviar candidatura pelo WhatsApp", en: "Send application via WhatsApp" },
   "form.nota": {

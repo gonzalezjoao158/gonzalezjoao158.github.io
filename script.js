@@ -288,6 +288,41 @@
     cada(".campo[data-outro]", atualizarOutro);
     var form = document.getElementById("form-candidatura");
     if (form) { limparErros(form); document.getElementById("erro-resumo").hidden = true; }
+    atualizarProgresso();
+    atualizarDadosEstruturados();
+  }
+
+  /* ---------- Dados estruturados (Google) ---------- */
+  // Gerados a partir de config.js e i18n.js, para nunca ficarem diferentes do que a página mostra.
+  function atualizarDadosEstruturados() {
+    var el = document.getElementById("dados-estruturados");
+    if (!el) return;
+    var c = cfg();
+    var canon = document.querySelector('link[rel="canonical"]');
+    var url = canon ? canon.href : location.href.split("#")[0];
+    var ig = (c.instagram || "").replace(/^@/, "");
+    var moeda = { "€": "EUR", "$": "USD", "£": "GBP" }[c.moeda || "€"] || c.moeda;
+    var dados = {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": url + "#servico",
+      name: c.marca || "",
+      url: url,
+      image: url + "og-image.png",
+      logo: url + "icon-512.png",
+      description: textoSimples(t("meta.descricao")),
+      areaServed: "Worldwide",
+      availableLanguage: linguasAtendimento().map(function (l) { return l === "en" ? "English" : "Portuguese"; }),
+      makesOffer: {
+        "@type": "Offer",
+        name: textoSimples(t("meta.titulo")),
+        price: String(precoBase()),
+        priceCurrency: moeda,
+        priceSpecification: { "@type": "UnitPriceSpecification", price: String(precoBase()), priceCurrency: moeda, unitCode: "MON" }
+      }
+    };
+    if (ig) dados.sameAs = ["https://instagram.com/" + ig];
+    el.textContent = JSON.stringify(dados);
   }
 
   /* ---------- Leitura dos campos ---------- */
@@ -314,6 +349,27 @@
     if (cb) return cb.checked ? t("msg.sim") : "";
     var el = campo.querySelector("input, select, textarea");
     return el ? el.value.trim() : "";
+  }
+
+  /* ---------- Progresso do formulário ---------- */
+  // Conta as respostas obrigatórias (visíveis) já preenchidas e válidas.
+  function atualizarProgresso() {
+    var form = document.getElementById("form-candidatura");
+    var caixa = document.getElementById("progresso");
+    if (!form || !caixa) return;
+    var total = 0, feitos = 0;
+    form.querySelectorAll(".campo[data-obrigatorio]").forEach(function (campo) {
+      if (!ativo(campo)) return;
+      total++;
+      if (valorCampo(campo) && !erroDe(campo)) feitos++;
+    });
+    var completo = total > 0 && feitos === total;
+    document.getElementById("progresso-texto").textContent = completo ? t("prog.completo") : t("prog.texto", { n: feitos, total: total });
+    document.getElementById("progresso-barra").style.width = (total ? Math.round(feitos / total * 100) : 0) + "%";
+    var barra = caixa.querySelector("[role=progressbar]");
+    barra.setAttribute("aria-valuemax", String(total));
+    barra.setAttribute("aria-valuenow", String(feitos));
+    caixa.classList.toggle("progresso--completo", completo);
   }
 
   /* ---------- Validação ---------- */
@@ -453,8 +509,9 @@
         if (alvo.hasAttribute("data-outro-opcao") && alvo.checked) document.getElementById(campo.getAttribute("data-outro")).focus();
       }
       limparErroDe(e);
+      atualizarProgresso();
     });
-    form.addEventListener("input", limparErroDe);
+    form.addEventListener("input", function (e) { limparErroDe(e); atualizarProgresso(); });
 
     // Tecla "Seguinte"/Enter do teclado do telemóvel: passa ao campo seguinte em vez de enviar a meio.
     form.addEventListener("keydown", function (e) {
@@ -516,6 +573,30 @@
     });
   }
 
+  /* ---------- Barra fixa no telemóvel ---------- */
+  // Aparece quando os botões do início saem do ecrã; esconde-se quando o formulário (ou o fim da página) aparece.
+  function iniciarBarraCta() {
+    var barra = document.getElementById("barra-cta");
+    var inicio = document.querySelector(".hero__acoes");
+    var cand = document.getElementById("candidatura");
+    if (!barra || !inicio || !cand) return;
+    var pendente = false;
+    function atualizar() {
+      pendente = false;
+      var passouInicio = inicio.getBoundingClientRect().bottom < 0;
+      var noFormulario = cand.getBoundingClientRect().top < window.innerHeight;
+      barra.classList.toggle("barra-cta--visivel", passouInicio && !noFormulario);
+    }
+    function agendar() {
+      if (pendente) return;
+      pendente = true;
+      window.requestAnimationFrame(atualizar);
+    }
+    window.addEventListener("scroll", agendar, { passive: true });
+    window.addEventListener("resize", agendar);
+    atualizar();
+  }
+
   /* ---------- Botão PT/EN ---------- */
   function iniciarLinguas() {
     cada("[data-lingua]", function (b) {
@@ -536,4 +617,5 @@
   aplicarLingua();
   iniciarFormulario();
   iniciarLinguas();
+  iniciarBarraCta();
 })();
