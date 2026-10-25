@@ -8,7 +8,7 @@
    ===================================================================== */
 window.CONFIG = {
   // O teu nome, tal como queres que apareça no site (ex.: "João Gonzalez").
-  nome: "Gonzalez Coach",
+  nome: "João Gonzalez",
 
   // Nome da marca / do serviço (aparece no topo e no título da página).
   marca: "Gonzalez Coach",
