@@ -1,1 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#c8ff3d"/><path d="M14 32h36M21 22v20M43 22v20M11 27v10M53 27v10" stroke="#0c0e11" stroke-width="6" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#c8ff3d"/><text x="32" y="42" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="28" fill="#0c0e11" letter-spacing="-1">GC</text></svg>
