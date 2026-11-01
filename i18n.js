@@ -9,7 +9,7 @@
        {linguas}   → línguas do acompanhamento (config.js → linguas)
        {vagasTotal}, {vagasRestantes} → vagas de fundador (config.js → vagasFundador)
        {garantiaDias} → dias da garantia (config.js → garantiaDias)
-   - Os textos podem ter HTML simples (<strong>, <span class="destaque">…).
+   - Os textos podem ter HTML simples (<strong>…).
    - Dados (WhatsApp, preço, descontos, línguas…) ficam em config.js.
    ===================================================================== */
 window.TEXTOS = {
@@ -29,14 +29,14 @@ window.TEXTOS = {
   "lingua.en":      { pt: "Inglês", en: "English" },
 
   /* ---------- Hero ---------- */
-  "hero.etiqueta": { pt: "Calistenia · Ginásio · Acompanhamento individual", en: "Calisthenics · Gym · One-to-one coaching" },
+  "hero.etiqueta": { pt: "Coaching online individual de calistenia e ginásio", en: "One-to-one online coaching for calisthenics and gym" },
   "hero.credenciais": {
-    pt: "Técnico Especialista em Exercício Físico · Personal Trainer certificado",
-    en: "Certified Exercise Specialist · Certified Personal Trainer"
+    pt: "Técnico Especialista em Exercício Físico e Personal Trainer certificado",
+    en: "Certified Exercise Specialist and Personal Trainer"
   },
   "hero.titulo": {
-    pt: "Evolui com um <span class=\"destaque\">plano estruturado</span> e alguém a acompanhar cada passo.",
-    en: "Progress with a <span class=\"destaque\">structured plan</span> and someone by your side at every step."
+    pt: "Evolui com um plano estruturado e alguém a acompanhar cada passo.",
+    en: "Progress with a structured plan and someone by your side at every step."
   },
   "hero.texto": {
     pt: "Treino personalizado para o teu objetivo, o teu nível e o tempo que tens — com análise dos teus movimentos por vídeo, videochamada inicial e contacto direto por WhatsApp.",
@@ -47,7 +47,7 @@ window.TEXTOS = {
     pt: "<strong>Revisão dos teus vídeos 3x por semana</strong> — não só o check-in semanal habitual no coaching online.",
     en: "<strong>Your training videos reviewed 3x a week</strong> — not just the usual weekly check-in of online coaching."
   },
-  "hero.nota": { pt: "Vagas limitadas · {preco} · sem fidelização", en: "Limited spots · {preco} · no lock-in" },
+  "hero.nota": { pt: "{preco}, sem fidelização. As vagas são limitadas.", en: "{preco} with no lock-in. Spots are limited." },
 
   /* ---------- Vagas de fundador (aparecem só enquanto config.js → vagasFundador.restantes > 0) ---------- */
   "fundador.texto": {
@@ -56,8 +56,8 @@ window.TEXTOS = {
   },
   // Linha curta (topo e cartão do preço); as condições completas estão em fundador.texto, no cartão do preço.
   "fundador.curto": {
-    pt: "<strong>Fundador:</strong> <span class=\"fundador__contador\">{vagasRestantes} de {vagasTotal}</span> vagas · preço fixo se não parares",
-    en: "<strong>Founding spots:</strong> <span class=\"fundador__contador\">{vagasRestantes} of {vagasTotal}</span> · price locked while you stay"
+    pt: "<strong>Fundador:</strong> <span class=\"fundador__contador\">{vagasRestantes} de {vagasTotal}</span> vagas, preço fixo se não parares",
+    en: "<strong>Founding spots:</strong> <span class=\"fundador__contador\">{vagasRestantes} of {vagasTotal}</span>, price locked while you stay"
   },
 
   /* ---------- Para quem é ---------- */
@@ -137,6 +137,7 @@ window.TEXTOS = {
   "preco.linguas":  { pt: "Acompanhamento em {linguas}", en: "Coaching in {linguas}" },
   // Planos com desconto: os valores são calculados a partir de config.js (preco e duracoes).
   "preco.planos":   { pt: "Planos com desconto: {lista}.", en: "Discounted plans: {lista}." },
+  "lista.e":        { pt: " e ", en: " and " },
   "preco.plano":    { pt: "{rotulo}: {total} no total ({d}% de desconto)", en: "{rotulo}: {total} in total ({d}% off)" },
   "preco.garantia": {
     pt: "<strong>Garantia de {garantiaDias} dias, só no plano mensal:</strong> se nos primeiros {garantiaDias} dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago. <small>Os planos de 3 e 6 meses já têm desconto e não incluem esta garantia. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado.</small>",
@@ -292,5 +293,6 @@ window.TEXTOS = {
   "wa.mensagem": { pt: "Olá João! Vi o site do {marca} e tenho uma dúvida sobre o coaching online.", en: "Hi João! I saw the {marca} website and I have a question about the online coaching." },
 
   /* Rodapé */
+  "rodape.por": { pt: "por", en: "by" },
   "rodape.legal": { pt: "Nenhum dado do formulário é guardado neste site.", en: "No form data is stored on this site." }
 };

@@ -177,8 +177,8 @@ p { margin: 0 0 1em; }
 .destaque { color: var(--destaque); }
 .etiqueta {
   display: inline-block; margin-bottom: .9rem;
-  font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
-  color: var(--destaque);
+  font-size: .95rem; font-weight: 700;
+  color: var(--texto-2);
 }
 .hero__texto { max-width: 38rem; margin-bottom: .9rem; color: var(--texto-2); font-size: clamp(1.02rem, .97rem + .3vw, 1.2rem); line-height: 1.5; }
 .hero h1 { max-width: 20ch; }
@@ -243,7 +243,6 @@ p { margin: 0 0 1em; }
   padding: 1.25rem 1.25rem 1rem;
 }
 .cartao p { color: var(--texto-2); margin: 0; font-size: .97rem; }
-.cartao__num { display: block; color: var(--destaque); font-weight: 900; font-size: .85rem; letter-spacing: .1em; margin-bottom: .6rem; }
 
 .passos { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; counter-reset: passo; }
 /* Passos: 1 coluna no telemóvel, 2 no tablet, 4 no ecrã largo */
@@ -484,7 +483,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
   .topo, .saltar, .hero__acoes, #candidatura, .botao, .wa-fixo { display: none !important; }
   .hero, .seccao, .seccao--alt { background: none !important; padding: 16pt 0 !important; border: 0 !important; }
   .cartao, .passos li, .preco, .faq details, .factos li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
-  .destaque, .etiqueta, a, .cartao__num, .preco__moeda, .preco__linguas, .fundador__titulo, .fundador__contador { color: #000 !important; }
+  .destaque, .etiqueta, a, .preco__moeda, .preco__linguas, .fundador__titulo, .fundador__contador { color: #000 !important; }
   .hero__texto, .seccao__intro, .cartao p, .passos p, .faq details p, .rodape, .sobre__nome { color: #222 !important; }
   .passos li::before { background: #000; color: #fff; }
   h2, h3 { break-after: avoid; }

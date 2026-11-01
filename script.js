@@ -266,7 +266,7 @@
     var planos = document.getElementById("preco-planos");
     if (planos) {
       var itens = itensPlanos();
-      planos.textContent = itens.length ? textoSimples(t("preco.planos", { lista: itens.join(" · ") })) : "";
+      planos.textContent = itens.length ? textoSimples(t("preco.planos", { lista: (itens.length > 1 ? itens.slice(0, -1).join("; ") + t("lista.e") + itens[itens.length - 1] : itens.join("")) })) : "";
       planos.hidden = !itens.length;
     }
     cada("[data-i18n-passos]", function (ol) {
@@ -287,14 +287,10 @@
       lista(g.getAttribute("data-i18n-cartoes")).forEach(function (p, i) {
         var a = document.createElement("article");
         a.className = "cartao";
-        var n = document.createElement("span");
-        n.className = "cartao__num";
-        n.textContent = (i < 9 ? "0" : "") + (i + 1);
         var h = document.createElement("h3");
         h.textContent = p.titulo || "";
         var tx = document.createElement("p");
         tx.textContent = p.texto || "";
-        a.appendChild(n);
         a.appendChild(h);
         a.appendChild(tx);
         g.appendChild(a);
