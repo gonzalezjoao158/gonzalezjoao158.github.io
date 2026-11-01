@@ -35,11 +35,11 @@ window.CONFIG = {
   // Usado nos textos através do marcador {garantiaDias}.
   garantiaDias: 7,
 
-  // Opções da pergunta "Durante quanto tempo pensas trabalhar comigo?".
+  // Planos (a duração combina-se no WhatsApp; a secção do preço mostra os que têm desconto).
   //   meses:    duração do plano
   //   desconto: percentagem de desconto (opcional). O site calcula sozinho o total a partir do preço,
-  //             ex.: 3 meses com 10% → "10% de desconto · 270 €".
-  //   maisDe:   true para a opção "Mais de X meses" (sem preço calculado).
+  //             ex.: 3 meses com 10% → "3 meses: 270 € no total (10% de desconto)".
+  //   maisDe:   true para "Mais de X meses" (não aparece no site).
   duracoes: [
     { meses: 1 },
     { meses: 3, desconto: 10 },

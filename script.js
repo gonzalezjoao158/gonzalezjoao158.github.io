@@ -13,6 +13,32 @@
   var linguaEscolhidaNoForm = false;
   var ultimoUrl = "";
 
+  /* ---------- Origem da visita (?origem=bio|story|reel|outro) ----------
+     Só valores de uma lista fechada; qualquer outro valor conta como "outro".
+     Nunca entra texto livre do URL na mensagem. Fica só em memória e no sessionStorage (sem cookies). */
+  var ORIGENS = ["bio", "story", "reel", "outro"];
+  var CHAVE_ORIGEM = "gc-origem";
+  function lerOrigem() {
+    var v = null;
+    try {
+      var m = /[?&]origem=([^&#]*)/.exec(window.location.search || "");
+      if (m) {
+        var bruto = "";
+        try { bruto = decodeURIComponent(m[1].replace(/\+/g, " ")); } catch (e) { bruto = ""; }
+        bruto = bruto.trim().toLowerCase();
+        v = ORIGENS.indexOf(bruto) !== -1 ? bruto : "outro";
+      }
+    } catch (e) { v = null; }
+    if (v) {
+      try { window.sessionStorage.setItem(CHAVE_ORIGEM, v); } catch (e) { /* sem armazenamento: fica só em memória */ }
+      return v;
+    }
+    try { v = window.sessionStorage.getItem(CHAVE_ORIGEM); } catch (e) { v = null; }
+    return ORIGENS.indexOf(v) !== -1 ? v : "";
+  }
+  var ORIGEM = lerOrigem();
+  function linhaOrigem() { return ORIGEM ? textoSimples(t("msg.origem")) + ": " + ORIGEM : ""; }
+
   function cfg() { return window.CONFIG || {}; }
   function textos() { return window.TEXTOS || {}; }
   function cada(sel, fn) { document.querySelectorAll(sel).forEach(fn); }
@@ -163,20 +189,15 @@
   }
 
   /* ---------- Opções de resposta ---------- */
-  function itensDuracao() {
+  // Planos com desconto (config.js → duracoes), com o total calculado a partir do preço.
+  function itensPlanos() {
     var ds = Array.isArray(cfg().duracoes) ? cfg().duracoes : [];
-    return ds.filter(function (d) { return d && d.meses; }).map(function (d) {
-      var rotulo = d.maisDe ? t("dur.mais", { n: d.meses }) : (+d.meses === 1 ? t("dur.mes") : t("dur.meses", { n: d.meses }));
-      var extra = "";
-      if (!d.maisDe && +d.desconto > 0) {
-        var total = precoBase() * d.meses * (1 - d.desconto / 100);
-        extra = t("dur.desconto", { d: d.desconto, total: fmtValor(total) });
-      }
-      return { rotulo: rotulo, extra: extra };
+    return ds.filter(function (d) { return d && +d.meses > 1 && !d.maisDe && +d.desconto > 0; }).map(function (d) {
+      var total = precoBase() * d.meses * (1 - d.desconto / 100);
+      return t("preco.plano", { rotulo: t("dur.meses", { n: d.meses }), total: fmtValor(total), d: d.desconto });
     });
   }
   function itensOpcoes(chave) {
-    if (chave === "duracao") return itensDuracao();
     if (chave === "lingua") return linguasAtendimento().map(function (c) { return { rotulo: t("lingua." + c), codigo: c }; });
     return lista(chave).map(function (r) { return { rotulo: r }; });
   }
@@ -233,6 +254,21 @@
         ul.appendChild(li);
       });
     });
+    // Listas com HTML simples (ex.: factos com o link do Instagram).
+    cada("[data-i18n-html-lista]", function (ul) {
+      ul.innerHTML = "";
+      lista(ul.getAttribute("data-i18n-html-lista")).forEach(function (txt) {
+        var li = document.createElement("li");
+        li.innerHTML = subst(txt);
+        ul.appendChild(li);
+      });
+    });
+    var planos = document.getElementById("preco-planos");
+    if (planos) {
+      var itens = itensPlanos();
+      planos.textContent = itens.length ? textoSimples(t("preco.planos", { lista: itens.join(" · ") })) : "";
+      planos.hidden = !itens.length;
+    }
     cada("[data-i18n-passos]", function (ol) {
       ol.innerHTML = "";
       lista(ol.getAttribute("data-i18n-passos")).forEach(function (p) {
@@ -400,6 +436,7 @@
       linhas.push("");
     });
     linhas.push(textoSimples(t("msg.consentimento")));
+    if (ORIGEM) linhas.push(linhaOrigem());
     return linhas.join("\n");
   }
 
@@ -516,6 +553,32 @@
     });
   }
 
+  /* ---------- Botão fixo do WhatsApp (telemóvel) ---------- */
+  function urlWhatsappFixo() {
+    var numero = String(cfg().whatsapp || "").replace(/\D/g, "");
+    if (!numero) return "";
+    var msg = textoSimples(t("wa.mensagem"));
+    if (ORIGEM) msg += "\n" + linhaOrigem();
+    return "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg);
+  }
+  function atualizarWhatsappFixo() {
+    var b = document.getElementById("wa-fixo");
+    if (b) b.href = urlWhatsappFixo() || "#";
+  }
+  function iniciarWhatsappFixo() {
+    var b = document.getElementById("wa-fixo");
+    if (!b) return;
+    if (!urlWhatsappFixo() || !("IntersectionObserver" in window)) { b.hidden = true; return; }
+    // Esconde-se enquanto se vê o topo da página, um botão "Candidata-te" grande, o formulário ou o rodapé.
+    var alvos = document.querySelectorAll(".hero, #preco .botao, #candidatura, .rodape");
+    var visiveis = new Set();
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) { if (e.isIntersecting) visiveis.add(e.target); else visiveis.delete(e.target); });
+      b.hidden = visiveis.size > 0;
+    });
+    alvos.forEach(function (a) { obs.observe(a); });
+  }
+
   /* ---------- Botão PT/EN ---------- */
   function iniciarLinguas() {
     cada("[data-lingua]", function (b) {
@@ -525,6 +588,7 @@
         L = nova;
         guardarLingua(L);
         aplicarLingua();
+        atualizarWhatsappFixo();
         var link = document.getElementById("link-whatsapp");
         if (link && ultimoUrl) link.href = ultimoUrl;
       });
@@ -536,4 +600,6 @@
   aplicarLingua();
   iniciarFormulario();
   iniciarLinguas();
+  atualizarWhatsappFixo();
+  iniciarWhatsappFixo();
 })();

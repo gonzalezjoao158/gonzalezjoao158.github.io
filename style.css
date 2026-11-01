@@ -257,23 +257,32 @@ p { margin: 0 0 1em; }
   .passos li { padding-left: 1.25rem; padding-top: 4rem; }
 }
 .passos p { color: var(--texto-2); margin: 0; font-size: .97rem; }
-.abordagem {
-  max-width: 48rem; margin: 1.75rem 0 0; padding: 1rem 1.2rem;
-  border-left: 3px solid var(--destaque); background: rgba(200, 255, 61, .06);
-  border-radius: 0 10px 10px 0; color: var(--texto);
+/* ---------- Sobre mim + prova social (factos) ---------- */
+.seccao--factos { padding: 40px 0; }
+@media (min-width: 56.25em) { .seccao--factos { padding: 64px 0; } }
+.sobre__nome { color: var(--texto-2); margin: 0 0 1rem; }
+.factos { list-style: none; padding: 0; margin: 0 0 1.25rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+@media (min-width: 43.75em) { .factos { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 20em) { .factos { grid-template-columns: minmax(0, 1fr); } }
+.factos li {
+  padding: .6rem .75rem; border: 1px solid var(--linha); border-left: 3px solid var(--destaque);
+  border-radius: 10px; background: var(--cartao); font-size: .9rem; line-height: 1.35; overflow-wrap: anywhere;
 }
+.factos strong { color: var(--texto); }
+.factos a { color: var(--destaque); padding: 14px 0; } /* alvo de toque ≥ 44 px sem mudar a linha */
+.sobre__texto { color: var(--texto-2); max-width: 46rem; margin: 0; }
 
-/* ---------- Sobre ---------- */
-.sobre { display: grid; gap: 1.5rem; align-items: start; }
-@media (min-width: 43.75em) { .sobre { grid-template-columns: 180px minmax(0, 1fr); gap: 2.5rem; } }
-.sobre__avatar {
-  width: 120px; height: 120px; border-radius: 50%;
+/* ---------- Botão fixo do WhatsApp (só no telemóvel) ---------- */
+.wa-fixo {
+  position: fixed; z-index: 40;
+  right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  width: 52px; height: 52px; border-radius: 50%;
   display: grid; place-items: center;
-  background: linear-gradient(135deg, var(--destaque), #5fd35f);
-  color: var(--sobre-destaque); font-weight: 900; font-size: 2.4rem;
+  background: var(--cartao); color: var(--destaque); border: 2px solid var(--destaque);
+  box-shadow: var(--sombra); text-decoration: none;
 }
-@media (min-width: 43.75em) { .sobre__avatar { width: 180px; height: 180px; font-size: 3.4rem; } }
-.sobre__nome { color: var(--texto-2); }
+.wa-fixo[hidden] { display: none; }
+@media (min-width: 48em) { .wa-fixo { display: none; } }
 
 .lista-check { list-style: none; padding: 0; margin: 0 0 1.5rem; }
 .lista-check li { position: relative; padding: .35rem 0 .35rem 2rem; }
@@ -295,7 +304,7 @@ p { margin: 0 0 1em; }
 .preco__moeda { font-size: 2rem; color: var(--destaque); }
 .preco__valor--moeda-antes .preco__moeda { order: -1; margin-right: .1rem; }
 .preco__periodo { font-size: 1.1rem; color: var(--texto-2); font-weight: 600; margin-left: .3rem; }
-.preco__planos { color: var(--texto-2); font-size: .92rem; text-align: center; margin: 0 0 1rem; }
+.preco__planos { color: var(--texto); font-size: .92rem; text-align: center; margin: 0 0 1rem; }
 .preco__linguas { text-align: center; font-weight: 700; color: var(--destaque); margin: 0 0 1rem; }
 .preco__nota { color: var(--texto-2); font-size: .9rem; text-align: center; margin: .9rem 0 0; }
 .preco__garantia {
@@ -441,13 +450,13 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 
 /* ---------- Modo de alto contraste (Windows) ---------- */
 @media (forced-colors: active) {
-  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .fundador, .fundador__contador { border: 2px solid CanvasText; }
+  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .fundador, .fundador__contador, .factos li, .wa-fixo { border: 2px solid CanvasText; }
   .botao { border-color: ButtonText; }
   .linguas__botao[aria-pressed="true"], .opcao input:checked + span {
     forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight;
   }
   .opcao input:checked + span .opcao__extra { color: HighlightText; }
-  .passos li::before, .legend__letra, .sobre__avatar { forced-color-adjust: none; background: Canvas; color: CanvasText; border: 2px solid CanvasText; }
+  .passos li::before, .legend__letra { forced-color-adjust: none; background: Canvas; color: CanvasText; border: 2px solid CanvasText; }
   .lista-check li::before { border-color: CanvasText; }
   :focus-visible { outline-color: Highlight; }
 }
@@ -456,9 +465,9 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 @media print {
   :root { color-scheme: light; }
   body { background: #fff; color: #000; font-size: 11pt; }
-  .topo, .saltar, .hero__acoes, #candidatura, .botao { display: none !important; }
+  .topo, .saltar, .hero__acoes, #candidatura, .botao, .wa-fixo { display: none !important; }
   .hero, .seccao, .seccao--alt { background: none !important; padding: 16pt 0 !important; border: 0 !important; }
-  .cartao, .passos li, .preco, .faq details, .chips li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
+  .cartao, .passos li, .preco, .faq details, .chips li, .factos li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
   .destaque, .etiqueta, a, .cartao__num, .preco__moeda, .preco__linguas, .fundador__titulo, .fundador__contador { color: #000 !important; }
   .hero__texto, .seccao__intro, .cartao p, .passos p, .faq details p, .rodape, .sobre__nome { color: #222 !important; }
   .passos li::before { background: #000; color: #fff; }
