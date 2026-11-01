@@ -39,6 +39,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="apple-mobile-web-app-title" content="Gonzalez Coach">
+  <link rel="preload" href="fonts/inter-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script defer src="config.js"></script>
   <script defer src="i18n.js"></script>
@@ -63,20 +64,19 @@
   <main id="inicio">
     <!-- HERO -->
     <section class="hero">
-      <div class="contentor">
+      <div class="contentor hero__grelha">
         <p class="etiqueta" data-i18n="hero.etiqueta">Calistenia · Ginásio · Acompanhamento individual</p>
         <p class="hero__credenciais" data-i18n="hero.credenciais">Técnico Especialista em Exercício Físico · Personal Trainer certificado</p>
         <h1 data-i18n="hero.titulo">Evolui com um <span class="destaque">plano estruturado</span> e alguém a acompanhar cada passo.</h1>
+        <!-- Lugar para a foto do João (4:5): à direita no computador, abaixo do título no telemóvel. Tirar "hidden" e pôr o <img> quando houver foto. -->
+        <figure class="hero__foto" hidden></figure>
         <p class="hero__texto" data-i18n="hero.texto">Treino personalizado para o teu objetivo, o teu nível e o tempo que tens — com análise dos teus movimentos por vídeo, videochamada inicial e contacto direto por WhatsApp.</p>
-        <p class="hero__diferencial" data-i18n="hero.diferencial"><strong>Revisão dos teus vídeos 3x por semana</strong> — não só o check-in semanal habitual no coaching online.</p>
-        <div class="fundador" data-fundador="">
-          <p class="fundador__topo"><span class="fundador__titulo" data-i18n="fundador.titulo">Vagas de fundador</span> <span class="fundador__contador" data-i18n="fundador.contador">4 de 4 vagas disponíveis</span></p>
-          <p class="fundador__texto" data-i18n="fundador.texto">Os primeiros 4 clientes entram a 100 €/mês e mantêm esse preço para sempre, mesmo que suba (enquanto continuarem clientes sem interrupção). Em troca, autorizam-me a partilhar o seu testemunho.</p>
-        </div>
+        <p class="fundador fundador--linha" data-fundador data-i18n="fundador.curto"><strong>Fundador:</strong> <span class="fundador__contador">4 de 4</span> vagas · preço fixo se não parares</p>
         <div class="hero__acoes">
           <a class="botao" href="#candidatura" data-i18n="topo.cta">Candidata-te</a>
         </div>
         <p class="hero__nota" data-i18n="hero.nota">Vagas limitadas · 100 €/mês · sem fidelização</p>
+        <p class="hero__diferencial" data-i18n="hero.diferencial"><strong>Revisão dos teus vídeos 3x por semana</strong> — não só o check-in semanal habitual no coaching online.</p>
       </div>
     </section>
 
@@ -95,7 +95,7 @@
       <div class="contentor">
         <h2 data-i18n="paraquem.titulo">Para quem é e o que inclui</h2>
         <p class="seccao__intro" data-i18n="paraquem.intro">Para quem quer treinar com intenção — no ginásio, na barra ou nos dois — e está cansado de improvisar.</p>
-        <ul class="chips" data-i18n-aria="paraquem.aria" data-i18n-lista="paraquem.chips" aria-label="Objetivos"><li>Ganhar massa muscular</li><li>Perder gordura</li><li>Ganhar força</li><li>Planche</li><li>Front lever</li><li>Muscle-up</li><li>Handstand</li><li>Primeiras elevações</li><li>Sair da estagnação</li></ul>
+        <ul class="objetivos" data-i18n-aria="paraquem.aria" data-i18n-lista="paraquem.chips" aria-label="Objetivos"><li>Ganhar massa muscular</li><li>Perder gordura</li><li>Ganhar força</li><li>Planche</li><li>Front lever</li><li>Muscle-up</li><li>Handstand</li><li>Primeiras elevações</li><li>Sair da estagnação</li></ul>
         <p class="seccao__nota" data-i18n="paraquem.nota">Do iniciante a quem já treina há anos: o plano parte do teu ponto de partida real.</p>
         <div class="grelha" data-i18n-cartoes="inclui.cartoes"><article class="cartao"><span class="cartao__num">01</span><h3>Ginásio, calistenia ou ambos</h3><p>Escolhes o caminho; eu organizo o treino para que tudo encaixe no teu dia a dia.</p></article><article class="cartao"><span class="cartao__num">02</span><h3>Progressões claras</h3><p>Etapas concretas até à skill ou ao objetivo físico que procuras.</p></article><article class="cartao"><span class="cartao__num">03</span><h3>Ajustes contínuos</h3><p>O plano muda com o teu progresso, o teu cansaço e o teu feedback.</p></article><article class="cartao"><span class="cartao__num">04</span><h3>Alimentação, mentalidade e hábitos</h3><p>Orientações gerais de alimentação (dentro das minhas qualificações) e apoio para criares rotina.</p></article></div>
       </div>
@@ -115,17 +115,17 @@
       <div class="contentor">
         <div class="preco">
           <p class="etiqueta" data-i18n="preco.etiqueta">Acompanhamento mensal</p>
-          <div class="fundador fundador--preco" data-fundador="">
-            <p class="fundador__topo"><span class="fundador__titulo" data-i18n="fundador.titulo">Vagas de fundador</span> <span class="fundador__contador" data-i18n="fundador.contador">4 de 4 vagas disponíveis</span></p>
-            <p class="fundador__texto" data-i18n="fundador.texto">Os primeiros 4 clientes entram a 100 €/mês e mantêm esse preço para sempre, mesmo que suba (enquanto continuarem clientes sem interrupção). Em troca, autorizam-me a partilhar o seu testemunho.</p>
-          </div>
           <p class="preco__valor" id="preco-valor"><span class="preco__numero" data-config="preco">100</span><span class="preco__moeda" data-config="moeda">€</span><span class="preco__periodo" data-i18n="preco.periodo">/mês</span></p>
+          <p class="fundador fundador--linha fundador--preco" data-fundador data-i18n="fundador.curto"><strong>Fundador:</strong> <span class="fundador__contador">4 de 4</span> vagas · preço fixo se não parares</p>
           <ul class="lista-check" data-i18n-lista="preco.lista"><li>Análise inicial dos teus movimentos por vídeo</li><li>Videochamada de cerca de 1 hora</li><li>Plano de treino personalizado em 1–2 dias úteis</li><li>Ginásio, calistenia ou ambos</li><li>Revisão dos vídeos dos teus treinos 3 vezes por semana</li><li>Contacto próximo por WhatsApp</li><li>Ajustes ao plano sempre que necessário</li><li>Orientação nutricional geral</li></ul>
           <p class="preco__linguas" data-i18n="preco.linguas">Acompanhamento em português e inglês</p>
           <p class="preco__planos" id="preco-planos">Planos com desconto: 3 meses: 270 € no total (10% de desconto) · 6 meses: 510 € no total (15% de desconto).</p>
           <a class="botao botao--largo" href="#candidatura" data-i18n="topo.cta">Candidata-te</a>
-          <p class="preco__garantia" data-i18n="preco.garantia"><strong>Garantia de 7 dias, só no plano mensal:</strong> se nos primeiros 7 dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago. <small>Os planos de 3 e 6 meses já têm desconto e não incluem esta garantia. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado.</small></p>
-          <p class="preco__nota" data-i18n="preco.nota">Pagamento mensal, sem fidelização. O primeiro mês só começa a contar quando receberes o plano.</p>
+          <div class="preco__garantia">
+            <p data-i18n="preco.garantia"><strong>Garantia de 7 dias, só no plano mensal:</strong> se nos primeiros 7 dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago. <small>Os planos de 3 e 6 meses já têm desconto e não incluem esta garantia. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado.</small></p>
+            <p class="preco__nota" data-i18n="preco.nota">Pagamento mensal, sem fidelização. O primeiro mês só começa a contar quando receberes o plano.</p>
+          </div>
+          <p class="fundador__texto" data-fundador data-i18n="fundador.texto">Os primeiros 4 clientes entram a 100 €/mês e mantêm esse preço para sempre, mesmo que suba (enquanto continuarem clientes sem interrupção). Em troca, autorizam-me a partilhar o seu testemunho.</p>
         </div>
       </div>
     </section>
@@ -194,7 +194,7 @@
             <legend><span class="legend__letra">B</span> <span data-i18n="sec.b">Objetivo e treino</span></legend>
             <div class="campo" data-q="m.objetivo" data-obrigatorio data-outro="objetivo-outro">
               <p class="campo__label" id="lbl-objetivo"><span data-i18n="q.objetivo">Qual é o teu objetivo principal?</span> <span class="obrig">*</span></p>
-              <div class="opcoes" role="radiogroup" aria-labelledby="lbl-objetivo" data-opcoes="op.objetivo" data-nome="objetivo" data-tipo="radio"><label class="opcao"><input type="radio" name="objetivo" value="Físico / estética" data-indice="0"><span>Físico / estética</span></label><label class="opcao"><input type="radio" name="objetivo" value="Ganhar massa muscular" data-indice="1"><span>Ganhar massa muscular</span></label><label class="opcao"><input type="radio" name="objetivo" value="Perder gordura" data-indice="2"><span>Perder gordura</span></label><label class="opcao"><input type="radio" name="objetivo" value="Força" data-indice="3"><span>Força</span></label><label class="opcao"><input type="radio" name="objetivo" value="Planche" data-indice="4"><span>Planche</span></label><label class="opcao"><input type="radio" name="objetivo" value="Front lever" data-indice="5"><span>Front lever</span></label><label class="opcao"><input type="radio" name="objetivo" value="Handstand" data-indice="6"><span>Handstand</span></label><label class="opcao"><input type="radio" name="objetivo" value="Muscle-up" data-indice="7"><span>Muscle-up</span></label><label class="opcao"><input type="radio" name="objetivo" value="Outro" data-indice="8" data-outro-opcao><span>Outro</span></label></div>
+              <div class="opcoes opcoes--grelha" role="radiogroup" aria-labelledby="lbl-objetivo" data-opcoes="op.objetivo" data-nome="objetivo" data-tipo="radio"><label class="opcao"><input type="radio" name="objetivo" value="Físico / estética" data-indice="0"><span>Físico / estética</span></label><label class="opcao"><input type="radio" name="objetivo" value="Ganhar massa muscular" data-indice="1"><span>Ganhar massa muscular</span></label><label class="opcao"><input type="radio" name="objetivo" value="Perder gordura" data-indice="2"><span>Perder gordura</span></label><label class="opcao"><input type="radio" name="objetivo" value="Força" data-indice="3"><span>Força</span></label><label class="opcao"><input type="radio" name="objetivo" value="Planche" data-indice="4"><span>Planche</span></label><label class="opcao"><input type="radio" name="objetivo" value="Front lever" data-indice="5"><span>Front lever</span></label><label class="opcao"><input type="radio" name="objetivo" value="Handstand" data-indice="6"><span>Handstand</span></label><label class="opcao"><input type="radio" name="objetivo" value="Muscle-up" data-indice="7"><span>Muscle-up</span></label><label class="opcao"><input type="radio" name="objetivo" value="Outro" data-indice="8" data-outro-opcao><span>Outro</span></label></div>
               <div class="campo__extra" id="objetivo-outro-wrap" hidden>
                 <label for="objetivo-outro"><span data-i18n="q.outro">Qual?</span> <span class="obrig">*</span></label>
                 <input id="objetivo-outro" name="objetivo-outro" type="text" enterkeyhint="next">

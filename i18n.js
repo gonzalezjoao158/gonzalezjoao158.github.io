@@ -50,12 +50,15 @@ window.TEXTOS = {
   "hero.nota": { pt: "Vagas limitadas · {preco} · sem fidelização", en: "Limited spots · {preco} · no lock-in" },
 
   /* ---------- Vagas de fundador (aparecem só enquanto config.js → vagasFundador.restantes > 0) ---------- */
-  "fundador.titulo": { pt: "Vagas de fundador", en: "Founding spots" },
   "fundador.texto": {
     pt: "Os primeiros {vagasTotal} clientes entram a {preco} e mantêm esse preço para sempre, mesmo que suba (enquanto continuarem clientes sem interrupção). Em troca, autorizam-me a partilhar o seu testemunho.",
     en: "The first {vagasTotal} clients join at {preco} and keep that price for good, even if it goes up (as long as they stay clients without a break). In return, they let me share their testimonial."
   },
-  "fundador.contador": { pt: "{vagasRestantes} de {vagasTotal} vagas disponíveis", en: "{vagasRestantes} of {vagasTotal} spots available" },
+  // Linha curta (topo e cartão do preço); as condições completas estão em fundador.texto, no cartão do preço.
+  "fundador.curto": {
+    pt: "<strong>Fundador:</strong> <span class=\"fundador__contador\">{vagasRestantes} de {vagasTotal}</span> vagas · preço fixo se não parares",
+    en: "<strong>Founding spots:</strong> <span class=\"fundador__contador\">{vagasRestantes} of {vagasTotal}</span> · price locked while you stay"
+  },
 
   /* ---------- Para quem é ---------- */
   "paraquem.titulo": { pt: "Para quem é e o que inclui", en: "Who it's for and what's included" },

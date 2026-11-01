@@ -16,7 +16,7 @@
   --aviso: #ffc94d;
   --raio: 14px;
   --sombra: 0 10px 30px rgba(0, 0, 0, .35);
-  --fonte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fonte: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --placeholder: #8b939f;
   /* Margens laterais: pelo menos 16px, ou mais se houver notch (iPhone em horizontal). */
   --margem-esq: max(16px, env(safe-area-inset-left, 0px));
@@ -24,6 +24,12 @@
   --altura-topo: 64px;
   color-scheme: dark;
 }
+
+/* Inter (marca): ficheiros locais em fonts/ (subconjunto latino, licença OFL em fonts/OFL.txt).
+   Só 3 pesos: 400 (texto), 700 (destaques; 500–600 usam este) e 900 Display (títulos; 800 usa este). */
+@font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/inter-400.woff2") format("woff2"); }
+@font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/inter-700.woff2") format("woff2"); }
+@font-face { font-family: Inter; font-style: normal; font-weight: 900; font-display: swap; src: url("fonts/inter-900.woff2") format("woff2"); }
 
 *, *::before, *::after { box-sizing: border-box; }
 html {
@@ -161,7 +167,7 @@ p { margin: 0 0 1em; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding: 36px 0 64px;
+  padding: 24px 0 56px;
   /* O anel decorativo é um gradiente (não ocupa espaço nem cria scroll horizontal). */
   background:
     radial-gradient(circle at calc(100% - 70px) calc(100% - 70px), transparent 107px, rgba(200, 255, 61, .07) 108px 130px, transparent 131px),
@@ -170,20 +176,30 @@ p { margin: 0 0 1em; }
 }
 .destaque { color: var(--destaque); }
 .etiqueta {
-  display: inline-block; margin-bottom: 1.2rem;
+  display: inline-block; margin-bottom: .9rem;
   font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
   color: var(--destaque);
 }
-.hero__texto { max-width: 38rem; color: var(--texto-2); font-size: clamp(1.05rem, 1rem + .3vw, 1.2rem); }
+.hero__texto { max-width: 38rem; margin-bottom: .9rem; color: var(--texto-2); font-size: clamp(1.02rem, .97rem + .3vw, 1.2rem); line-height: 1.5; }
 .hero h1 { max-width: 20ch; }
-.hero__acoes { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.8rem 0 1.2rem; }
+.hero__acoes { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.1rem 0 .8rem; }
 .hero__acoes .botao { flex: 1 1 12rem; }
-@media (min-width: 40em) { .hero { padding: 110px 0 120px; } .hero__acoes .botao { flex: 0 0 auto; } }
-.hero__nota { color: var(--texto-2); font-size: .92rem; margin: 0; }
+@media (min-width: 40em) { .hero { padding: 96px 0 110px; } .hero__acoes .botao { flex: 0 0 auto; } .hero__acoes { margin: 1.6rem 0 1rem; } }
+/* Grelha do topo: lugar para a foto do João (4:5) — abaixo do título no telemóvel, à direita no computador.
+   Enquanto a <figure> estiver "hidden", nada muda no aspeto. */
+.hero__grelha { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; }
+.hero__foto { margin: 0 0 1.2rem; width: 100%; max-width: 22rem; aspect-ratio: 4 / 5; border-radius: var(--raio); overflow: hidden; background: var(--cartao); }
+.hero__foto img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 56.25em) {
+  .hero__grelha:has(.hero__foto:not([hidden])) { grid-template-columns: minmax(0, 1fr) minmax(0, 24rem); column-gap: 3rem; }
+  .hero__grelha > * { grid-column: 1; }
+  .hero__foto { grid-column: 2; grid-row: 1 / span 9; align-self: center; margin: 0; max-width: none; }
+}
+.hero__nota { color: var(--texto-2); font-size: .92rem; margin: 0 0 1.4rem; }
 /* Qualificações logo no topo */
 .hero__credenciais {
   display: flex; align-items: flex-start; gap: .5rem; max-width: 38rem;
-  margin: -.6rem 0 1.1rem; color: var(--texto); font-size: .92rem; font-weight: 700; line-height: 1.4;
+  margin: -.4rem 0 1rem; color: var(--texto); font-size: .92rem; font-weight: 700; line-height: 1.4;
 }
 .hero__credenciais::before {
   content: ""; flex: none; width: 1.1rem; height: 1.1rem; margin-top: .08rem; border-radius: 50%;
@@ -191,26 +207,21 @@ p { margin: 0 0 1em; }
 }
 /* Diferencial: revisão dos vídeos 3x por semana */
 .hero__diferencial {
-  max-width: 38rem; margin: 0 0 1rem; padding: .7rem 1rem;
+  max-width: 38rem; margin: 0; padding: .55rem .9rem;
   border-left: 3px solid var(--destaque); background: rgba(200, 255, 61, .06);
   border-radius: 0 10px 10px 0; color: var(--texto-2); font-size: .98rem; line-height: 1.5;
 }
 .hero__diferencial strong { color: var(--texto); }
 
 /* ---------- Vagas de fundador (escondido automaticamente quando restantes = 0) ---------- */
-.fundador {
-  max-width: 38rem; margin: 1rem 0 0; padding: .7rem .9rem;
-  border: 1px solid rgba(200, 255, 61, .55); border-radius: var(--raio);
-  background: var(--cartao);
-}
-.fundador__topo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .35rem .75rem; margin: 0 0 .35rem; }
-.fundador__titulo { color: var(--destaque); font-weight: 900; font-size: .82rem; text-transform: uppercase; letter-spacing: .1em; }
+.fundador { margin: 0; color: var(--texto-2); font-size: .86rem; line-height: 1.45; }
+.fundador strong { color: var(--destaque); font-weight: 700; }
 .fundador__contador {
-  padding: .15rem .65rem; border-radius: 999px;
-  background: var(--destaque); color: var(--sobre-destaque); font-weight: 800; font-size: .85rem;
+  display: inline-block; padding: 0 .5rem; border-radius: 999px;
+  background: var(--destaque); color: var(--sobre-destaque); font-weight: 700; white-space: nowrap;
 }
-.fundador__texto { margin: 0; color: var(--texto); font-size: .93rem; line-height: 1.45; }
-.fundador--preco { margin: 0 0 1.25rem; background: rgba(200, 255, 61, .06); }
+.fundador--preco { margin: -.4rem 0 1.25rem; }
+.fundador__texto { margin: 1rem 0 0; color: var(--texto-2); font-size: .85rem; line-height: 1.5; text-align: center; }
 
 /* ---------- Secções ---------- */
 .seccao { padding: 64px 0; }
@@ -219,12 +230,10 @@ p { margin: 0 0 1em; }
 .seccao__nota { color: var(--texto-2); font-size: .95rem; margin-top: 1.2rem; }
 @media (min-width: 56.25em) { .seccao { padding: 96px 0; } }
 
-.chips { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; gap: .6rem; }
-.chips li {
-  padding: .55rem 1rem; border: 1px solid var(--linha); border-radius: 999px;
-  background: var(--cartao); font-weight: 600; font-size: .95rem;
-}
-.chips li:nth-child(n+4):nth-child(-n+7) { border-color: rgba(200, 255, 61, .45); }
+/* Objetivos: lista simples em colunas (não são botões). */
+.objetivos { list-style: none; padding: 0; margin: 1.25rem 0 0; columns: 2 10rem; column-gap: 1.5rem; max-width: 42rem; }
+.objetivos li { position: relative; padding: .25rem 0 .25rem 1.1rem; break-inside: avoid; font-weight: 700; font-size: .97rem; }
+.objetivos li::before { content: ""; position: absolute; left: 0; top: .9em; width: .45rem; height: .45rem; border-radius: 50%; background: var(--destaque); }
 
 .grelha { display: grid; gap: 14px; grid-template-columns: 1fr; margin-top: 1.5rem; }
 @media (min-width: 37.5em) { .grelha { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -265,8 +274,7 @@ p { margin: 0 0 1em; }
 @media (min-width: 43.75em) { .factos { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 20em) { .factos { grid-template-columns: minmax(0, 1fr); } }
 .factos li {
-  padding: .6rem .75rem; border: 1px solid var(--linha); border-left: 3px solid var(--destaque);
-  border-radius: 10px; background: var(--cartao); font-size: .9rem; line-height: 1.35; overflow-wrap: anywhere;
+  padding: .6rem .75rem; border-radius: 10px; background: var(--cartao); font-size: .9rem; line-height: 1.35; overflow-wrap: anywhere;
 }
 .factos strong { color: var(--texto); }
 .factos a { color: var(--destaque); padding: 14px 0; } /* alvo de toque ≥ 44 px sem mudar a linha */
@@ -283,6 +291,8 @@ p { margin: 0 0 1em; }
 }
 .wa-fixo[hidden] { display: none; }
 @media (min-width: 48em) { .wa-fixo { display: none; } }
+/* Telemóvel: a FAQ deixa livre a faixa do botão fixo (52 px + folga), para ele nunca tapar o "+" nem a pergunta. */
+@media (max-width: 47.9375em) { .faq { margin-right: 60px; } }
 
 .lista-check { list-style: none; padding: 0; margin: 0 0 1.5rem; }
 .lista-check li { position: relative; padding: .35rem 0 .35rem 2rem; }
@@ -306,7 +316,8 @@ p { margin: 0 0 1em; }
 .preco__periodo { font-size: 1.1rem; color: var(--texto-2); font-weight: 600; margin-left: .3rem; }
 .preco__planos { color: var(--texto); font-size: .92rem; text-align: center; margin: 0 0 1rem; }
 .preco__linguas { text-align: center; font-weight: 700; color: var(--destaque); margin: 0 0 1rem; }
-.preco__nota { color: var(--texto-2); font-size: .9rem; text-align: center; margin: .9rem 0 0; }
+.preco__garantia p { margin: 0; }
+.preco__garantia .preco__nota { margin-top: .5rem; padding-top: .5rem; border-top: 1px solid var(--linha); font-size: .85rem; }
 .preco__garantia {
   margin: 1rem 0 0; padding: .75rem .9rem; border: 1px dashed var(--linha); border-radius: 10px;
   color: var(--texto-2); font-size: .92rem; line-height: 1.5;
@@ -340,7 +351,7 @@ p { margin: 0 0 1em; }
 .seccao--form { background: var(--fundo-2); border-top: 1px solid var(--linha); }
 .privacidade {
   font-size: .92rem; color: var(--texto-2);
-  border-left: 3px solid var(--destaque); padding: .4rem 0 .4rem .9rem;
+  background: var(--cartao); border-radius: 10px; padding: .7rem .9rem;
 }
 form { margin-top: 1.5rem; }
 fieldset {
@@ -385,6 +396,11 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 
 .opcoes { display: flex; flex-wrap: wrap; gap: .5rem; }
 .opcoes--coluna { flex-direction: column; }
+/* Objetivo principal: grelha de 2 colunas no telemóvel, "Outro" em largura total. */
+.opcoes--grelha { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.opcoes--grelha .opcao span { width: 100%; height: 100%; border-radius: 10px; line-height: 1.3; }
+.opcoes--grelha .opcao:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (min-width: 40em) { .opcoes--grelha { grid-template-columns: repeat(3, minmax(0, 1fr)); } .opcoes--grelha .opcao:last-child:nth-child(odd) { grid-column: auto; } }
 .opcao { position: relative; margin: 0 !important; font-weight: 500 !important; }
 .opcao input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .opcao span {
@@ -450,7 +466,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 
 /* ---------- Modo de alto contraste (Windows) ---------- */
 @media (forced-colors: active) {
-  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .fundador, .fundador__contador, .factos li, .wa-fixo { border: 2px solid CanvasText; }
+  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .fundador__contador, .factos li, .wa-fixo { border: 2px solid CanvasText; }
   .botao { border-color: ButtonText; }
   .linguas__botao[aria-pressed="true"], .opcao input:checked + span {
     forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight;
@@ -467,7 +483,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
   body { background: #fff; color: #000; font-size: 11pt; }
   .topo, .saltar, .hero__acoes, #candidatura, .botao, .wa-fixo { display: none !important; }
   .hero, .seccao, .seccao--alt { background: none !important; padding: 16pt 0 !important; border: 0 !important; }
-  .cartao, .passos li, .preco, .faq details, .chips li, .factos li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
+  .cartao, .passos li, .preco, .faq details, .factos li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
   .destaque, .etiqueta, a, .cartao__num, .preco__moeda, .preco__linguas, .fundador__titulo, .fundador__contador { color: #000 !important; }
   .hero__texto, .seccao__intro, .cartao p, .passos p, .faq details p, .rodape, .sobre__nome { color: #222 !important; }
   .passos li::before { background: #000; color: #fff; }
