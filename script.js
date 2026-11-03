@@ -13,10 +13,10 @@
   var linguaEscolhidaNoForm = false;
   var ultimoUrl = "";
 
-  /* ---------- Origem da visita (?origem=bio|story|reel|outro) ----------
+  /* ---------- Origem da visita (?origem=bio|story|reel|teste|outro) ----------
      Só valores de uma lista fechada; qualquer outro valor conta como "outro".
      Nunca entra texto livre do URL na mensagem. Fica só em memória e no sessionStorage (sem cookies). */
-  var ORIGENS = ["bio", "story", "reel", "outro"];
+  var ORIGENS = ["bio", "story", "reel", "teste", "outro"];
   var CHAVE_ORIGEM = "gc-origem";
   function lerOrigem() {
     var v = null;
@@ -318,6 +318,7 @@
 
     // "Qual?" visível se "Outro" estiver escolhido; erros antigos ficam noutra língua, por isso limpam-se.
     cada(".campo[data-outro]", atualizarOutro);
+    renderTeste();
     var form = document.getElementById("form-candidatura");
     if (form) { limparErros(form); document.getElementById("erro-resumo").hidden = true; }
   }
@@ -565,14 +566,111 @@
     var b = document.getElementById("wa-fixo");
     if (!b) return;
     if (!urlWhatsappFixo() || !("IntersectionObserver" in window)) { b.hidden = true; return; }
-    // Esconde-se enquanto se vê o topo da página, um botão "Candidata-te" grande, o formulário ou o rodapé.
-    var alvos = document.querySelectorAll(".hero, #preco .botao, #candidatura, .rodape");
+    // Esconde-se enquanto se vê o topo da página, o teste de nível, um botão "Candidata-te" grande, o formulário ou o rodapé.
+    var alvos = document.querySelectorAll(".hero, #teste, #preco .botao, #candidatura, .rodape");
     var visiveis = new Set();
     var obs = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (e) { if (e.isIntersecting) visiveis.add(e.target); else visiveis.delete(e.target); });
       b.hidden = visiveis.size > 0;
     });
     alvos.forEach(function (a) { obs.observe(a); });
+  }
+
+  /* ---------- Teste de nível (grátis) ----------
+     Tudo fica em memória nesta página: nada é guardado, nem enviado, nem pedido à rede.
+     Pontos: perguntas 1–5 valem o índice da opção (0–3); a 6.ª (objetivo) não conta. */
+  var teste = { passo: -1, respostas: [] }; // passo -1 = início; 0–5 = pergunta; 6 = resultado
+  function nivelTeste(r) {
+    var soma = 0;
+    for (var i = 0; i < 5; i++) soma += r[i] || 0;
+    var n = soma <= 4 ? 0 : soma <= 8 ? 1 : soma <= 12 ? 2 : 3;
+    if ((r[0] || 0) < 2) n = Math.min(n, 1);            // menos de 5 elevações: no máximo Base
+    if (n === 3 && (r[0] < 3 || r[1] < 2)) n = 2;        // Skills só com 10+ elevações e 6+ dips
+    return n;
+  }
+  function urlWhatsappTeste(nivel, objetivo) {
+    var numero = String(cfg().whatsapp || "").replace(/\D/g, "");
+    if (!numero) return "";
+    var msg = textoSimples(t("teste.waMensagem", { nivel: nivel, objetivo: objetivo })) + "\n" + textoSimples(t("msg.origem")) + ": teste";
+    return "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg);
+  }
+  function renderTeste(focar) {
+    var caixa = document.getElementById("teste-pergunta");
+    if (!caixa) return;
+    var perguntas = lista("teste.perguntas");
+    var total = perguntas.length;
+    var inicio = document.getElementById("teste-inicio");
+    var res = document.getElementById("teste-resultado");
+    inicio.hidden = teste.passo !== -1;
+    caixa.hidden = !(teste.passo >= 0 && teste.passo < total);
+    res.hidden = teste.passo < total;
+    if (!caixa.hidden) {
+      var q = perguntas[teste.passo];
+      document.getElementById("teste-progresso").textContent = t("teste.progresso", { n: teste.passo + 1, total: total });
+      document.getElementById("teste-barra").style.width = (teste.passo / total * 100) + "%";
+      document.getElementById("teste-q").textContent = q.p;
+      var ops = document.getElementById("teste-opcoes");
+      ops.innerHTML = "";
+      q.o.forEach(function (txt, i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "teste__opcao";
+        b.textContent = txt;
+        b.setAttribute("data-indice", String(i));
+        b.setAttribute("aria-pressed", String(teste.respostas[teste.passo] === i));
+        ops.appendChild(b);
+      });
+      if (focar) document.getElementById("teste-q").focus({ preventScroll: true });
+    }
+    if (!res.hidden) {
+      var niveis = lista("teste.niveis");
+      var n = nivelTeste(teste.respostas);
+      var obj = lista("teste.objetivos")[teste.respostas[total - 1]] || "";
+      document.getElementById("teste-nivel").textContent = niveis[n].nome;
+      document.getElementById("teste-nivel").setAttribute("data-nivel", String(n));
+      document.getElementById("teste-texto").textContent = niveis[n].texto;
+      document.getElementById("teste-passo").textContent = niveis[n].passo;
+      document.getElementById("teste-objetivo").textContent = t("teste.objetivo", { objetivo: obj });
+      var esc = document.getElementById("teste-escala");
+      esc.innerHTML = "";
+      niveis.forEach(function (nv, i) {
+        var li = document.createElement("li");
+        li.textContent = nv.nome;
+        if (i === n) li.setAttribute("aria-current", "step");
+        if (i <= n) li.className = "teste__feito";
+        esc.appendChild(li);
+      });
+      var wa = document.getElementById("teste-wa");
+      var url = urlWhatsappTeste(niveis[n].nome, obj);
+      wa.hidden = !url;
+      wa.href = url || "#";
+      if (focar) res.focus({ preventScroll: true });
+    }
+  }
+  function iniciarTeste() {
+    var sec = document.getElementById("teste");
+    if (!sec) return;
+    function ir(passo, focar) {
+      teste.passo = passo;
+      renderTeste(focar);
+      if (focar) {
+        var alvo = document.getElementById(passo >= lista("teste.perguntas").length ? "teste-resultado" : "teste-titulo");
+        var r = alvo.getBoundingClientRect();
+        if (r.top < 70 || r.top > innerHeight * 0.5) alvo.scrollIntoView({ block: "start" });
+      }
+    }
+    document.getElementById("teste-comecar").addEventListener("click", function () { teste.respostas = []; ir(0, true); });
+    document.getElementById("teste-voltar").addEventListener("click", function () { ir(teste.passo - 1, true); if (teste.passo === -1) document.getElementById("teste-comecar").focus(); });
+    document.getElementById("teste-repetir").addEventListener("click", function () { teste.respostas = []; ir(0, true); });
+    document.getElementById("teste-opcoes").addEventListener("click", function (e) {
+      var b = e.target.closest(".teste__opcao");
+      if (!b) return;
+      teste.respostas[teste.passo] = +b.getAttribute("data-indice");
+      var fim = teste.passo + 1 >= lista("teste.perguntas").length;
+      // Quem chega ao resultado sem outra origem leva "Origem: teste" também na candidatura (só em memória).
+      if (fim && !ORIGEM) { ORIGEM = "teste"; atualizarWhatsappFixo(); }
+      ir(teste.passo + 1, true);
+    });
   }
 
   /* ---------- Botão PT/EN ---------- */
@@ -595,6 +693,7 @@
   aplicarDados();
   aplicarLingua();
   iniciarFormulario();
+  iniciarTeste();
   iniciarLinguas();
   atualizarWhatsappFixo();
   iniciarWhatsappFixo();

@@ -282,6 +282,70 @@ window.TEXTOS = {
   "err.resumoN":       { pt: "Falta corrigir {n} campos.", en: "{n} fields need your attention." },
   "err.resumoFim":     { pt: "Revê os campos assinalados a vermelho.", en: "Please check the fields marked in red." },
 
+  /* ---------- Teste de nível (grátis, tudo no navegador: nada é guardado nem enviado) ----------
+     teste.perguntas: as 5 primeiras dão pontos (opção 1 = 0 … opção 4 = 3); a 6.ª (objetivo) não conta.
+     Níveis pela soma (0–15): 0–4 Começar, 5–8 Base, 9–12 Intermédio, 13–15 Skills.
+     Menos de 5 elevações: no máximo Base. Skills só com 10+ elevações e 6+ dips. Lógica em script.js (nivelTeste). */
+  "hero.teste":      { pt: "Não sabes o teu nível? Faz o teste grátis", en: "Not sure about your level? Take the free test" },
+  "teste.titulo":    { pt: "Teste: qual é o teu nível de calistenia?", en: "Test: what's your calisthenics level?" },
+  "teste.intro": {
+    pt: "6 perguntas rápidas, cerca de 1 minuto. As respostas ficam só no teu navegador e nada é guardado nem enviado.",
+    en: "6 quick questions, about 1 minute. Your answers stay in your browser and nothing is stored or sent."
+  },
+  "teste.comecar":   { pt: "Começar o teste", en: "Start the test" },
+  "teste.progresso": { pt: "Pergunta {n} de {total}", en: "Question {n} of {total}" },
+  "teste.voltar":    { pt: "Voltar", en: "Back" },
+  "teste.repetir":   { pt: "Repetir o teste", en: "Take the test again" },
+  "teste.resultado": { pt: "O teu nível", en: "Your level" },
+  "teste.escala":    { pt: "Os 4 níveis do teste", en: "The 4 levels of the test" },
+  "teste.objetivo":  { pt: "O teu objetivo é {objetivo}.", en: "Your goal is {objetivo}." },
+  "teste.passo":     { pt: "O teu 1.º passo", en: "Your first step" },
+  "teste.nota": {
+    pt: "Este teste é só uma orientação geral e não substitui uma avaliação. Se tens dores ou lesões, fala com um profissional de saúde antes de treinar.",
+    en: "This test is only general guidance and does not replace an assessment. If you have pain or injuries, talk to a health professional before training."
+  },
+  "teste.wa":        { pt: "Falar comigo no WhatsApp", en: "Chat with me on WhatsApp" },
+  "teste.waMensagem": {
+    pt: "Olá João! Fiz o teste de nível no site e o meu resultado foi {nivel}. O meu objetivo é {objetivo}.",
+    en: "Hi João! I took the level test on the website and my result was {nivel}. My goal is {objetivo}."
+  },
+  "teste.perguntas": {
+    pt: [
+      { p: "Quantas elevações seguidas fazes, com boa técnica?", o: ["Nenhuma", "1 a 4", "5 a 9", "10 ou mais"] },
+      { p: "E quantos dips seguidos nas paralelas?", o: ["Nenhum", "1 a 5", "6 a 14", "15 ou mais"] },
+      { p: "Quantas flexões seguidas fazes?", o: ["Menos de 5", "5 a 14", "15 a 29", "30 ou mais"] },
+      { p: "Como está o teu pino (handstand)?", o: ["Ainda não faço", "Na parede, até 30 segundos", "Na parede, 30 segundos ou mais", "Livre, alguns segundos"] },
+      { p: "Há quanto tempo treinas com regularidade?", o: ["Ainda não treino", "Menos de 6 meses", "6 meses a 2 anos", "Mais de 2 anos"] },
+      { p: "Qual é o teu objetivo principal?", o: ["Primeiras elevações e base", "Força e massa muscular", "Muscle-up ou pino livre", "Planche ou front lever"] }
+    ],
+    en: [
+      { p: "How many pull-ups in a row can you do with good form?", o: ["None", "1 to 4", "5 to 9", "10 or more"] },
+      { p: "And how many dips in a row on parallel bars?", o: ["None", "1 to 5", "6 to 14", "15 or more"] },
+      { p: "How many push-ups in a row can you do?", o: ["Fewer than 5", "5 to 14", "15 to 29", "30 or more"] },
+      { p: "How is your handstand?", o: ["I can't do one yet", "Against the wall, up to 30 seconds", "Against the wall, 30 seconds or more", "Freestanding, a few seconds"] },
+      { p: "How long have you been training regularly?", o: ["I don't train yet", "Less than 6 months", "6 months to 2 years", "More than 2 years"] },
+      { p: "What's your main goal?", o: ["First pull-ups and a solid base", "Strength and muscle", "Muscle-up or freestanding handstand", "Planche or front lever"] }
+    ]
+  },
+  "teste.objetivos": {
+    pt: ["as primeiras elevações e a base", "força e massa muscular", "o muscle-up ou o pino livre", "a planche ou o front lever"],
+    en: ["your first pull-ups and a solid base", "strength and muscle", "the muscle-up or a freestanding handstand", "the planche or the front lever"]
+  },
+  "teste.niveis": {
+    pt: [
+      { nome: "Começar", texto: "Estás no início, e é o melhor momento para construir bem. Agora o mais importante é aprender a técnica base e criar o hábito de treinar.", passo: "Treina 2 a 3 vezes por semana com flexões (inclinadas, se for preciso), remadas com o peso do corpo e suspensões na barra. Só aumenta a dificuldade quando a técnica estiver limpa." },
+      { nome: "Base", texto: "Já tens força para os exercícios básicos. Nesta fase conta mais a consistência e a técnica de cada repetição do que treinar até à falha.", passo: "Escolhe 3 exercícios base (elevações, dips e flexões), descansa 2 a 3 minutos entre séries e regista as repetições de cada treino para veres a tua evolução." },
+      { nome: "Intermédio", texto: "Tens uma boa base de força. É uma boa altura para começar as primeiras skills com progressões, sem saltar etapas.", passo: "Escolhe uma skill de cada vez (por exemplo, o pino contra a parede ou a L-sit) e treina a progressão no início do treino, quando ainda estás fresco." },
+      { nome: "Skills", texto: "Tens força e controlo para trabalhar skills avançadas. Daqui para a frente, a evolução depende de um plano bem doseado e de técnica afinada.", passo: "Filma os teus treinos de lado e compara com a técnica certa. Planeia o volume e o descanso para não sobrecarregares cotovelos, pulsos e ombros." }
+    ],
+    en: [
+      { nome: "Getting started", texto: "You're at the start, and it's the best moment to build things properly. Right now the most important thing is to learn the basic technique and make training a habit.", passo: "Train 2 to 3 times a week with push-ups (incline ones if needed), bodyweight rows and hangs from the bar. Only make it harder once your technique is clean." },
+      { nome: "Base", texto: "You already have the strength for the basic exercises. At this stage consistency and the technique of each rep matter more than training to failure.", passo: "Pick 3 basic exercises (pull-ups, dips and push-ups), rest 2 to 3 minutes between sets and write down your reps each session so you can see your progress." },
+      { nome: "Intermediate", texto: "You have a good strength base. It's a good time to start your first skills with progressions, without skipping steps.", passo: "Pick one skill at a time (for example, the wall handstand or the L-sit) and train its progression at the start of your session, while you're still fresh." },
+      { nome: "Skills", texto: "You have the strength and control to work on advanced skills. From here on, progress depends on a well-dosed plan and refined technique.", passo: "Film your sessions from the side and compare them with the right technique. Plan volume and rest so you don't overload your elbows, wrists and shoulders." }
+    ]
+  },
+
   /* Mensagem do WhatsApp (gerada na língua em que o site está) */
   "msg.titulo":        { pt: "Candidatura — {marca}", en: "Application — {marca}" },
   "msg.consentimento": { pt: "Consentimento para tratamento dos dados (avaliação da candidatura): Sim", en: "Consent to data processing (application review): Yes" },
