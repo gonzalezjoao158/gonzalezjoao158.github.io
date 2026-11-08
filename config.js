@@ -51,7 +51,7 @@ window.CONFIG = {
   // Aparecem no preço, na FAQ e na pergunta "Em que língua preferes o acompanhamento?".
   linguas: ["pt", "en"],
 
-  // Língua do site quando o visitante ainda não escolheu: "pt", ou "en" se o navegador estiver em inglês.
+  // Língua do site: o endereço manda (/ = português, /en/ = inglês). Fica "pt" só como referência.
   linguaPorOmissao: "pt",
 
   // Testemunhos de clientes (APENAS com autorização escrita de cada cliente).

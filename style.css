@@ -107,7 +107,7 @@ p { margin: 0 0 1em; }
   .botao:active { transform: translateY(0); }
   .botao--fantasma:hover { background: var(--cartao); border-color: var(--texto-2); }
   .linguas__botao:hover { color: var(--texto); }
-  .linguas__botao[aria-pressed="true"]:hover { color: var(--fundo); }
+  .linguas__botao[aria-current="true"]:hover { color: var(--fundo); }
   .opcao span:hover { border-color: var(--texto-2); }
   .faq summary:hover { color: var(--destaque); }
   .marca:hover { color: var(--destaque); }
@@ -139,8 +139,9 @@ p { margin: 0 0 1em; }
   min-width: 44px; min-height: 44px; padding: 0 .55rem; border: 0; border-radius: 999px;
   background: transparent; color: var(--texto-2); font: inherit; font-size: .82rem; font-weight: 800;
   letter-spacing: .04em; cursor: pointer; touch-action: manipulation;
+  display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
 }
-.linguas__botao[aria-pressed="true"] { background: var(--texto); color: var(--fundo); }
+.linguas__botao[aria-current="true"] { background: var(--texto); color: var(--fundo); }
 @media (max-width: 26.8125em) { /* até 429px */
   .topo__inner { column-gap: .4rem; }
   .marca { font-size: .8rem; letter-spacing: .03em; gap: .4rem; }
@@ -519,7 +520,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
   .teste__barra span { forced-color-adjust: none; background: Highlight; }
   .teste__escala li.teste__feito { border-top-color: Highlight; }
   .botao { border-color: ButtonText; }
-  .linguas__botao[aria-pressed="true"], .opcao input:checked + span {
+  .linguas__botao[aria-current="true"], .opcao input:checked + span {
     forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight;
   }
   .opcao input:checked + span .opcao__extra { color: HighlightText; }
@@ -529,6 +530,34 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 }
 
 /* ---------- Impressão ---------- */
+/* Ligação "Sobre mim" → guia */
+.sobre__guia { margin: 1rem 0 0; color: var(--texto-2); }
+.sobre__guia a { font-weight: 700; }
+
+/* Páginas-guia (ex.: /handstand/): leitura longa, uma coluna */
+.guia { padding: 40px 0 56px; }
+.guia h1 { max-width: 22ch; margin-bottom: .5em; }
+.guia h2 { font-size: clamp(1.3rem, 1.05rem + 1.6vw, 1.8rem); margin-top: 2.2rem; }
+.guia p, .guia li { max-width: 42rem; }
+.guia__autor { color: var(--texto-2); font-size: .95rem; margin-bottom: 1.4rem; }
+.guia__autor strong { color: var(--texto); }
+.guia__aviso { margin: 0 0 1.6rem; padding: 1rem 1.1rem; border: 1px solid var(--aviso); border-left-width: 4px; border-radius: var(--raio); background: rgba(255, 201, 77, .07); max-width: 42rem; }
+.guia__aviso p { margin: 0; font-size: .97rem; }
+.guia__aviso strong { color: var(--aviso); }
+.guia__foto { margin: 0 0 1.6rem; max-width: 26rem; }
+.guia__foto img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--raio); background: var(--cartao); }
+.guia__foto figcaption { color: var(--texto-2); font-size: .88rem; margin-top: .5rem; }
+.guia__resposta { font-size: clamp(1.05rem, 1rem + .3vw, 1.2rem); line-height: 1.55; padding-left: 1rem; border-left: 3px solid var(--destaque); }
+.guia ul:not(.passos), .guia .erros { padding-left: 1.2rem; }
+.guia ul:not(.passos) li, .guia .erros li { margin-bottom: .55rem; }
+.guia .passos p + p { margin-top: .35rem; }
+.guia__quem { margin-top: 2.4rem; padding: 1.2rem; border: 1px solid var(--linha); border-radius: var(--raio); background: var(--cartao); max-width: 42rem; }
+.guia__quem h2 { margin-top: 0; font-size: 1.15rem; }
+.guia__quem p { margin: 0; color: var(--texto-2); }
+.guia__cta { margin-top: 2.4rem; padding: 1.4rem 1.2rem; border-radius: var(--raio); background: var(--fundo-2); border: 1px solid var(--linha); max-width: 42rem; }
+.guia__cta h2 { margin-top: 0; }
+.guia__cta .hero__acoes { margin-bottom: 0; }
+
 @media print {
   :root { color-scheme: light; }
   body { background: #fff; color: #000; font-size: 11pt; }

@@ -8,15 +8,15 @@
   "use strict";
 
   var LINGUAS_SITE = ["pt", "en"];
-  var CHAVE_LINGUA = "gc-lingua";
-  var L = "pt";
+  // A língua é a da página: / é português e /en/ é inglês (SEO, dono 8/11). Nunca muda sozinha pela língua do navegador.
+  var L = /^en\b/i.test(document.documentElement.lang) ? "en" : "pt";
   var linguaEscolhidaNoForm = false;
   var ultimoUrl = "";
 
   /* ---------- Origem da visita (?origem=bio|story|reel|teste|outro) ----------
      Só valores de uma lista fechada; qualquer outro valor conta como "outro".
      Nunca entra texto livre do URL na mensagem. Fica só em memória e no sessionStorage (sem cookies). */
-  var ORIGENS = ["bio", "story", "reel", "teste", "outro"];
+  var ORIGENS = ["bio", "story", "reel", "teste", "guia", "en", "outro"];
   var CHAVE_ORIGEM = "gc-origem";
   function lerOrigem() {
     var v = null;
@@ -36,27 +36,13 @@
     try { v = window.sessionStorage.getItem(CHAVE_ORIGEM); } catch (e) { v = null; }
     return ORIGENS.indexOf(v) !== -1 ? v : "";
   }
-  var ORIGEM = lerOrigem();
+  // Na página inglesa, sem outra origem, a candidatura leva "Source: en" (não fica guardado na sessão).
+  var ORIGEM = lerOrigem() || (L === "en" ? "en" : "");
   function linhaOrigem() { return ORIGEM ? textoSimples(t("msg.origem")) + ": " + ORIGEM : ""; }
 
   function cfg() { return window.CONFIG || {}; }
   function textos() { return window.TEXTOS || {}; }
   function cada(sel, fn) { document.querySelectorAll(sel).forEach(fn); }
-
-  /* ---------- Língua ---------- */
-  function linguaInicial() {
-    var guardada = null;
-    try { guardada = window.localStorage.getItem(CHAVE_LINGUA); } catch (e) { guardada = null; }
-    if (LINGUAS_SITE.indexOf(guardada) !== -1) return guardada;
-    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || "";
-    if (/^en\b/i.test(nav)) return "en";
-    if (/^pt\b/i.test(nav)) return "pt";
-    var omissao = cfg().linguaPorOmissao;
-    return LINGUAS_SITE.indexOf(omissao) !== -1 ? omissao : "pt";
-  }
-  function guardarLingua(l) {
-    try { window.localStorage.setItem(CHAVE_LINGUA, l); } catch (e) { /* sem armazenamento: ignora */ }
-  }
 
   /* ---------- Formatação ---------- */
   function fmtNumero(v) {
@@ -239,9 +225,8 @@
 
   /* ---------- Aplicar a língua à página ---------- */
   function aplicarLingua() {
-    var c = cfg();
     document.documentElement.lang = L === "en" ? "en" : "pt-PT";
-    document.title = (c.marca || "Coaching") + " — " + textoSimples(t("meta.titulo"));
+    document.title = textoSimples(t("meta.titulo"));
     cada("[data-i18n]", function (el) { el.innerHTML = t(el.getAttribute("data-i18n")); });
     cada("[data-i18n-content]", function (el) { el.setAttribute("content", textoSimples(t(el.getAttribute("data-i18n-content")))); });
     cada("[data-i18n-ph]", function (el) { el.setAttribute("placeholder", textoSimples(t(el.getAttribute("data-i18n-ph")))); });
@@ -312,7 +297,10 @@
       });
     });
     cada(".opcoes[data-opcoes]", renderOpcoes);
-    cada("[data-lingua]", function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lingua") === L)); });
+    // PT/EN são ligações para a outra página; a língua atual fica marcada.
+    cada("[data-lingua]", function (b) {
+      if (b.getAttribute("data-lingua") === L) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
+    });
     var pv = document.getElementById("preco-valor");
     if (pv) pv.classList.toggle("preco__valor--moeda-antes", L === "en");
 
@@ -667,34 +655,16 @@
       if (!b) return;
       teste.respostas[teste.passo] = +b.getAttribute("data-indice");
       var fim = teste.passo + 1 >= lista("teste.perguntas").length;
-      // Quem chega ao resultado sem outra origem leva "Origem: teste" também na candidatura (só em memória).
-      if (fim && !ORIGEM) { ORIGEM = "teste"; atualizarWhatsappFixo(); }
+      // Quem chega ao resultado sem outra origem (ou só com "en", a da página inglesa) leva "Origem: teste" também na candidatura (só em memória).
+      if (fim && (!ORIGEM || ORIGEM === "en")) { ORIGEM = "teste"; atualizarWhatsappFixo(); }
       ir(teste.passo + 1, true);
     });
   }
 
-  /* ---------- Botão PT/EN ---------- */
-  function iniciarLinguas() {
-    cada("[data-lingua]", function (b) {
-      b.addEventListener("click", function () {
-        var nova = b.getAttribute("data-lingua");
-        if (nova === L) return;
-        L = nova;
-        guardarLingua(L);
-        aplicarLingua();
-        atualizarWhatsappFixo();
-        var link = document.getElementById("link-whatsapp");
-        if (link && ultimoUrl) link.href = ultimoUrl;
-      });
-    });
-  }
-
-  L = linguaInicial();
   aplicarDados();
   aplicarLingua();
   iniciarFormulario();
   iniciarTeste();
-  iniciarLinguas();
   atualizarWhatsappFixo();
   iniciarWhatsappFixo();
 })();

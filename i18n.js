@@ -15,10 +15,18 @@
 window.TEXTOS = {
 
   /* ---------- Geral ---------- */
-  "meta.titulo":    { pt: "Calistenia e Ginásio", en: "Calisthenics & Gym Coaching" },
+  // Título da aba e do Google (SEO, dono 8/11): "coach de calistenia online" + Portugal; até ~60 caracteres.
+  "meta.titulo":    { pt: "Coach de calistenia online em Portugal | {marca}", en: "Online calisthenics coach | {marca}" },
+  // Descrição para o Google (até ~155 caracteres).
   "meta.descricao": {
-    pt: "Coaching online de calistenia e ginásio: análise dos teus movimentos por vídeo, videochamada, plano de treino personalizado e revisão dos teus treinos 3 vezes por semana.",
-    en: "Online calisthenics and gym coaching: video analysis of your movements, a video call, a personalised training plan and reviews of your training videos 3 times a week."
+    pt: "Coach de calistenia online em Portugal: plano de treino personalizado, análise dos teus vídeos 3x por semana e contacto por WhatsApp. Calistenia e ginásio.",
+    en: "Online calisthenics coach based in Portugal: a personalised training plan, your videos reviewed 3x a week and contact on WhatsApp. Calisthenics and gym."
+  },
+  // Pré-visualização quando o link é partilhado (WhatsApp, Instagram…).
+  "meta.og.titulo": { pt: "{marca}, coaching online de calistenia e ginásio", en: "{marca}, online calisthenics and gym coaching" },
+  "meta.og.descricao": {
+    pt: "Plano de treino personalizado, análise dos teus movimentos por vídeo e acompanhamento por WhatsApp. Candidata-te.",
+    en: "A personalised training plan, video analysis of your movements and support on WhatsApp. Apply now."
   },
   "saltar":         { pt: "Saltar para a candidatura", en: "Skip to the application" },
   "topo.cta":       { pt: "Candidata-te", en: "Apply" },
@@ -29,18 +37,18 @@ window.TEXTOS = {
   "lingua.en":      { pt: "Inglês", en: "English" },
 
   /* ---------- Hero ---------- */
-  "hero.etiqueta": { pt: "Coaching online individual de calistenia e ginásio", en: "One-to-one online coaching for calisthenics and gym" },
+  "hero.etiqueta": { pt: "Coaching individual, online, em Portugal e no resto do mundo", en: "One-to-one coaching, online, in Portugal and worldwide" },
   "hero.credenciais": {
     pt: "Técnico Especialista em Exercício Físico e Personal Trainer certificado",
     en: "Certified Exercise Specialist and Personal Trainer"
   },
   "hero.titulo": {
-    pt: "Evolui com um plano estruturado e alguém a acompanhar cada passo.",
-    en: "Progress with a structured plan and someone by your side at every step."
+    pt: "Coaching online de calistenia e ginásio",
+    en: "Online calisthenics and gym coaching"
   },
   "hero.texto": {
-    pt: "Treino personalizado para o teu objetivo, o teu nível e o tempo que tens — com análise dos teus movimentos por vídeo, videochamada inicial e contacto direto por WhatsApp.",
-    en: "Training built around your goal, your level and the time you actually have — with video analysis of your movements, an initial video call and direct contact on WhatsApp."
+    pt: "Evolui com um plano estruturado e alguém a acompanhar cada passo. Treino feito para o teu objetivo, o teu nível e o tempo que tens, com análise dos teus movimentos por vídeo, videochamada inicial e contacto direto por WhatsApp.",
+    en: "Progress with a structured plan and someone by your side at every step. Training built around your goal, your level and the time you have, with video analysis of your movements, an initial video call and direct contact on WhatsApp."
   },
   // Diferencial: revisão de vídeos 3x por semana (não nomear outros coaches).
   "hero.diferencial": {
@@ -119,6 +127,11 @@ window.TEXTOS = {
   "sobre.texto": {
     pt: "Comecei pela musculação, que me deu a base de força e de disciplina, e depois vieram as skills de calistenia. Juntar os dois mundos ensinou-me que força, técnica e paciência andam sempre juntas. Hoje uso essa experiência e a minha formação para criar planos à medida de cada pessoa e acompanhar de perto a sua evolução.",
     en: "I started with strength training in the gym, which gave me a solid base of strength and discipline, and then came calisthenics skills. Combining both worlds taught me that strength, technique and patience always go hand in hand. Today I use that experience and my qualifications to build plans tailored to each person and to follow their progress closely."
+  },
+  // Ligação para o guia (o endereço é relativo: em /en/ abre /en/handstand/).
+  "sobre.guia": {
+    pt: "Queres começar já? Lê o meu <a href=\"handstand/\">guia de handstand, passo a passo</a>.",
+    en: "Want to start now? Read my <a href=\"handstand/\">step-by-step handstand guide</a>."
   },
   // Prova social com factos confirmados pelo dono (docs/contexto.md). Nada inventado, sem promessas.
   "sobre.factos.aria": { pt: "Factos", en: "Facts" },
