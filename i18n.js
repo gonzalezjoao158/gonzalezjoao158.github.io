@@ -128,11 +128,6 @@ window.TEXTOS = {
     pt: "Comecei pela musculação, que me deu a base de força e de disciplina, e depois vieram as skills de calistenia. Juntar os dois mundos ensinou-me que força, técnica e paciência andam sempre juntas. Hoje uso essa experiência e a minha formação para criar planos à medida de cada pessoa e acompanhar de perto a sua evolução.",
     en: "I started with strength training in the gym, which gave me a solid base of strength and discipline, and then came calisthenics skills. Combining both worlds taught me that strength, technique and patience always go hand in hand. Today I use that experience and my qualifications to build plans tailored to each person and to follow their progress closely."
   },
-  // Ligação para o guia (o endereço é relativo: em /en/ abre /en/handstand/).
-  "sobre.guia": {
-    pt: "Queres começar já? Lê o meu <a href=\"handstand/\">guia de handstand, passo a passo</a>.",
-    en: "Want to start now? Read my <a href=\"handstand/\">step-by-step handstand guide</a>."
-  },
   // Prova social com factos confirmados pelo dono (docs/contexto.md). Nada inventado, sem promessas.
   "sobre.factos.aria": { pt: "Factos", en: "Facts" },
   "sobre.factos": {
