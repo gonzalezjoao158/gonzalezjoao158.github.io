@@ -98,6 +98,7 @@
       instagram: '<a href="https://instagram.com/' + encodeURIComponent(ig) + '" target="_blank" rel="noopener">@' + escapar(ig) + "</a>",
       vagasTotal: String(vagas().total),
       vagasRestantes: String(vagas().restantes),
+      vagasLivres: vagas().restantes === 1 ? (L === "pt" ? "1 vaga livre" : "1 spot open") : vagas().restantes + (L === "pt" ? " vagas livres" : " spots open"),
       garantiaDias: String(c.garantiaDias != null ? +c.garantiaDias : 7)
     };
     return v.replace(/\{(\w+)\}/g, function (m, k) {

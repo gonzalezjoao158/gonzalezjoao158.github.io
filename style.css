@@ -64,10 +64,9 @@ a { color: var(--destaque); }
 h1, h2, h3 { line-height: 1.15; margin: 0 0 .6em; letter-spacing: -.02em; }
 h1 { font-size: clamp(1.75rem, 1.1rem + 4.2vw, 3.6rem); font-weight: 900; text-wrap: balance; }
 h2 { font-size: clamp(1.5rem, 1.1rem + 2.6vw, 2.4rem); font-weight: 800; text-wrap: balance; }
-h3 { text-wrap: balance; }
 /* Parágrafos sem palavra sozinha na última linha (onde o navegador souber; nos outros fica igual). */
 p, li { text-wrap: pretty; }
-h3 { font-size: 1.1rem; font-weight: 700; }
+h3 { font-size: 1.1rem; font-weight: 700; text-wrap: balance; }
 p { margin: 0 0 1em; }
 [hidden] { display: none !important; }
 
@@ -186,6 +185,14 @@ p { margin: 0 0 1em; }
 }
 .hero__texto { max-width: 38rem; margin-bottom: .9rem; color: var(--texto-2); font-size: clamp(1.02rem, .97rem + .3vw, 1.2rem); line-height: 1.5; }
 .hero h1 { max-width: 20ch; }
+.hero__provas { max-width: 38rem; margin: -.2rem 0 .8rem; font-weight: 700; color: var(--texto); }
+/* Telemóvel: título de 4 linhas e vagas numa só linha, com o "Candidata-te" no 1.º ecrã a 390×650 (11/11). */
+@media (max-width: 30em) {
+  .hero h1 { font-size: 1.75rem; max-width: none; }
+  .hero .fundador { font-size: .76rem; }
+  .hero__texto { margin-bottom: .6rem; }
+  .hero__acoes { margin-top: .8rem; }
+}
 .hero__acoes { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.1rem 0 .8rem; }
 .hero__acoes .botao { flex: 1 1 12rem; }
 @media (min-width: 40em) { .hero { padding: 96px 0 110px; } .hero__acoes .botao { flex: 0 0 auto; } .hero__acoes { margin: 1.6rem 0 1rem; } }
@@ -211,14 +218,6 @@ p { margin: 0 0 1em; }
   content: ""; flex: none; width: 1.1rem; height: 1.1rem; margin-top: .08rem; border-radius: 50%;
   background: var(--destaque) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%230c0e11' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 80% no-repeat;
 }
-/* Diferencial: revisão dos vídeos 3x por semana */
-.hero__diferencial {
-  max-width: 38rem; margin: 0; padding: .55rem .9rem;
-  border-left: 3px solid var(--destaque); background: rgba(200, 255, 61, .06);
-  border-radius: 0 10px 10px 0; color: #bcc3cd; /* mais claro que --texto-2: contraste ≥ 4,5:1 sobre a luz lima do topo */ font-size: .98rem; line-height: 1.5;
-}
-.hero__diferencial strong { color: var(--texto); }
-
 /* ---------- Vagas de fundador (escondido automaticamente quando restantes = 0) ---------- */
 .fundador { margin: 0; color: var(--texto-2); font-size: .86rem; line-height: 1.45; }
 .fundador strong { color: var(--destaque); font-weight: 700; }
@@ -283,7 +282,7 @@ p { margin: 0 0 1em; }
 }
 .factos strong { color: var(--texto); }
 .factos a { color: var(--destaque); padding: 14px 0; } /* alvo de toque ≥ 44 px sem mudar a linha */
-.sobre__texto { color: var(--texto-2); max-width: 46rem; margin: 0; }
+.sobre__texto { color: var(--texto-2); max-width: 34em; /* ≈ 65–70 caracteres por linha */ margin: 0; }
 
 /* ---------- Botão fixo do WhatsApp (só no telemóvel) ---------- */
 .wa-fixo {
@@ -324,10 +323,11 @@ p { margin: 0 0 1em; }
 .preco__garantia p { margin: 0; }
 .preco__garantia .preco__nota { margin-top: .5rem; padding-top: .5rem; border-top: 1px solid var(--linha); font-size: .85rem; }
 .preco__garantia {
-  margin: 1rem 0 0; padding: .75rem .9rem; border: 1px dashed var(--linha); border-radius: 10px;
+  margin: 1rem 0 0; padding: .9rem 0 0; border-top: 1px solid var(--linha);
   color: var(--texto-2); font-size: .92rem; line-height: 1.5;
 }
 .preco__garantia strong { color: var(--texto); }
+.preco__garantia > p:first-child::before { content: "✓" / ""; margin-right: .4rem; color: var(--destaque); font-weight: 900; }
 .preco__garantia small { display: block; margin-top: .35rem; font-size: .85rem; }
 
 /* ---------- Feedbacks ---------- */
@@ -442,7 +442,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 .campo--consentimento { margin: 1.25rem 0 1.5rem; }
 .consentimento { display: flex !important; gap: .75rem; align-items: flex-start; min-height: 44px; font-weight: 400 !important; cursor: pointer; }
 .consentimento input { width: 22px; height: 22px; margin: .15rem 0 0; flex: none; accent-color: var(--destaque); }
-.form__nota { color: var(--texto-2); font-size: .88rem; text-align: center; margin-top: .8rem; }
+.form__nota { color: var(--texto-2); font-size: .88rem; text-align: center; max-width: 34em; margin: .8rem auto 0; }
 
 /* Erros */
 .campo--erro input, .campo--erro select, .campo--erro textarea { border-color: var(--erro); }
@@ -482,7 +482,8 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 .copiado { color: var(--destaque); font-weight: 600; min-height: 1.4em; margin: .6rem 0 0; }
 
 /* ---------- Teste de nível ---------- */
-.hero__teste { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-underline-offset: .2em; }
+.hero__teste { display: inline-flex; align-items: center; min-height: 44px; color: var(--texto-2); font-weight: 400; text-decoration: underline; text-underline-offset: .2em; }
+@media (hover: hover) { .hero__teste:hover { color: var(--texto); } }
 .teste {
   background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio);
   padding: 1.5rem 1.25rem;

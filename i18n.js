@@ -43,17 +43,17 @@ window.TEXTOS = {
     en: "Certified Exercise Specialist and Personal Trainer"
   },
   "hero.titulo": {
-    pt: "Coaching online de calistenia e ginásio",
-    en: "Online calisthenics and gym coaching"
+    pt: "Handstand, planche e front lever: o método por combos que me levou lá, adaptado a ti",
+    en: "Handstand, planche and front lever: the combo method that got me there, adapted to you"
   },
   "hero.texto": {
-    pt: "Evolui com um plano estruturado e alguém a acompanhar cada passo. Treino feito para o teu objetivo, o teu nível e o tempo que tens, com análise dos teus movimentos por vídeo, videochamada inicial e contacto direto por WhatsApp.",
-    en: "Progress with a structured plan and someone by your side at every step. Training built around your goal, your level and the time you have, with video analysis of your movements, an initial video call and direct contact on WhatsApp."
+    pt: "Reviso os teus vídeos 3 vezes por semana e ajusto o plano ao teu nível, ao teu objetivo e ao tempo que tens. Contacto direto por WhatsApp.",
+    en: "I review your videos 3 times a week and adjust the plan to your level, your goal and the time you have. Direct contact on WhatsApp."
   },
-  // Diferencial: revisão de vídeos 3x por semana (não nomear outros coaches).
-  "hero.diferencial": {
-    pt: "<strong>Revisão dos teus vídeos 3x por semana</strong> — não só o check-in semanal habitual no coaching online.",
-    en: "<strong>Your training videos reviewed 3x a week</strong> — not just the usual weekly check-in of online coaching."
+  // Provas logo abaixo do título (dono, 11/11): só factos confirmados.
+  "hero.provas": {
+    pt: "Full planche, full front lever e handstand livre. 6 anos a treinar pessoas num ginásio.",
+    en: "Full planche, full front lever and freestanding handstand. 6 years coaching people in a gym."
   },
   "hero.nota": { pt: "{preco}, sem fidelização. As vagas são limitadas.", en: "{preco} with no lock-in. Spots are limited." },
 
@@ -64,8 +64,8 @@ window.TEXTOS = {
   },
   // Linha curta (topo e cartão do preço); as condições completas estão em fundador.texto, no cartão do preço.
   "fundador.curto": {
-    pt: "<strong>Fundador:</strong> <span class=\"fundador__contador\">{vagasRestantes} de {vagasTotal}</span> vagas, preço fixo se não parares",
-    en: "<strong>Founding spots:</strong> <span class=\"fundador__contador\">{vagasRestantes} of {vagasTotal}</span>, price locked while you stay"
+    pt: "<strong>Fundador:</strong> <span class=\"fundador__contador\">{vagasLivres}</span>, preço fixo enquanto ficares",
+    en: "<strong>Founders:</strong> <span class=\"fundador__contador\">{vagasLivres}</span>, price locked while you stay"
   },
 
   /* ---------- Para quem é ---------- */
@@ -131,8 +131,8 @@ window.TEXTOS = {
   // Prova social com factos confirmados pelo dono (docs/contexto.md). Nada inventado, sem promessas.
   "sobre.factos.aria": { pt: "Factos", en: "Facts" },
   "sobre.factos": {
-    pt: ["<strong>+1000 seguidores</strong> no Instagram {instagram}", "<strong>Full planche</strong> nas paralelas", "<strong>Full front lever</strong>", "<strong>Handstand</strong> livre", "Treino desde os <strong>14 anos</strong>", "<strong>3 anos</strong> dedicado às skills de calistenia", "<strong>Técnico Especialista em Exercício Físico</strong> e <strong>Personal Trainer</strong> certificado", "Treino no <strong>Algarve</strong>"],
-    en: ["<strong>1000+ followers</strong> on Instagram {instagram}", "<strong>Full planche</strong> on parallettes", "<strong>Full front lever</strong>", "<strong>Freestanding handstand</strong>", "Training since I was <strong>14</strong>", "<strong>3 years</strong> focused on calisthenics skills", "<strong>Certified Exercise Specialist</strong> and <strong>Personal Trainer</strong>", "I train in the <strong>Algarve</strong>"]
+    pt: ["<strong>+1000 seguidores</strong> no Instagram {instagram}", "<strong>Full planche</strong> nas paralelas", "<strong>Full front lever</strong>", "<strong>Handstand</strong> livre", "<strong>6 anos</strong> a treinar pessoas num ginásio: personal training e ajuda diária na sala de treino", "Treino desde os <strong>14 anos</strong>", "<strong>3 anos</strong> dedicado às skills de calistenia", "<strong>Técnico Especialista em Exercício Físico</strong> e <strong>Personal Trainer</strong> certificado", "Treino no <strong>Algarve</strong>"],
+    en: ["<strong>1000+ followers</strong> on Instagram {instagram}", "<strong>Full planche</strong> on parallettes", "<strong>Full front lever</strong>", "<strong>Freestanding handstand</strong>", "<strong>6 years</strong> coaching people in a gym: personal training and daily help on the gym floor", "Training since I was <strong>14</strong>", "<strong>3 years</strong> focused on calisthenics skills", "<strong>Certified Exercise Specialist</strong> and <strong>Personal Trainer</strong>", "I train in the <strong>Algarve</strong>"]
   },
 
   /* ---------- Preço ---------- */
@@ -322,9 +322,9 @@ window.TEXTOS = {
       { p: "Quantas elevações seguidas fazes, com boa técnica?", o: ["Nenhuma", "1 a 4", "5 a 9", "10 ou mais"] },
       { p: "E quantos dips seguidos nas paralelas?", o: ["Nenhum", "1 a 5", "6 a 14", "15 ou mais"] },
       { p: "Quantas flexões seguidas fazes?", o: ["Menos de 5", "5 a 14", "15 a 29", "30 ou mais"] },
-      { p: "Como está o teu pino (handstand)?", o: ["Ainda não faço", "Na parede, até 30 segundos", "Na parede, 30 segundos ou mais", "Livre, alguns segundos"] },
+      { p: "Como está o teu handstand?", o: ["Ainda não faço", "Na parede, até 30 segundos", "Na parede, 30 segundos ou mais", "Livre, alguns segundos"] },
       { p: "Há quanto tempo treinas com regularidade?", o: ["Ainda não treino", "Menos de 6 meses", "6 meses a 2 anos", "Mais de 2 anos"] },
-      { p: "Qual é o teu objetivo principal?", o: ["Primeiras elevações e base", "Força e massa muscular", "Muscle-up ou pino livre", "Planche ou front lever"] }
+      { p: "Qual é o teu objetivo principal?", o: ["Primeiras elevações e base", "Força e massa muscular", "Muscle-up ou handstand livre", "Planche ou front lever"] }
     ],
     en: [
       { p: "How many pull-ups in a row can you do with good form?", o: ["None", "1 to 4", "5 to 9", "10 or more"] },
@@ -336,14 +336,14 @@ window.TEXTOS = {
     ]
   },
   "teste.objetivos": {
-    pt: ["as primeiras elevações e a base", "força e massa muscular", "o muscle-up ou o pino livre", "a planche ou o front lever"],
+    pt: ["as primeiras elevações e a base", "força e massa muscular", "o muscle-up ou o handstand livre", "a planche ou o front lever"],
     en: ["your first pull-ups and a solid base", "strength and muscle", "the muscle-up or a freestanding handstand", "the planche or the front lever"]
   },
   "teste.niveis": {
     pt: [
       { nome: "Começar", texto: "Estás no início, e é o melhor momento para construir bem. Agora o mais importante é aprender a técnica base e criar o hábito de treinar.", passo: "Treina 2 a 3 vezes por semana com flexões (inclinadas, se for preciso), remadas com o peso do corpo e suspensões na barra. Só aumenta a dificuldade quando a técnica estiver limpa." },
       { nome: "Base", texto: "Já tens força para os exercícios básicos. Nesta fase conta mais a consistência e a técnica de cada repetição do que treinar até à falha.", passo: "Escolhe 3 exercícios base (elevações, dips e flexões), descansa 2 a 3 minutos entre séries e regista as repetições de cada treino para veres a tua evolução." },
-      { nome: "Intermédio", texto: "Tens uma boa base de força. É uma boa altura para começar as primeiras skills com progressões, sem saltar etapas.", passo: "Escolhe uma skill de cada vez (por exemplo, o pino contra a parede ou a L-sit) e treina a progressão no início do treino, quando ainda estás fresco." },
+      { nome: "Intermédio", texto: "Tens uma boa base de força. É uma boa altura para começar as primeiras skills com progressões, sem saltar etapas.", passo: "Escolhe uma skill de cada vez (por exemplo, o handstand contra a parede ou a L-sit) e treina a progressão no início do treino, quando ainda estás fresco." },
       { nome: "Skills", texto: "Tens força e controlo para trabalhar skills avançadas. Daqui para a frente, a evolução depende de um plano bem doseado e de técnica afinada.", passo: "Filma os teus treinos de lado e compara com a técnica certa. Planeia o volume e o descanso para não sobrecarregares cotovelos, pulsos e ombros." }
     ],
     en: [
