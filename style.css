@@ -64,6 +64,9 @@ a { color: var(--destaque); }
 h1, h2, h3 { line-height: 1.15; margin: 0 0 .6em; letter-spacing: -.02em; }
 h1 { font-size: clamp(1.75rem, 1.1rem + 4.2vw, 3.6rem); font-weight: 900; text-wrap: balance; }
 h2 { font-size: clamp(1.5rem, 1.1rem + 2.6vw, 2.4rem); font-weight: 800; text-wrap: balance; }
+h3 { text-wrap: balance; }
+/* Parágrafos sem palavra sozinha na última linha (onde o navegador souber; nos outros fica igual). */
+p, li { text-wrap: pretty; }
 h3 { font-size: 1.1rem; font-weight: 700; }
 p { margin: 0 0 1em; }
 [hidden] { display: none !important; }
@@ -212,7 +215,7 @@ p { margin: 0 0 1em; }
 .hero__diferencial {
   max-width: 38rem; margin: 0; padding: .55rem .9rem;
   border-left: 3px solid var(--destaque); background: rgba(200, 255, 61, .06);
-  border-radius: 0 10px 10px 0; color: var(--texto-2); font-size: .98rem; line-height: 1.5;
+  border-radius: 0 10px 10px 0; color: #bcc3cd; /* mais claro que --texto-2: contraste ≥ 4,5:1 sobre a luz lima do topo */ font-size: .98rem; line-height: 1.5;
 }
 .hero__diferencial strong { color: var(--texto); }
 
@@ -348,6 +351,18 @@ p { margin: 0 0 1em; }
 }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { padding: 0 1.2rem 1rem; margin: 0; color: var(--texto-2); }
+/* A resposta abre e fecha com altura suave (220 ms) só nos navegadores que sabem animar até "auto";
+   nos outros, e com movimento reduzido, abre de uma vez como antes. */
+@supports (interpolate-size: allow-keywords) and selector(::details-content) {
+  @media (prefers-reduced-motion: no-preference) {
+    .faq { interpolate-size: allow-keywords; }
+    .faq details::details-content {
+      block-size: 0; overflow-y: clip; opacity: 0;
+      transition: block-size 220ms cubic-bezier(.16, 1, .3, 1), opacity 180ms ease, content-visibility 220ms allow-discrete;
+    }
+    .faq details[open]::details-content { block-size: auto; opacity: 1; }
+  }
+}
 
 /* ---------- Formulário ---------- */
 .seccao--form { background: var(--fundo-2); border-top: 1px solid var(--linha); }
@@ -432,6 +447,14 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 /* Erros */
 .campo--erro input, .campo--erro select, .campo--erro textarea { border-color: var(--erro); }
 .campo--erro .opcao span { border-color: rgba(255, 107, 107, .6); }
+/* Realce de 300 ms ao aparecer o erro (anel vermelho que se desvanece; sem abanar). Fica a borda vermelha. */
+.campo--erro :is(input, select, textarea), .campo--erro .opcao span { animation: erro-realce 300ms ease-out; }
+@keyframes erro-realce { from { box-shadow: 0 0 0 4px rgba(255, 107, 107, .55); } to { box-shadow: 0 0 0 4px rgba(255, 107, 107, 0); } }
+@media (forced-colors: active) {
+  .campo--erro :is(input, select, textarea), .campo--erro .opcao span { animation-name: erro-realce-fc; }
+  @keyframes erro-realce-fc { from, 99% { outline: 3px solid CanvasText; outline-offset: 2px; } to { outline: 0 solid transparent; } }
+}
+@media (prefers-reduced-motion: reduce) { .campo--erro :is(input, select, textarea), .campo--erro .opcao span { animation: none; } }
 .erro-msg { color: var(--erro); font-size: .9rem; font-weight: 600; margin: .4rem 0 0; }
 .erro-resumo {
   background: rgba(255, 107, 107, .1); border: 1px solid var(--erro); color: var(--texto);

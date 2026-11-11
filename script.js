@@ -375,6 +375,7 @@
 
   function validar(form) {
     limparErros(form);
+    void form.offsetWidth; // recomeça o realce dos campos com erro em cada tentativa de envio
     var n = 0;
     form.querySelectorAll(".campo").forEach(function (campo) {
       if (!ativo(campo)) return;
@@ -582,6 +583,14 @@
     var msg = textoSimples(t("teste.waMensagem", { nivel: nivel, objetivo: objetivo })) + "\n" + textoSimples(t("msg.origem")) + ": teste";
     return "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg);
   }
+  // A pergunta seguinte entra em 200 ms (opacidade + 6 px). Começa sempre visível: sem animação (movimento
+  // reduzido ou navegador antigo) fica igual a antes. O foco não muda.
+  function entrarPergunta(els) {
+    if (!els[0].animate || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+    els.forEach(function (el) {
+      el.animate([{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], { duration: 200, easing: "cubic-bezier(.16, 1, .3, 1)" });
+    });
+  }
   function renderTeste(focar) {
     var caixa = document.getElementById("teste-pergunta");
     if (!caixa) return;
@@ -608,7 +617,10 @@
         b.setAttribute("aria-pressed", String(teste.respostas[teste.passo] === i));
         ops.appendChild(b);
       });
-      if (focar) document.getElementById("teste-q").focus({ preventScroll: true });
+      if (focar) {
+        document.getElementById("teste-q").focus({ preventScroll: true });
+        entrarPergunta([document.getElementById("teste-q"), ops]);
+      }
     }
     if (!res.hidden) {
       var niveis = lista("teste.niveis");
