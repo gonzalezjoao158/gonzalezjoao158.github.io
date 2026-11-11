@@ -621,6 +621,8 @@
       document.getElementById("teste-objetivo").textContent = t("teste.objetivo", { objetivo: obj });
       var esc = document.getElementById("teste-escala");
       esc.innerHTML = "";
+      // Acende os níveis um a um só quando o resultado aparece (não ao mudar de língua).
+      esc.classList.toggle("teste__escala--acender", !!focar);
       niveis.forEach(function (nv, i) {
         var li = document.createElement("li");
         li.textContent = nv.nome;

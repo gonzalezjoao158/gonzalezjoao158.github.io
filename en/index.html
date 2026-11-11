@@ -74,6 +74,19 @@
         <h1 data-i18n="hero.titulo">Online calisthenics and gym coaching</h1>
         <!-- Lugar para a foto do João (4:5): à direita no computador, abaixo do título no telemóvel. Tirar "hidden" e pôr o <img> quando houver foto. -->
         <figure class="hero__foto" hidden></figure>
+        <!-- Boneco do pino (o mesmo dos carrosséis): desenha-se uma vez ao abrir; sai quando a foto aparecer. Decorativo. -->
+        <div class="hero__boneco" aria-hidden="true">
+          <svg viewBox="262 -6 236 376" focusable="false">
+            <path pathLength="1" d="M270 359H490"></path>
+            <path pathLength="1" d="M296 350H318L342 235"></path>
+            <path pathLength="1" d="M464 350H442L418 235"></path>
+            <path pathLength="1" d="M342 235H418"></path>
+            <path pathLength="1" d="M380 235V152"></path>
+            <path pathLength="1" d="M380 152L364 8"></path>
+            <path pathLength="1" d="M380 152L396 8"></path>
+            <circle pathLength="1" cx="380" cy="290" r="25" transform="rotate(90 380 290)"></circle>
+          </svg>
+        </div>
         <p class="hero__texto" data-i18n="hero.texto">Progress with a structured plan and someone by your side at every step. Training built around your goal, your level and the time you have, with video analysis of your movements, an initial video call and direct contact on WhatsApp.</p>
         <p class="fundador fundador--linha" data-fundador data-i18n="fundador.curto"><strong>Founding spots:</strong> <span class="fundador__contador">4 of 4</span>, price locked while you stay</p>
         <div class="hero__acoes">
@@ -277,7 +290,7 @@
 
         <!-- Resultado: confirmação -->
         <div class="resultado resultado--ok" id="confirmacao" hidden tabindex="-1">
-          <h3 data-i18n="conf.titulo">I've got your application!</h3>
+          <h3 class="resultado__titulo"><svg class="resultado__visto" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span data-i18n="conf.titulo">I've got your application!</span></h3>
           <p data-i18n="conf.texto">I'll review it and get back to you on WhatsApp within the next 24–48 hours.</p>
           <p class="resultado__nota" data-i18n="conf.nota">If WhatsApp didn't open, <a id="link-whatsapp" href="#" target="_blank" rel="noopener">tap here to open the message</a> and don't forget to send it.</p>
         </div>
