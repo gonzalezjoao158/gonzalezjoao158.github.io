@@ -241,7 +241,7 @@
               <p class="campo__label" id="lbl-trava"><span data-i18n="q.trava">What do you think holds you back the most?</span> <span class="obrig">*</span></p>
               <div class="opcoes opcoes--coluna" role="radiogroup" aria-labelledby="lbl-trava" data-opcoes="op.trava" data-nome="trava" data-tipo="radio"><label class="opcao"><input type="radio" name="trava" value="Not having a program" data-indice="0"><span>Not having a program</span></label><label class="opcao"><input type="radio" name="trava" value="Technique" data-indice="1"><span>Technique</span></label><label class="opcao"><input type="radio" name="trava" value="Something else" data-indice="2"><span>Something else</span></label></div>
             </div>
-            <div class="campo" data-q="m.travaFrase">
+            <div class="campo" data-q="m.travaFrase" data-obrigatorio-se="trava:2">
               <label for="trava-frase"><span data-i18n="q.travaFrase">Explain in one sentence</span></label>
               <input id="trava-frase" name="trava-frase" type="text" enterkeyhint="next" maxlength="150">
             </div>

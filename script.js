@@ -357,6 +357,12 @@
     if (v && tipo === "idade" && !(/^\d+$/.test(v) && +v >= 14 && +v <= 99)) return t("err.idade");
     if (v && tipo === "telefone" && v.replace(/\D/g, "").length < 9) return t("err.telefone");
     if (outroEmFalta(campo)) return t("err.outro");
+    var cond = campo.getAttribute("data-obrigatorio-se"); // "nome:indice" (ex.: trava:2 = "Outra coisa")
+    if (cond && !v) {
+      var partes = cond.split(":");
+      var f = campo.closest("form"); var marcado = f && f.querySelector('input[name="' + partes[0] + '"]:checked');
+      if (marcado && marcado.getAttribute("data-indice") === partes[1]) return t("err.obrigatorio");
+    }
     return "";
   }
 
