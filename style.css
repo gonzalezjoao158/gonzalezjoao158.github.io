@@ -186,10 +186,9 @@ p { margin: 0 0 1em; }
 .hero__texto { max-width: 38rem; margin-bottom: .9rem; color: var(--texto-2); font-size: clamp(1.02rem, .97rem + .3vw, 1.2rem); line-height: 1.5; }
 .hero h1 { max-width: 20ch; }
 .hero__provas { max-width: 38rem; margin: -.2rem 0 .8rem; font-weight: 700; color: var(--texto); }
-/* Telemóvel: título de 4 linhas e vagas numa só linha, com o "Candidata-te" no 1.º ecrã a 390×650 (11/11). */
+/* Telemóvel: título de 4 linhas, com o "Candidata-te" no 1.º ecrã a 390×650 (11/11). */
 @media (max-width: 30em) {
   .hero h1 { font-size: 1.75rem; max-width: none; }
-  .hero .fundador { font-size: .76rem; }
   .hero__texto { margin-bottom: .6rem; }
   .hero__acoes { margin-top: .8rem; }
 }
@@ -218,16 +217,6 @@ p { margin: 0 0 1em; }
   content: ""; flex: none; width: 1.1rem; height: 1.1rem; margin-top: .08rem; border-radius: 50%;
   background: var(--destaque) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%230c0e11' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 80% no-repeat;
 }
-/* ---------- Vagas de fundador (escondido automaticamente quando restantes = 0) ---------- */
-.fundador { margin: 0; color: var(--texto-2); font-size: .86rem; line-height: 1.45; }
-.fundador strong { color: var(--destaque); font-weight: 700; }
-.fundador__contador {
-  display: inline-block; padding: 0 .5rem; border-radius: 999px;
-  background: var(--destaque); color: var(--sobre-destaque); font-weight: 700; white-space: nowrap;
-}
-.fundador--preco { margin: -.4rem 0 1.25rem; }
-.fundador__texto { margin: 1rem 0 0; color: var(--texto-2); font-size: .85rem; line-height: 1.5; text-align: center; }
-
 /* ---------- Secções ---------- */
 .seccao { padding: 64px 0; }
 .seccao--alt { background: var(--fundo-2); border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); }
@@ -559,7 +548,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 
 /* ---------- Modo de alto contraste (Windows) ---------- */
 @media (forced-colors: active) {
-  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .fundador__contador, .factos li, .wa-fixo, .teste, .teste__opcao { border: 2px solid CanvasText; }
+  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .factos li, .wa-fixo, .teste, .teste__opcao { border: 2px solid CanvasText; }
   .teste__opcao[aria-pressed="true"] { forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight; }
   .teste__barra span { forced-color-adjust: none; background: Highlight; }
   .teste__escala li.teste__feito { border-top-color: Highlight; }
@@ -608,7 +597,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
   .topo, .saltar, .hero__acoes, #teste, #candidatura, .botao, .wa-fixo { display: none !important; }
   .hero, .seccao, .seccao--alt { background: none !important; padding: 16pt 0 !important; border: 0 !important; }
   .cartao, .passos li, .preco, .faq details, .factos li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
-  .destaque, .etiqueta, a, .preco__moeda, .preco__linguas, .fundador__titulo, .fundador__contador { color: #000 !important; }
+  .destaque, .etiqueta, a, .preco__moeda, .preco__linguas { color: #000 !important; }
   .hero__texto, .seccao__intro, .cartao p, .passos p, .faq details p, .rodape, .sobre__nome { color: #222 !important; }
   .passos li::before { background: #000; color: #fff; }
   h2, h3 { break-after: avoid; }

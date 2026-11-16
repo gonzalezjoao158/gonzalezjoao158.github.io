@@ -55,13 +55,6 @@
     return L === "en" ? moeda + fmtNumero(v) : fmtNumero(v) + " " + moeda;
   }
   function precoBase() { var p = cfg().preco; return p != null ? +p : 100; }
-  // Vagas de fundador (config.js): só números inteiros ≥ 0; restantes nunca acima do total.
-  function vagas() {
-    var v = cfg().vagasFundador || {};
-    var total = Math.max(0, Math.floor(+v.total) || 0);
-    var restantes = Math.min(total, Math.max(0, Math.floor(+v.restantes) || 0));
-    return { total: total, restantes: restantes };
-  }
   function linguasAtendimento() {
     var l = Array.isArray(cfg().linguas) ? cfg().linguas : ["pt"];
     return l.filter(function (x) { return LINGUAS_SITE.indexOf(x) !== -1; });
@@ -96,9 +89,6 @@
       marca: escapar(c.marca || ""),
       preco: t2("preco.mes", { valor: fmtValor(precoBase()) }),
       instagram: '<a href="https://instagram.com/' + encodeURIComponent(ig) + '" target="_blank" rel="noopener">@' + escapar(ig) + "</a>",
-      vagasTotal: String(vagas().total),
-      vagasRestantes: String(vagas().restantes),
-      vagasLivres: vagas().restantes === 1 ? (L === "pt" ? "1 vaga livre" : "1 spot open") : vagas().restantes + (L === "pt" ? " vagas livres" : " spots open"),
       garantiaDias: String(c.garantiaDias != null ? +c.garantiaDias : 7)
     };
     return v.replace(/\{(\w+)\}/g, function (m, k) {
@@ -141,10 +131,6 @@
     if (rodapeNome) rodapeNome.hidden = !c.nome || c.nome === c.marca;
     var ano = document.getElementById("ano");
     if (ano) ano.textContent = new Date().getFullYear();
-
-    // Vagas de fundador: o destaque só aparece enquanto houver vagas livres.
-    var haVagas = vagas().restantes > 0;
-    cada("[data-fundador]", function (el) { el.hidden = !haVagas; });
 
     // Feedbacks: só mostra a secção se houver itens.
     var itens = Array.isArray(c.feedbacks) ? c.feedbacks.filter(function (f) { return f && f.texto; }) : [];

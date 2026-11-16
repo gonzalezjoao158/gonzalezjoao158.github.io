@@ -7,7 +7,6 @@
        {marca}     → nome da marca (config.js)
        {instagram} → link para o teu Instagram
        {linguas}   → línguas do acompanhamento (config.js → linguas)
-       {vagasTotal}, {vagasRestantes} → vagas de fundador (config.js → vagasFundador)
        {garantiaDias} → dias da garantia (config.js → garantiaDias)
    - Os textos podem ter HTML simples (<strong>…).
    - Dados (WhatsApp, preço, descontos, línguas…) ficam em config.js.
@@ -56,17 +55,6 @@ window.TEXTOS = {
     en: "Full planche, full front lever and freestanding handstand. 6 years coaching people in a gym."
   },
   "hero.nota": { pt: "{preco}, sem fidelização. As vagas são limitadas.", en: "{preco} with no lock-in. Spots are limited." },
-
-  /* ---------- Vagas de fundador (aparecem só enquanto config.js → vagasFundador.restantes > 0) ---------- */
-  "fundador.texto": {
-    pt: "Os primeiros {vagasTotal} clientes entram a {preco} e mantêm esse preço para sempre, mesmo que suba (enquanto continuarem clientes sem interrupção). Em troca, autorizam-me a partilhar o seu testemunho.",
-    en: "The first {vagasTotal} clients join at {preco} and keep that price for good, even if it goes up (as long as they stay clients without a break). In return, they let me share their testimonial."
-  },
-  // Linha curta (topo e cartão do preço); as condições completas estão em fundador.texto, no cartão do preço.
-  "fundador.curto": {
-    pt: "<strong>Fundador:</strong> <span class=\"fundador__contador\">{vagasLivres}</span>, preço fixo enquanto ficares",
-    en: "<strong>Founders:</strong> <span class=\"fundador__contador\">{vagasLivres}</span>, price locked while you stay"
-  },
 
   /* ---------- Para quem é ---------- */
   "paraquem.titulo": { pt: "Para quem é e o que inclui", en: "Who it's for and what's included" },
