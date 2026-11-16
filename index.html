@@ -79,7 +79,7 @@
           <a class="botao" href="#candidatura" data-i18n="topo.cta">Candidata-te</a>
           <a class="hero__teste" href="#teste" data-i18n="hero.teste">Não sabes o teu nível? Faz o teste grátis</a>
         </div>
-        <p class="hero__nota" data-i18n="hero.nota">100 €/mês, sem fidelização. As vagas são limitadas.</p>
+        <p class="hero__nota" data-i18n="hero.nota">100 €/mês, sem fidelização.</p>
       </div>
     </section>
 
@@ -236,9 +236,17 @@
                 <input id="objetivo-outro" name="objetivo-outro" type="text" enterkeyhint="next">
               </div>
             </div>
+            <div class="campo" data-q="m.trava" data-obrigatorio>
+              <p class="campo__label" id="lbl-trava"><span data-i18n="q.trava">O que achas que te trava mais?</span> <span class="obrig">*</span></p>
+              <div class="opcoes opcoes--coluna" role="radiogroup" aria-labelledby="lbl-trava" data-opcoes="op.trava" data-nome="trava" data-tipo="radio"><label class="opcao"><input type="radio" name="trava" value="Falta de um programa" data-indice="0"><span>Falta de um programa</span></label><label class="opcao"><input type="radio" name="trava" value="Técnica" data-indice="1"><span>Técnica</span></label><label class="opcao"><input type="radio" name="trava" value="Outra coisa" data-indice="2"><span>Outra coisa</span></label></div>
+            </div>
+            <div class="campo" data-q="m.travaFrase">
+              <label for="trava-frase"><span data-i18n="q.travaFrase">Explica numa frase</span></label>
+              <input id="trava-frase" name="trava-frase" type="text" enterkeyhint="next" maxlength="150">
+            </div>
             <div class="campo" data-q="m.obstaculo" data-obrigatorio>
-              <label for="obstaculo"><span data-i18n="q.obstaculo">O que te está a travar mais, ou que skill queres conseguir?</span> <span class="obrig">*</span></label>
-              <input id="obstaculo" name="obstaculo" type="text" enterkeyhint="next" maxlength="200" data-i18n-ph="p.obstaculo" placeholder="Ex.: estagnei nas elevações; quero o primeiro muscle-up">
+              <label for="obstaculo"><span data-i18n="q.obstaculo">Que skill queres conseguir, e onde estás nela agora?</span> <span class="obrig">*</span></label>
+              <input id="obstaculo" name="obstaculo" type="text" enterkeyhint="next" maxlength="200" data-i18n-ph="p.obstaculo" placeholder="Ex.: quero o primeiro muscle-up; faço 8 elevações">
             </div>
             <div class="campo" data-q="m.nivel" data-obrigatorio>
               <p class="campo__label" id="lbl-nivel"><span data-i18n="q.nivel">Qual é o teu nível atual?</span> <span class="obrig">*</span></p>

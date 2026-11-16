@@ -54,7 +54,7 @@ window.TEXTOS = {
     pt: "Full planche, full front lever e handstand livre. 6 anos a treinar pessoas num ginásio.",
     en: "Full planche, full front lever and freestanding handstand. 6 years coaching people in a gym."
   },
-  "hero.nota": { pt: "{preco}, sem fidelização. As vagas são limitadas.", en: "{preco} with no lock-in. Spots are limited." },
+  "hero.nota": { pt: "{preco}, sem fidelização.", en: "{preco} with no lock-in." },
 
   /* ---------- Para quem é ---------- */
   "paraquem.titulo": { pt: "Para quem é e o que inclui", en: "Who it's for and what's included" },
@@ -208,9 +208,13 @@ window.TEXTOS = {
   "q.objetivo":    { pt: "Qual é o teu objetivo principal?", en: "What's your main goal?" },
   "m.objetivo":    { pt: "Objetivo principal", en: "Main goal" },
   "q.outro":       { pt: "Qual?", en: "Which one?" },
-  "q.obstaculo":   { pt: "O que te está a travar mais, ou que skill queres conseguir?", en: "What's holding you back most, or which skill do you want to get?" },
-  "m.obstaculo":   { pt: "Principal obstáculo / skill", en: "Main obstacle / skill" },
-  "p.obstaculo":   { pt: "Ex.: estagnei nas elevações; quero o primeiro muscle-up", en: "E.g. stuck on pull-ups; I want my first muscle-up" },
+  "q.trava":       { pt: "O que achas que te trava mais?", en: "What do you think holds you back the most?" },
+  "m.trava":       { pt: "O que trava mais", en: "What holds them back most" },
+  "q.travaFrase":  { pt: "Explica numa frase", en: "Explain in one sentence" },
+  "m.travaFrase":  { pt: "Explica numa frase", en: "Explain in one sentence" },
+  "q.obstaculo":   { pt: "Que skill queres conseguir, e onde estás nela agora?", en: "Which skill do you want to get, and where are you with it now?" },
+  "m.obstaculo":   { pt: "Skill e nível atual", en: "Skill and current level" },
+  "p.obstaculo":   { pt: "Ex.: quero o primeiro muscle-up; faço 8 elevações", en: "E.g. I want my first muscle-up; I can do 8 pull-ups" },
   "q.nivel":       { pt: "Qual é o teu nível atual?", en: "What's your current level?" },
   "m.nivel":       { pt: "Nível atual", en: "Current level" },
   "q.equipamento": { pt: "Onde treinas e que equipamento tens?", en: "Where do you train and what equipment do you have?" },
@@ -232,6 +236,10 @@ window.TEXTOS = {
   "op.objetivo": {
     pt: ["Físico / estética", "Ganhar massa muscular", "Perder gordura", "Força", "Planche", "Front lever", "Handstand", "Muscle-up", "Outro"],
     en: ["Physique / aesthetics", "Build muscle", "Lose fat", "Strength", "Planche", "Front lever", "Handstand", "Muscle-up", "Other"]
+  },
+  "op.trava": {
+    pt: ["Falta de um programa", "Técnica", "Outra coisa"],
+    en: ["Not having a program", "Technique", "Something else"]
   },
   "op.nivel": {
     pt: ["Nunca treinei", "Iniciante (até 6 meses)", "Intermédio (6 meses a 2 anos)", "Avançado (mais de 2 anos)"],
