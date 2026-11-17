@@ -219,6 +219,14 @@ window.TEXTOS = {
   "m.nivel":       { pt: "Nível atual", en: "Current level" },
   "q.equipamento": { pt: "Onde treinas e que equipamento tens?", en: "Where do you train and what equipment do you have?" },
   "m.equipamento": { pt: "Onde treina e equipamento", en: "Training location and equipment" },
+  "q.jaTentaste":  { pt: "O que já tentaste até hoje?", en: "What have you tried so far?" },
+  "m.jaTentaste":  { pt: "O que já tentou", en: "What they've tried" },
+  "a.jaTentaste":  { pt: "Podes escolher várias.", en: "You can choose more than one." },
+  "q.seguir":      { pt: "Há quanto tempo vês os meus vídeos?", en: "How long have you been watching my videos?" },
+  "m.seguir":      { pt: "Há quanto tempo vê os vídeos", en: "How long they've watched the videos" },
+  "q.investimento": { pt: "O acompanhamento custa {preco}. Faz sentido para ti agora?", en: "Coaching is {preco}. Does that make sense for you right now?" },
+  "m.investimento": { pt: "{preco} faz sentido agora", en: "{preco} makes sense now" },
+  "a.investimento": { pt: "Candidatar-te não te obriga a nada.", en: "Applying doesn't commit you to anything." },
   "p.equipamento": { pt: "Ex.: ginásio; em casa, barra e elásticos", en: "E.g. gym; at home, pull-up bar and bands" },
   "q.limitacoes":  { pt: "Tens lesões, dores ou alguma limitação física?", en: "Do you have any injuries, pain or physical limitations?" },
   "m.limitacoes":  { pt: "Lesões, dores ou limitações", en: "Injuries, pain or limitations" },
@@ -240,6 +248,18 @@ window.TEXTOS = {
   "op.trava": {
     pt: ["Falta de um programa", "Técnica", "Outra coisa"],
     en: ["Not having a program", "Technique", "Something else"]
+  },
+  "op.jaTentaste": {
+    pt: ["Treino sozinho", "Programas ou apps", "Ebooks", "Outro coach", "Ainda nada"],
+    en: ["Training on my own", "Programs or apps", "Ebooks", "Another coach", "Nothing yet"]
+  },
+  "op.seguir": {
+    pt: ["Menos de 1 mês", "1–6 meses", "Mais de 6 meses"],
+    en: ["Less than 1 month", "1–6 months", "More than 6 months"]
+  },
+  "op.investimento": {
+    pt: ["Sim", "Sim, mas quero falar sobre isso", "Ainda não"],
+    en: ["Yes", "Yes, but I'd like to talk about it", "Not yet"]
   },
   "op.nivel": {
     pt: ["Nunca treinei", "Iniciante (até 6 meses)", "Intermédio (6 meses a 2 anos)", "Avançado (mais de 2 anos)"],

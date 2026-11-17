@@ -257,6 +257,20 @@
               <label for="equipamento"><span data-i18n="q.equipamento">Where do you train and what equipment do you have?</span> <span class="obrig">*</span></label>
               <input id="equipamento" name="equipamento" type="text" enterkeyhint="next" maxlength="200" data-i18n-ph="p.equipamento" placeholder="E.g. gym; at home, pull-up bar and bands">
             </div>
+            <div class="campo" data-q="m.jaTentaste" data-obrigatorio>
+              <p class="campo__label" id="lbl-ja-tentaste"><span data-i18n="q.jaTentaste">What have you tried so far?</span> <span class="obrig">*</span></p>
+              <div class="opcoes opcoes--coluna" role="group" aria-labelledby="lbl-ja-tentaste" aria-describedby="ajuda-ja-tentaste" data-opcoes="op.jaTentaste" data-nome="ja-tentaste" data-tipo="checkbox"><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Training on my own" data-indice="0"><span>Training on my own</span></label><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Programs or apps" data-indice="1"><span>Programs or apps</span></label><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Ebooks" data-indice="2"><span>Ebooks</span></label><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Another coach" data-indice="3"><span>Another coach</span></label><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Nothing yet" data-indice="4"><span>Nothing yet</span></label></div>
+              <p class="campo__ajuda" id="ajuda-ja-tentaste" data-i18n="a.jaTentaste">You can choose more than one.</p>
+            </div>
+            <div class="campo" data-q="m.seguir" data-obrigatorio>
+              <p class="campo__label" id="lbl-seguir"><span data-i18n="q.seguir">How long have you been watching my videos?</span> <span class="obrig">*</span></p>
+              <div class="opcoes opcoes--coluna" role="radiogroup" aria-labelledby="lbl-seguir" data-opcoes="op.seguir" data-nome="seguir" data-tipo="radio"><label class="opcao"><input type="radio" name="seguir" value="Less than 1 month" data-indice="0"><span>Less than 1 month</span></label><label class="opcao"><input type="radio" name="seguir" value="1–6 months" data-indice="1"><span>1–6 months</span></label><label class="opcao"><input type="radio" name="seguir" value="More than 6 months" data-indice="2"><span>More than 6 months</span></label></div>
+            </div>
+            <div class="campo" data-q="m.investimento" data-obrigatorio>
+              <p class="campo__label" id="lbl-investimento"><span data-i18n="q.investimento">Coaching is €100/month. Does that make sense for you right now?</span> <span class="obrig">*</span></p>
+              <div class="opcoes opcoes--coluna" role="radiogroup" aria-labelledby="lbl-investimento" aria-describedby="ajuda-investimento" data-opcoes="op.investimento" data-nome="investimento" data-tipo="radio"><label class="opcao"><input type="radio" name="investimento" value="Yes" data-indice="0"><span>Yes</span></label><label class="opcao"><input type="radio" name="investimento" value="Yes, but I'd like to talk about it" data-indice="1"><span>Yes, but I'd like to talk about it</span></label><label class="opcao"><input type="radio" name="investimento" value="Not yet" data-indice="2"><span>Not yet</span></label></div>
+              <p class="campo__ajuda" id="ajuda-investimento" data-i18n="a.investimento">Applying doesn't commit you to anything.</p>
+            </div>
           </fieldset>
 
           <!-- C -->

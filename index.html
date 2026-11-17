@@ -256,6 +256,20 @@
               <label for="equipamento"><span data-i18n="q.equipamento">Onde treinas e que equipamento tens?</span> <span class="obrig">*</span></label>
               <input id="equipamento" name="equipamento" type="text" enterkeyhint="next" maxlength="200" data-i18n-ph="p.equipamento" placeholder="Ex.: ginásio; em casa, barra e elásticos">
             </div>
+            <div class="campo" data-q="m.jaTentaste" data-obrigatorio>
+              <p class="campo__label" id="lbl-ja-tentaste"><span data-i18n="q.jaTentaste">O que já tentaste até hoje?</span> <span class="obrig">*</span></p>
+              <div class="opcoes opcoes--coluna" role="group" aria-labelledby="lbl-ja-tentaste" aria-describedby="ajuda-ja-tentaste" data-opcoes="op.jaTentaste" data-nome="ja-tentaste" data-tipo="checkbox"><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Treino sozinho" data-indice="0"><span>Treino sozinho</span></label><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Programas ou apps" data-indice="1"><span>Programas ou apps</span></label><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Ebooks" data-indice="2"><span>Ebooks</span></label><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Outro coach" data-indice="3"><span>Outro coach</span></label><label class="opcao"><input type="checkbox" name="ja-tentaste" value="Ainda nada" data-indice="4"><span>Ainda nada</span></label></div>
+              <p class="campo__ajuda" id="ajuda-ja-tentaste" data-i18n="a.jaTentaste">Podes escolher várias.</p>
+            </div>
+            <div class="campo" data-q="m.seguir" data-obrigatorio>
+              <p class="campo__label" id="lbl-seguir"><span data-i18n="q.seguir">Há quanto tempo vês os meus vídeos?</span> <span class="obrig">*</span></p>
+              <div class="opcoes opcoes--coluna" role="radiogroup" aria-labelledby="lbl-seguir" data-opcoes="op.seguir" data-nome="seguir" data-tipo="radio"><label class="opcao"><input type="radio" name="seguir" value="Menos de 1 mês" data-indice="0"><span>Menos de 1 mês</span></label><label class="opcao"><input type="radio" name="seguir" value="1–6 meses" data-indice="1"><span>1–6 meses</span></label><label class="opcao"><input type="radio" name="seguir" value="Mais de 6 meses" data-indice="2"><span>Mais de 6 meses</span></label></div>
+            </div>
+            <div class="campo" data-q="m.investimento" data-obrigatorio>
+              <p class="campo__label" id="lbl-investimento"><span data-i18n="q.investimento">O acompanhamento custa 100 €/mês. Faz sentido para ti agora?</span> <span class="obrig">*</span></p>
+              <div class="opcoes opcoes--coluna" role="radiogroup" aria-labelledby="lbl-investimento" aria-describedby="ajuda-investimento" data-opcoes="op.investimento" data-nome="investimento" data-tipo="radio"><label class="opcao"><input type="radio" name="investimento" value="Sim" data-indice="0"><span>Sim</span></label><label class="opcao"><input type="radio" name="investimento" value="Sim, mas quero falar sobre isso" data-indice="1"><span>Sim, mas quero falar sobre isso</span></label><label class="opcao"><input type="radio" name="investimento" value="Ainda não" data-indice="2"><span>Ainda não</span></label></div>
+              <p class="campo__ajuda" id="ajuda-investimento" data-i18n="a.investimento">Candidatar-te não te obriga a nada.</p>
+            </div>
           </fieldset>
 
           <!-- C -->

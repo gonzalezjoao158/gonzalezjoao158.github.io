@@ -13,10 +13,10 @@
   var linguaEscolhidaNoForm = false;
   var ultimoUrl = "";
 
-  /* ---------- Origem da visita (?origem=bio|story|reel|teste|outro) ----------
+  /* ---------- Origem da visita (?origem=bio|story|reel|dm|teste|outro; dm = link enviado na DM da palavra SKILL) ----------
      Só valores de uma lista fechada; qualquer outro valor conta como "outro".
      Nunca entra texto livre do URL na mensagem. Fica só em memória e no sessionStorage (sem cookies). */
-  var ORIGENS = ["bio", "story", "reel", "teste", "guia", "en", "outro"];
+  var ORIGENS = ["bio", "story", "reel", "dm", "teste", "guia", "en", "outro"];
   var CHAVE_ORIGEM = "gc-origem";
   function lerOrigem() {
     var v = null;
