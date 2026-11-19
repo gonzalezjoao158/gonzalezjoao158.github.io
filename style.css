@@ -309,15 +309,10 @@ p { margin: 0 0 1em; }
 .preco__periodo { font-size: 1.1rem; color: var(--texto-2); font-weight: 600; margin-left: .3rem; }
 .preco__planos { color: var(--texto); font-size: .92rem; text-align: center; margin: 0 0 1rem; }
 .preco__linguas { text-align: center; font-weight: 700; color: var(--destaque); margin: 0 0 1rem; }
-.preco__garantia p { margin: 0; }
-.preco__garantia .preco__nota { margin-top: .5rem; padding-top: .5rem; border-top: 1px solid var(--linha); font-size: .85rem; }
-.preco__garantia {
+.preco__nota {
   margin: 1rem 0 0; padding: .9rem 0 0; border-top: 1px solid var(--linha);
-  color: var(--texto-2); font-size: .92rem; line-height: 1.5;
+  color: var(--texto-2); font-size: .85rem; line-height: 1.5;
 }
-.preco__garantia strong { color: var(--texto); }
-.preco__garantia > p:first-child::before { content: "✓" / ""; margin-right: .4rem; color: var(--destaque); font-weight: 900; }
-.preco__garantia small { display: block; margin-top: .35rem; font-size: .85rem; }
 
 /* ---------- Feedbacks ---------- */
 .feedback { margin: 0; }

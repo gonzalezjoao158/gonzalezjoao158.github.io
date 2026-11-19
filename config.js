@@ -22,17 +22,13 @@ window.CONFIG = {
   whatsapp: "351911855080",
 
   // Preço mensal do acompanhamento (só o número) e moeda.
-  preco: 100,
+  preco: 150,
   moeda: "€",
-
-  // Garantia: dias (depois de o cliente receber o plano) em que pode parar e receber o valor pago de volta.
-  // Usado nos textos através do marcador {garantiaDias}.
-  garantiaDias: 7,
 
   // Planos (a duração combina-se no WhatsApp; a secção do preço mostra os que têm desconto).
   //   meses:    duração do plano
   //   desconto: percentagem de desconto (opcional). O site calcula sozinho o total a partir do preço,
-  //             ex.: 3 meses com 10% → "3 meses: 270 € no total (10% de desconto)".
+  //             ex.: 3 meses com 10% → "3 meses: 405 € no total (10% de desconto)".
   //   maisDe:   true para "Mais de X meses" (não aparece no site).
   duracoes: [
     { meses: 1 },

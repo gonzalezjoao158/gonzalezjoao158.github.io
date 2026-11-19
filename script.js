@@ -54,7 +54,7 @@
     var moeda = cfg().moeda || "€";
     return L === "en" ? moeda + fmtNumero(v) : fmtNumero(v) + " " + moeda;
   }
-  function precoBase() { var p = cfg().preco; return p != null ? +p : 100; }
+  function precoBase() { var p = cfg().preco; return p != null ? +p : 150; }
   function linguasAtendimento() {
     var l = Array.isArray(cfg().linguas) ? cfg().linguas : ["pt"];
     return l.filter(function (x) { return LINGUAS_SITE.indexOf(x) !== -1; });
@@ -88,8 +88,7 @@
     var base = {
       marca: escapar(c.marca || ""),
       preco: t2("preco.mes", { valor: fmtValor(precoBase()) }),
-      instagram: '<a href="https://instagram.com/' + encodeURIComponent(ig) + '" target="_blank" rel="noopener">@' + escapar(ig) + "</a>",
-      garantiaDias: String(c.garantiaDias != null ? +c.garantiaDias : 7)
+      instagram: '<a href="https://instagram.com/' + encodeURIComponent(ig) + '" target="_blank" rel="noopener">@' + escapar(ig) + "</a>"
     };
     return v.replace(/\{(\w+)\}/g, function (m, k) {
       if (vars && vars[k] != null) return vars[k];

@@ -3,11 +3,10 @@
    ---------------------------------------------------------------------
    Cada texto tem a versão "pt" e a versão "en" lado a lado.
    - Podes usar estes marcadores, que são preenchidos automaticamente:
-       {preco}     → preço mensal formatado (ex.: "100 €/mês" / "€100/month")
+       {preco}     → preço mensal formatado (ex.: "150 €/mês" / "€150/month")
        {marca}     → nome da marca (config.js)
        {instagram} → link para o teu Instagram
        {linguas}   → línguas do acompanhamento (config.js → linguas)
-       {garantiaDias} → dias da garantia (config.js → garantiaDias)
    - Os textos podem ter HTML simples (<strong>…).
    - Dados (WhatsApp, preço, descontos, línguas…) ficam em config.js.
    ===================================================================== */
@@ -135,13 +134,9 @@ window.TEXTOS = {
   "preco.planos":   { pt: "Planos com desconto: {lista}.", en: "Discounted plans: {lista}." },
   "lista.e":        { pt: " e ", en: " and " },
   "preco.plano":    { pt: "{rotulo}: {total} no total ({d}% de desconto)", en: "{rotulo}: {total} in total ({d}% off)" },
-  "preco.garantia": {
-    pt: "<strong>Garantia de {garantiaDias} dias, só no plano mensal:</strong> se nos primeiros {garantiaDias} dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago. <small>Os planos de 3 e 6 meses já têm desconto e não incluem esta garantia. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado.</small>",
-    en: "<strong>{garantiaDias}-day guarantee, monthly plan only:</strong> if you're not happy within the first {garantiaDias} days after receiving your plan, you can stop and I'll refund what you paid. <small>The 3- and 6-month plans are already discounted and don't include this guarantee. On any plan you have 14 days to cancel, paying only for the time already used.</small>"
-  },
   "preco.nota": {
-    pt: "Pagamento mensal, sem fidelização. O primeiro mês só começa a contar quando receberes o plano.",
-    en: "Paid monthly, no lock-in. Your first month only starts counting once you receive your plan."
+    pt: "Pagamento mensal, sem fidelização. O primeiro mês só começa a contar quando receberes o plano. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado.",
+    en: "Paid monthly, no lock-in. Your first month only starts counting once you receive your plan. On any plan you have 14 days to cancel, paying only for the time already used."
   },
 
   /* ---------- Feedbacks e FAQ ---------- */
@@ -155,8 +150,7 @@ window.TEXTOS = {
       { p: "Há desconto para mais meses?", r: "Sim: os planos de 3 e 6 meses têm desconto (os valores estão na secção do preço). A duração combinamos na conversa por WhatsApp." },
       { p: "Em que língua é o acompanhamento?", r: "Em {linguas} — escolhes no formulário." },
       { p: "Tenho menos de 18 anos. Posso candidatar-me?", r: "Sim, desde que tenhas autorização dos teus pais ou do encarregado de educação. O formulário pede-te essa confirmação." },
-      { p: "Posso cancelar?", r: "Sim. O pagamento é mensal e não há fidelização: se quiseres parar, basta avisar antes do mês seguinte." },
-      { p: "E se não ficar satisfeito na 1.ª semana?", r: "No plano mensal tens uma garantia: se nos primeiros {garantiaDias} dias depois de receberes o plano não estiveres satisfeito, paras e devolvo-te o valor pago. Basta dizeres-me por WhatsApp. Os planos de 3 e 6 meses já têm desconto e não incluem esta garantia. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado." },
+      { p: "Posso cancelar?", r: "Sim. O pagamento é mensal e não há fidelização: se quiseres parar, basta avisar antes do mês seguinte. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado." },
       { p: "Há resultados garantidos?", r: "Não prometo resultados garantidos — dependem da tua consistência, do sono, da alimentação e do teu ponto de partida. O que garanto é um plano estruturado, acompanhamento próximo e ajustes sempre que necessário." }
     ],
     en: [
@@ -166,8 +160,7 @@ window.TEXTOS = {
       { p: "Is there a discount for longer plans?", r: "Yes: 3- and 6-month plans are discounted (you'll find the prices in the pricing section). We agree on the duration in our WhatsApp chat." },
       { p: "What language is the coaching in?", r: "{linguas} — you choose in the form." },
       { p: "I'm under 18. Can I apply?", r: "Yes, as long as you have permission from your parents or legal guardian. The form asks you to confirm this." },
-      { p: "Can I cancel?", r: "Yes. You pay monthly and there's no lock-in: if you want to stop, just let me know before the next month." },
-      { p: "What if I'm not happy in the first week?", r: "The monthly plan comes with a guarantee: if you're not happy within the first {garantiaDias} days after receiving your plan, you can stop and I'll refund what you paid. Just tell me on WhatsApp. The 3- and 6-month plans are already discounted and don't include this guarantee. On any plan you have 14 days to cancel, paying only for the time already used." },
+      { p: "Can I cancel?", r: "Yes. You pay monthly and there's no lock-in: if you want to stop, just let me know before the next month. On any plan you have 14 days to cancel, paying only for the time already used." },
       { p: "Are results guaranteed?", r: "I don't promise guaranteed results — they depend on your consistency, sleep, nutrition and starting point. What I do guarantee is a structured plan, close support and adjustments whenever they're needed." }
     ]
   },
