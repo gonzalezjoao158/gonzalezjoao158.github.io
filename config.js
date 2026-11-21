@@ -1,7 +1,7 @@
 /* =====================================================================
    CONFIGURAÇÕES DO SITE — dados que mudam com frequência
    ---------------------------------------------------------------------
-   Aqui ficam os DADOS (nome, WhatsApp, preço, descontos, línguas,
+   Aqui ficam os DADOS (nome, WhatsApp, línguas,
    testemunhos). Os TEXTOS do site, em português e inglês, estão em
    site/i18n.js. Guarda o ficheiro e faz commit/push: o site é
    atualizado automaticamente no GitHub Pages.
@@ -21,24 +21,10 @@ window.CONFIG = {
   // Enquanto estiver vazio, o formulário mostra um aviso e um botão "Copiar respostas".
   whatsapp: "351911855080",
 
-  // Preço mensal do acompanhamento (só o número) e moeda.
-  preco: 150,
-  moeda: "€",
-
-  // Planos (a duração combina-se no WhatsApp; a secção do preço mostra os que têm desconto).
-  //   meses:    duração do plano
-  //   desconto: percentagem de desconto (opcional). O site calcula sozinho o total a partir do preço,
-  //             ex.: 3 meses com 10% → "3 meses: 405 € no total (10% de desconto)".
-  //   maisDe:   true para "Mais de X meses" (não aparece no site).
-  duracoes: [
-    { meses: 1 },
-    { meses: 3, desconto: 10 },
-    { meses: 6, desconto: 15 },
-    { meses: 6, maisDe: true }
-  ],
+  // Sem preço no site (dono, 21/11, método do Anton): o valor só se diz no fim da chamada.
 
   // Línguas em que dás acompanhamento: "pt" (português) e/ou "en" (inglês).
-  // Aparecem no preço, na FAQ e na pergunta "Em que língua preferes o acompanhamento?".
+  // Aparecem na FAQ "Em que língua é o acompanhamento?".
   linguas: ["pt", "en"],
 
   // Língua do site: o endereço manda (/ = português, /en/ = inglês). Fica "pt" só como referência.

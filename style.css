@@ -144,7 +144,7 @@ p { margin: 0 0 1em; }
   display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
 }
 .linguas__botao[aria-current="true"] { background: var(--texto); color: var(--fundo); }
-@media (max-width: 26.8125em) { /* até 429px */
+@media (max-width: 29.9375em) { /* até 479px ("Marcar chamada" é mais comprido, 21/11) */
   .topo__inner { column-gap: .4rem; }
   .marca { font-size: .8rem; letter-spacing: .03em; gap: .4rem; }
   .marca__icone { width: 28px; height: 28px; }
@@ -152,13 +152,19 @@ p { margin: 0 0 1em; }
   .linguas__botao { padding: 0 .3rem; }
   .topo__acoes .botao--pequeno { padding: .4rem .6rem; font-size: .88rem; }
 }
+@media (max-width: 24.3125em) { /* até 389px */
+  .marca { font-size: .72rem; letter-spacing: .01em; gap: .35rem; }
+  .topo__acoes { gap: .25rem; }
+  .topo__acoes .botao--pequeno { padding: .4rem .5rem; font-size: .8rem; }
+}
 /* Telemóveis muito estreitos (dobráveis fechados, iPhone SE 1.ª geração): só o símbolo da marca. */
 @media (max-width: 22.4375em) { /* até 359px */
   .marca__texto { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .marca { flex: 0 0 auto; min-width: 44px; justify-content: center; }
   .marca__icone { width: 34px; height: 34px; }
-  .topo__acoes { gap: .3rem; }
-  .topo__acoes .botao--pequeno { padding: .4rem .5rem; font-size: .82rem; }
+  .topo__inner { column-gap: .25rem; }
+  .topo__acoes { gap: .25rem; }
+  .topo__acoes .botao--pequeno { padding: .4rem .4rem; font-size: .76rem; }
   :root { --margem-esq: max(10px, env(safe-area-inset-left, 0px)); --margem-dir: max(10px, env(safe-area-inset-right, 0px)); }
 }
 /* Telemóvel em horizontal: ecrã baixo, topo mais compacto. */
@@ -222,6 +228,7 @@ p { margin: 0 0 1em; }
 .seccao--alt { background: var(--fundo-2); border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); }
 .seccao__intro { color: var(--texto-2); max-width: 42rem; }
 .seccao__nota { color: var(--texto-2); font-size: .95rem; margin-top: 1.2rem; }
+.seccao__cta { margin: 1.75rem 0 0; text-align: center; }
 @media (min-width: 56.25em) { .seccao { padding: 96px 0; } }
 
 /* Objetivos: lista simples em colunas (não são botões). */
@@ -294,24 +301,6 @@ p { margin: 0 0 1em; }
   width: .8rem; height: .45rem;
   border-left: 3px solid var(--destaque); border-bottom: 3px solid var(--destaque);
   transform: rotate(-45deg);
-}
-
-/* ---------- Preço ---------- */
-.preco {
-  max-width: 480px; margin: 0 auto;
-  background: var(--cartao); border: 2px solid var(--destaque); border-radius: 22px;
-  padding: 2rem 1.5rem; box-shadow: var(--sombra);
-}
-.preco__valor { display: flex; flex-wrap: wrap; align-items: baseline; gap: .15rem; margin: 0 0 1.25rem; font-weight: 900; }
-.preco__valor > span:first-child { font-size: clamp(3rem, 2.2rem + 4vw, 4rem); line-height: 1; }
-.preco__moeda { font-size: 2rem; color: var(--destaque); }
-.preco__valor--moeda-antes .preco__moeda { order: -1; margin-right: .1rem; }
-.preco__periodo { font-size: 1.1rem; color: var(--texto-2); font-weight: 600; margin-left: .3rem; }
-.preco__planos { color: var(--texto); font-size: .92rem; text-align: center; margin: 0 0 1rem; }
-.preco__linguas { text-align: center; font-weight: 700; color: var(--destaque); margin: 0 0 1rem; }
-.preco__nota {
-  margin: 1rem 0 0; padding: .9rem 0 0; border-top: 1px solid var(--linha);
-  color: var(--texto-2); font-size: .85rem; line-height: 1.5;
 }
 
 /* ---------- Feedbacks ---------- */
@@ -543,7 +532,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 
 /* ---------- Modo de alto contraste (Windows) ---------- */
 @media (forced-colors: active) {
-  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .preco, .resultado, .factos li, .wa-fixo, .teste, .teste__opcao { border: 2px solid CanvasText; }
+  .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .resultado, .factos li, .wa-fixo, .teste, .teste__opcao { border: 2px solid CanvasText; }
   .teste__opcao[aria-pressed="true"] { forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight; }
   .teste__barra span { forced-color-adjust: none; background: Highlight; }
   .teste__escala li.teste__feito { border-top-color: Highlight; }
@@ -591,8 +580,8 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
   body { background: #fff; color: #000; font-size: 11pt; }
   .topo, .saltar, .hero__acoes, #teste, #candidatura, .botao, .wa-fixo { display: none !important; }
   .hero, .seccao, .seccao--alt { background: none !important; padding: 16pt 0 !important; border: 0 !important; }
-  .cartao, .passos li, .preco, .faq details, .factos li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
-  .destaque, .etiqueta, a, .preco__moeda, .preco__linguas { color: #000 !important; }
+  .cartao, .passos li, .faq details, .factos li { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
+  .destaque, .etiqueta, a { color: #000 !important; }
   .hero__texto, .seccao__intro, .cartao p, .passos p, .faq details p, .rodape, .sobre__nome { color: #222 !important; }
   .passos li::before { background: #000; color: #fff; }
   h2, h3 { break-after: avoid; }

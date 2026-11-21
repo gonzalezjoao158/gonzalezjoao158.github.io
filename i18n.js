@@ -3,12 +3,11 @@
    ---------------------------------------------------------------------
    Cada texto tem a versão "pt" e a versão "en" lado a lado.
    - Podes usar estes marcadores, que são preenchidos automaticamente:
-       {preco}     → preço mensal formatado (ex.: "150 €/mês" / "€150/month")
        {marca}     → nome da marca (config.js)
        {instagram} → link para o teu Instagram
        {linguas}   → línguas do acompanhamento (config.js → linguas)
    - Os textos podem ter HTML simples (<strong>…).
-   - Dados (WhatsApp, preço, descontos, línguas…) ficam em config.js.
+   - Dados (WhatsApp, línguas…) ficam em config.js. Sem preço no site (dono, 21/11).
    ===================================================================== */
 window.TEXTOS = {
 
@@ -23,13 +22,13 @@ window.TEXTOS = {
   // Pré-visualização quando o link é partilhado (WhatsApp, Instagram…).
   "meta.og.titulo": { pt: "{marca}, coaching online de calistenia e ginásio", en: "{marca}, online calisthenics and gym coaching" },
   "meta.og.descricao": {
-    pt: "Plano de treino personalizado, análise dos teus movimentos por vídeo e acompanhamento por WhatsApp. Candidata-te.",
-    en: "A personalised training plan, video analysis of your movements and support on WhatsApp. Apply now."
+    pt: "Plano de treino personalizado, análise dos teus movimentos por vídeo e acompanhamento por WhatsApp. Marca uma chamada.",
+    en: "A personalised training plan, video analysis of your movements and support on WhatsApp. Book a call."
   },
-  "saltar":         { pt: "Saltar para a candidatura", en: "Skip to the application" },
-  "topo.cta":       { pt: "Candidata-te", en: "Apply" },
+  "saltar":         { pt: "Saltar para a marcação da chamada", en: "Skip to booking a call" },
+  // Botão principal (dono, 21/11, método do Anton): marcar a chamada, sem preço no site.
+  "topo.cta":       { pt: "Marcar chamada", en: "Book a call" },
   "lingua.grupo":   { pt: "Língua do site", en: "Site language" },
-  "preco.mes":      { pt: "{valor}/mês", en: "{valor}/month" },
   "e":              { pt: "e", en: "and" },
   "lingua.pt":      { pt: "Português", en: "Portuguese" },
   "lingua.en":      { pt: "Inglês", en: "English" },
@@ -40,9 +39,10 @@ window.TEXTOS = {
     pt: "Técnico Especialista em Exercício Físico e Personal Trainer certificado",
     en: "Certified Exercise Specialist and Personal Trainer"
   },
+  // Frase de oferta da bio (dono, 21/11, docs/plano-modelo-anton.md §7.4).
   "hero.titulo": {
-    pt: "Handstand, planche e front lever: o método por combos que me levou lá, adaptado a ti",
-    en: "Handstand, planche and front lever: the combo method that got me there, adapted to you"
+    pt: "Ajudo quem vem do ginásio a desbloquear a planche e o handstand sem saltar de ebook em ebook.",
+    en: "I help gym-goers unlock the planche and handstand without jumping from ebook to ebook."
   },
   "hero.texto": {
     pt: "Reviso os teus vídeos 3 vezes por semana e ajusto o plano ao teu nível, ao teu objetivo e ao tempo que tens. Contacto direto por WhatsApp.",
@@ -53,7 +53,6 @@ window.TEXTOS = {
     pt: "Full planche, full front lever e handstand livre. 6 anos a treinar pessoas num ginásio.",
     en: "Full planche, full front lever and freestanding handstand. 6 years coaching people in a gym."
   },
-  "hero.nota": { pt: "{preco}, sem fidelização.", en: "{preco} with no lock-in." },
 
   /* ---------- Para quem é ---------- */
   "paraquem.titulo": { pt: "Para quem é e o que inclui", en: "Who it's for and what's included" },
@@ -74,22 +73,22 @@ window.TEXTOS = {
   /* ---------- Como funciona ---------- */
   "como.titulo": { pt: "Como funciona", en: "How it works" },
   "como.intro": {
-    pt: "Começa pela candidatura. Se fizer sentido para os dois, o acompanhamento segue estes passos:",
-    en: "It starts with your application. If we're a good fit, the coaching follows these steps:"
+    pt: "Começa por uma chamada. Se fizer sentido para os dois, o acompanhamento segue estes passos:",
+    en: "It starts with a call. If we're a good fit, the coaching follows these steps:"
   },
   // Passos (pela ordem). Podes acrescentar ou remover passos — mantém o mesmo número em pt e en.
   "como.passos": {
     pt: [
-      { titulo: "Análise dos teus movimentos", texto: "Mandas-me vídeos dos teus movimentos. Analiso-os e, com base nisso, definimos os primeiros objetivos e a ordem pela qual os vamos trabalhar." },
-      { titulo: "Videochamada", texto: "Fazemos uma videochamada de cerca de 1 hora para te avaliar ao vivo, corrigir a técnica e praticar os movimentos em conjunto." },
-      { titulo: "Plano personalizado", texto: "Em 1 a 2 dias úteis depois da chamada recebes o teu plano de treino. O mês de acompanhamento só começa a contar a partir desse momento." },
-      { titulo: "Acompanhamento por WhatsApp", texto: "Durante a semana falamos por WhatsApp. Envias vídeos dos teus treinos e eu reviso-os 3 vezes por semana, com correções e ajustes ao plano." }
+      { titulo: "Chamada de 30 minutos", texto: "Falamos sobre onde estás, o que te tem travado e o que queres conseguir. No fim, se fizer sentido para os dois, explico como funciona o acompanhamento." },
+      { titulo: "Videochamada de arranque", texto: "Depois de entrares, fazemos uma videochamada para te avaliar ao vivo, ver os teus movimentos e corrigir a técnica." },
+      { titulo: "Plano personalizado", texto: "Em 1 a 2 dias úteis depois da videochamada recebes o teu plano de treino. O acompanhamento só começa a contar a partir desse momento." },
+      { titulo: "Revisão 3 vezes por semana", texto: "Envias vídeos dos teus treinos por WhatsApp e eu reviso-os 3 vezes por semana, com correções e ajustes ao plano." }
     ],
     en: [
-      { titulo: "Movement analysis", texto: "You send me videos of your movements. I analyse them and, from there, we set your first goals and the order we'll tackle them in." },
-      { titulo: "Video call", texto: "We have a video call of about 1 hour to assess you live, fix your technique and practise the movements together." },
-      { titulo: "Personalised plan", texto: "You get your training plan within 1 to 2 working days after the call. Your coaching month only starts counting from that moment." },
-      { titulo: "WhatsApp coaching", texto: "During the week we keep in touch on WhatsApp. You send videos of your sessions and I review them 3 times a week, with corrections and plan adjustments." }
+      { titulo: "30-minute call", texto: "We talk about where you are, what has been holding you back and what you want to achieve. At the end, if we're a good fit, I explain how the coaching works." },
+      { titulo: "Kick-off video call", texto: "Once you're in, we have a video call to assess you live, look at your movements and fix your technique." },
+      { titulo: "Personalised plan", texto: "You get your training plan within 1 to 2 working days after the video call. Your coaching only starts counting from that moment." },
+      { titulo: "Reviews 3 times a week", texto: "You send videos of your sessions on WhatsApp and I review them 3 times a week, with corrections and plan adjustments." }
     ]
   },
   /* O que inclui (na mesma secção do "Para quem é") */
@@ -122,23 +121,6 @@ window.TEXTOS = {
     en: ["<strong>1000+ followers</strong> on Instagram {instagram}", "<strong>Full planche</strong> on parallettes", "<strong>Full front lever</strong>", "<strong>Freestanding handstand</strong>", "<strong>6 years</strong> coaching people in a gym: personal training and daily help on the gym floor", "Training since I was <strong>14</strong>", "<strong>3 years</strong> focused on calisthenics skills", "<strong>Certified Exercise Specialist</strong> and <strong>Personal Trainer</strong>", "I train in the <strong>Algarve</strong>"]
   },
 
-  /* ---------- Preço ---------- */
-  "preco.etiqueta": { pt: "Acompanhamento mensal", en: "Monthly coaching" },
-  "preco.periodo":  { pt: "/mês", en: "/month" },
-  "preco.lista": {
-    pt: ["Análise inicial dos teus movimentos por vídeo", "Videochamada de cerca de 1 hora", "Plano de treino personalizado em 1–2 dias úteis", "Ginásio, calistenia ou ambos", "Revisão dos vídeos dos teus treinos 3 vezes por semana", "Contacto próximo por WhatsApp", "Ajustes ao plano sempre que necessário", "Orientação nutricional geral"],
-    en: ["Initial video analysis of your movements", "Video call of about 1 hour", "Personalised training plan within 1–2 working days", "Gym, calisthenics or both", "Reviews of your training videos 3 times a week", "Close contact on WhatsApp", "Plan adjustments whenever needed", "General nutrition guidance"]
-  },
-  "preco.linguas":  { pt: "Acompanhamento em {linguas}", en: "Coaching in {linguas}" },
-  // Planos com desconto: os valores são calculados a partir de config.js (preco e duracoes).
-  "preco.planos":   { pt: "Planos com desconto: {lista}.", en: "Discounted plans: {lista}." },
-  "lista.e":        { pt: " e ", en: " and " },
-  "preco.plano":    { pt: "{rotulo}: {total} no total ({d}% de desconto)", en: "{rotulo}: {total} in total ({d}% off)" },
-  "preco.nota": {
-    pt: "Pagamento mensal, sem fidelização. O primeiro mês só começa a contar quando receberes o plano. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado.",
-    en: "Paid monthly, no lock-in. Your first month only starts counting once you receive your plan. On any plan you have 14 days to cancel, paying only for the time already used."
-  },
-
   /* ---------- Feedbacks e FAQ ---------- */
   "feedbacks.titulo": { pt: "Feedbacks", en: "Feedback" },
   "faq.titulo": { pt: "Perguntas frequentes", en: "FAQ" },
@@ -147,29 +129,29 @@ window.TEXTOS = {
       { p: "Preciso de equipamento? Posso treinar em casa?", r: "Não precisas de ginásio. O plano é feito com o que tens: ginásio completo, uma barra de elevações, paralelas, elásticos ou só o peso do corpo, em casa ou num parque. Para algumas skills de calistenia, uma barra ajuda bastante — se for o caso, digo-te o mínimo necessário." },
       { p: "Quanto tempo preciso por semana?", r: "Depende do objetivo, mas normalmente entre 3 e 5 sessões de 45 a 75 minutos. Mais importante do que treinar muito é treinar com consistência — o plano é ajustado à tua disponibilidade real." },
       { p: "Como envio os vídeos?", r: "Por WhatsApp, em privado. No início mandas-me vídeos dos movimentos que eu te pedir, para analisar o teu ponto de partida e definirmos os primeiros objetivos. Depois, durante o acompanhamento, filmas partes dos teus treinos e eu reviso-os 3 vezes por semana. Os vídeos servem apenas para análise e nunca são partilhados." },
-      { p: "Há desconto para mais meses?", r: "Sim: os planos de 3 e 6 meses têm desconto (os valores estão na secção do preço). A duração combinamos na conversa por WhatsApp." },
-      { p: "Em que língua é o acompanhamento?", r: "Em {linguas} — escolhes no formulário." },
-      { p: "Tenho menos de 18 anos. Posso candidatar-me?", r: "Sim, desde que tenhas autorização dos teus pais ou do encarregado de educação. O formulário pede-te essa confirmação." },
-      { p: "Posso cancelar?", r: "Sim. O pagamento é mensal e não há fidelização: se quiseres parar, basta avisar antes do mês seguinte. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado." },
+      { p: "Quanto custa?", r: "Depende do que precisas. Falamos do valor no fim da chamada." },
+      { p: "Em que língua é o acompanhamento?", r: "Em {linguas}. Diz-me na chamada qual preferes." },
+      { p: "Tenho menos de 18 anos. Posso marcar a chamada?", r: "Sim, desde que tenhas autorização dos teus pais ou do encarregado de educação, e a chamada é feita com um deles. O formulário pede-te essa confirmação." },
+      { p: "Posso cancelar?", r: "Sim. Pagas à cabeça o período que escolheres e no fim renovas só se quiseres. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado." },
       { p: "Há resultados garantidos?", r: "Não prometo resultados garantidos — dependem da tua consistência, do sono, da alimentação e do teu ponto de partida. O que garanto é um plano estruturado, acompanhamento próximo e ajustes sempre que necessário." }
     ],
     en: [
       { p: "Do I need equipment? Can I train at home?", r: "You don't need a gym. The plan is built around what you have: a full gym, a pull-up bar, dip bars, resistance bands or just your bodyweight, at home or in a park. For some calisthenics skills a bar helps a lot — if that's the case, I'll tell you the minimum you need." },
       { p: "How much time do I need each week?", r: "It depends on your goal, but usually 3 to 5 sessions of 45 to 75 minutes. Training consistently matters more than training a lot — the plan fits the time you really have." },
       { p: "How do I send the videos?", r: "Privately, on WhatsApp. At the start you send me videos of the movements I ask for, so I can analyse your starting point and we can set your first goals. Then, during the coaching, you film parts of your sessions and I review them 3 times a week. Videos are only used for analysis and are never shared." },
-      { p: "Is there a discount for longer plans?", r: "Yes: 3- and 6-month plans are discounted (you'll find the prices in the pricing section). We agree on the duration in our WhatsApp chat." },
-      { p: "What language is the coaching in?", r: "{linguas} — you choose in the form." },
-      { p: "I'm under 18. Can I apply?", r: "Yes, as long as you have permission from your parents or legal guardian. The form asks you to confirm this." },
-      { p: "Can I cancel?", r: "Yes. You pay monthly and there's no lock-in: if you want to stop, just let me know before the next month. On any plan you have 14 days to cancel, paying only for the time already used." },
+      { p: "How much does it cost?", r: "It depends on what you need. We go through the price at the end of the call." },
+      { p: "What language is the coaching in?", r: "{linguas}. Tell me on the call which one you prefer." },
+      { p: "I'm under 18. Can I book the call?", r: "Yes, as long as you have permission from your parents or legal guardian, and one of them joins the call. The form asks you to confirm this." },
+      { p: "Can I cancel?", r: "Yes. You pay upfront for the period you choose, and at the end you only renew if you want to. On any plan you have 14 days to cancel, paying only for the time already used." },
       { p: "Are results guaranteed?", r: "I don't promise guaranteed results — they depend on your consistency, sleep, nutrition and starting point. What I do guarantee is a structured plan, close support and adjustments whenever they're needed." }
     ]
   },
 
   /* ---------- Candidatura: textos gerais ---------- */
-  "cand.titulo": { pt: "Candidatura", en: "Application" },
+  "cand.titulo": { pt: "Marcar chamada", en: "Book a call" },
   "cand.intro": {
-    pt: "Leva cerca de 2 minutos — o resto falamos no WhatsApp. Os campos com <span class=\"obrig\" aria-hidden=\"true\">*</span> são obrigatórios.",
-    en: "It takes about 2 minutes — we'll talk about the rest on WhatsApp. Fields marked <span class=\"obrig\" aria-hidden=\"true\">*</span> are required."
+    pt: "Leva cerca de 1 minuto. Depois combinamos o dia no WhatsApp. Os campos com <span class=\"obrig\" aria-hidden=\"true\">*</span> são obrigatórios.",
+    en: "It takes about 1 minute. Then we pick the day on WhatsApp. Fields marked <span class=\"obrig\" aria-hidden=\"true\">*</span> are required."
   },
   "cand.privacidade": {
     pt: "As tuas respostas não são enviadas para nenhum servidor nem guardadas neste site: no fim, abre-se o WhatsApp com a mensagem pronta para enviares.",
@@ -178,49 +160,29 @@ window.TEXTOS = {
 
   /* Secções */
   "sec.a": { pt: "Sobre ti", en: "About you" },
-  "sec.b": { pt: "Objetivo e treino", en: "Goal and training" },
+  "sec.b": { pt: "Skill e treino", en: "Skill and training" },
   "sec.c": { pt: "Saúde", en: "Health" },
 
   /* Perguntas — "q.*" é o texto no formulário; "m.*" é o nome curto usado na mensagem do WhatsApp.
-     O resto (altura e peso, profissão, tempo para treinar, motivação, duração, quando começar…) pergunta-se no WhatsApp. */
+     Formulário curto do método do Anton (dono, 21/11, docs/plano-modelo-anton.md §7.3); o resto fala-se na chamada. */
   "q.nome":        { pt: "Nome", en: "Name" },
   "m.nome":        { pt: "Nome", en: "Name" },
-  "q.instagram":   { pt: "Instagram", en: "Instagram" },
-  "p.instagram":   { pt: "@utilizador", en: "@username" },
-  "m.instagram":   { pt: "Instagram", en: "Instagram" },
-  "q.telefone":    { pt: "WhatsApp", en: "WhatsApp" },
-  "m.telefone":    { pt: "WhatsApp", en: "WhatsApp" },
-  "a.telefone":    { pt: "É por aqui que entro em contacto contigo.", en: "This is how I'll get in touch with you." },
   "q.idade":       { pt: "Idade", en: "Age" },
   "m.idade":       { pt: "Idade", en: "Age" },
   "a.idade":       { pt: "Se tens menos de 18 anos, precisas da autorização dos teus pais ou do encarregado de educação.", en: "If you're under 18, you need permission from your parents or legal guardian." },
-  "q.autorizacao": { pt: "Tenho autorização dos meus pais/encarregado de educação para me candidatar.", en: "I have permission from my parents/legal guardian to apply." },
+  "q.autorizacao": { pt: "Tenho autorização dos meus pais/encarregado de educação para marcar esta chamada.", en: "I have permission from my parents/legal guardian to book this call." },
   "m.autorizacao": { pt: "Autorização dos pais/encarregado de educação", en: "Parent/guardian permission" },
-  "q.lingua":      { pt: "Em que língua preferes o acompanhamento?", en: "Which language would you prefer for the coaching?" },
-  "m.lingua":      { pt: "Língua do acompanhamento", en: "Coaching language" },
-  "q.objetivo":    { pt: "Qual é o teu objetivo principal?", en: "What's your main goal?" },
-  "m.objetivo":    { pt: "Objetivo principal", en: "Main goal" },
-  "q.outro":       { pt: "Qual?", en: "Which one?" },
-  "q.trava":       { pt: "O que achas que te trava mais?", en: "What do you think holds you back the most?" },
-  "m.trava":       { pt: "O que trava mais", en: "What holds them back most" },
-  "q.travaFrase":  { pt: "Explica numa frase", en: "Explain in one sentence" },
-  "m.travaFrase":  { pt: "Explica numa frase", en: "Explain in one sentence" },
+  "q.profissao":   { pt: "Profissão", en: "Occupation" },
+  "m.profissao":   { pt: "Profissão", en: "Occupation" },
+  "q.local":       { pt: "De onde és?", en: "Where are you from?" },
+  "m.local":       { pt: "De onde é", en: "From" },
   "q.obstaculo":   { pt: "Que skill queres conseguir, e onde estás nela agora?", en: "Which skill do you want to get, and where are you with it now?" },
   "m.obstaculo":   { pt: "Skill e nível atual", en: "Skill and current level" },
   "p.obstaculo":   { pt: "Ex.: quero o primeiro muscle-up; faço 8 elevações", en: "E.g. I want my first muscle-up; I can do 8 pull-ups" },
-  "q.nivel":       { pt: "Qual é o teu nível atual?", en: "What's your current level?" },
-  "m.nivel":       { pt: "Nível atual", en: "Current level" },
-  "q.equipamento": { pt: "Onde treinas e que equipamento tens?", en: "Where do you train and what equipment do you have?" },
-  "m.equipamento": { pt: "Onde treina e equipamento", en: "Training location and equipment" },
-  "q.jaTentaste":  { pt: "O que já tentaste até hoje?", en: "What have you tried so far?" },
-  "m.jaTentaste":  { pt: "O que já tentou", en: "What they've tried" },
-  "a.jaTentaste":  { pt: "Podes escolher várias.", en: "You can choose more than one." },
   "q.seguir":      { pt: "Há quanto tempo vês os meus vídeos?", en: "How long have you been watching my videos?" },
   "m.seguir":      { pt: "Há quanto tempo vê os vídeos", en: "How long they've watched the videos" },
-  "q.investimento": { pt: "O acompanhamento custa {preco}. Faz sentido para ti agora?", en: "Coaching is {preco}. Does that make sense for you right now?" },
-  "m.investimento": { pt: "{preco} faz sentido agora", en: "{preco} makes sense now" },
-  "a.investimento": { pt: "Candidatar-te não te obriga a nada.", en: "Applying doesn't commit you to anything." },
-  "p.equipamento": { pt: "Ex.: ginásio; em casa, barra e elásticos", en: "E.g. gym; at home, pull-up bar and bands" },
+  "q.agora":       { pt: "O que te fez escrever agora?", en: "What made you get in touch now?" },
+  "m.agora":       { pt: "O que o fez escrever agora", en: "What made them get in touch now" },
   "q.limitacoes":  { pt: "Tens lesões, dores ou alguma limitação física?", en: "Do you have any injuries, pain or physical limitations?" },
   "m.limitacoes":  { pt: "Lesões, dores ou limitações", en: "Injuries, pain or limitations" },
   "p.limitacoes":  { pt: "Se não tiveres, escreve “Nenhuma”.", en: "If you don't have any, write “None”." },
@@ -233,45 +195,22 @@ window.TEXTOS = {
     en: "I consent to the processing of the data I provide, solely to assess this application and to contact me about the coaching."
   },
 
-  /* Opções de resposta (a última opção de "op.objetivo" é sempre o "Outro", que pede "Qual?") */
-  "op.objetivo": {
-    pt: ["Físico / estética", "Ganhar massa muscular", "Perder gordura", "Força", "Planche", "Front lever", "Handstand", "Muscle-up", "Outro"],
-    en: ["Physique / aesthetics", "Build muscle", "Lose fat", "Strength", "Planche", "Front lever", "Handstand", "Muscle-up", "Other"]
-  },
-  "op.trava": {
-    pt: ["Falta de um programa", "Técnica", "Outra coisa"],
-    en: ["Not having a program", "Technique", "Something else"]
-  },
-  "op.jaTentaste": {
-    pt: ["Treino sozinho", "Programas ou apps", "Ebooks", "Outro coach", "Ainda nada"],
-    en: ["Training on my own", "Programs or apps", "Ebooks", "Another coach", "Nothing yet"]
-  },
+  /* Opções de resposta */
   "op.seguir": {
     pt: ["Menos de 1 mês", "1–6 meses", "Mais de 6 meses"],
     en: ["Less than 1 month", "1–6 months", "More than 6 months"]
   },
-  "op.investimento": {
-    pt: ["Sim", "Sim, mas quero falar sobre isso", "Ainda não"],
-    en: ["Yes", "Yes, but I'd like to talk about it", "Not yet"]
-  },
-  "op.nivel": {
-    pt: ["Nunca treinei", "Iniciante (até 6 meses)", "Intermédio (6 meses a 2 anos)", "Avançado (mais de 2 anos)"],
-    en: ["I've never trained", "Beginner (up to 6 months)", "Intermediate (6 months to 2 years)", "Advanced (more than 2 years)"]
-  },
-  /* Duração (planos com desconto na secção do preço; valores em config.js → duracoes) */
-  "dur.mes":      { pt: "1 mês", en: "1 month" },
-  "dur.meses":    { pt: "{n} meses", en: "{n} months" },
 
   /* Envio e confirmação */
-  "form.enviar": { pt: "Enviar candidatura pelo WhatsApp", en: "Send application via WhatsApp" },
+  "form.enviar": { pt: "Marcar chamada pelo WhatsApp", en: "Book the call via WhatsApp" },
   "form.nota": {
-    pt: "Ao enviar, abre-se o WhatsApp numa nova aba com as tuas respostas — só tens de carregar em enviar. Depois, analiso a tua candidatura e entro em contacto contigo por WhatsApp em 24–48 horas.",
-    en: "When you submit, WhatsApp opens in a new tab with your answers — just hit send. I'll then review your application and get back to you on WhatsApp within 24–48 hours."
+    pt: "Ao enviar, abre-se o WhatsApp numa nova aba com as tuas respostas. Só tens de carregar em enviar. Depois respondo-te por WhatsApp em 24 a 48 horas para combinarmos o dia da chamada.",
+    en: "When you submit, WhatsApp opens in a new tab with your answers. Just hit send. I'll then reply on WhatsApp within 24 to 48 hours so we can pick the day of the call."
   },
-  "conf.titulo": { pt: "Recebi a tua candidatura!", en: "I've got your application!" },
+  "conf.titulo": { pt: "Recebi o teu pedido!", en: "I've got your request!" },
   "conf.texto": {
-    pt: "Vou analisá-la e entro em contacto contigo por WhatsApp nas próximas 24–48 horas.",
-    en: "I'll review it and get back to you on WhatsApp within the next 24–48 hours."
+    pt: "Vou ler as tuas respostas e respondo-te por WhatsApp nas próximas 24 a 48 horas para combinarmos o dia da chamada.",
+    en: "I'll read your answers and reply on WhatsApp within the next 24 to 48 hours so we can pick the day of the call."
   },
   "conf.nota": {
     pt: "Se o WhatsApp não abriu, <a id=\"link-whatsapp\" href=\"#\" target=\"_blank\" rel=\"noopener\">carrega aqui para abrir a mensagem</a> e não te esqueças de a enviar.",
@@ -279,8 +218,8 @@ window.TEXTOS = {
   },
   "aviso.titulo": { pt: "Ainda não é possível enviar pelo WhatsApp", en: "Sending via WhatsApp isn't available yet" },
   "aviso.texto": {
-    pt: "O número de WhatsApp para candidaturas ainda não está configurado. Copia as tuas respostas e envia-as por mensagem direta no Instagram para {instagram}.",
-    en: "The WhatsApp number for applications hasn't been set up yet. Copy your answers and send them as a direct message on Instagram to {instagram}."
+    pt: "O número de WhatsApp para marcações ainda não está configurado. Copia as tuas respostas e envia-as por mensagem direta no Instagram para {instagram}.",
+    en: "The WhatsApp number for bookings hasn't been set up yet. Copy your answers and send them as a direct message on Instagram to {instagram}."
   },
   "aviso.copiar":   { pt: "Copiar respostas", en: "Copy answers" },
   "aviso.rotulo":   { pt: "As tuas respostas", en: "Your answers" },
@@ -291,10 +230,8 @@ window.TEXTOS = {
   "err.obrigatorio":   { pt: "Este campo é obrigatório.", en: "This field is required." },
   "err.opcao":         { pt: "Escolhe pelo menos uma opção.", en: "Please choose at least one option." },
   "err.idade":         { pt: "Introduz uma idade entre 14 e 99.", en: "Please enter an age between 14 and 99." },
-  "err.telefone":      { pt: "Introduz um número de WhatsApp válido (com indicativo, se não for português).", en: "Please enter a valid WhatsApp number, including the country code." },
-  "err.outro":         { pt: "Escreve qual é o outro objetivo no campo “Qual?”.", en: "Please type your other goal in the “Which one?” field." },
   "err.autorizacao":   { pt: "Para continuar, precisas da autorização dos teus pais ou do encarregado de educação.", en: "To continue, you need permission from your parents or legal guardian." },
-  "err.consentimento": { pt: "Tens de dar o teu consentimento para enviar a candidatura.", en: "You need to give your consent to send the application." },
+  "err.consentimento": { pt: "Tens de dar o teu consentimento para marcar a chamada.", en: "You need to give your consent to book the call." },
   "err.resumo1":       { pt: "Falta corrigir 1 campo.", en: "1 field needs your attention." },
   "err.resumoN":       { pt: "Falta corrigir {n} campos.", en: "{n} fields need your attention." },
   "err.resumoFim":     { pt: "Revê os campos assinalados a vermelho.", en: "Please check the fields marked in red." },
@@ -364,10 +301,12 @@ window.TEXTOS = {
   },
 
   /* Mensagem do WhatsApp (gerada na língua em que o site está) */
-  "msg.titulo":        { pt: "Candidatura — {marca}", en: "Application — {marca}" },
+  "msg.titulo":        { pt: "Marcar chamada, {marca}", en: "Book a call, {marca}" },
   "msg.consentimento": { pt: "Consentimento para tratamento dos dados (avaliação da candidatura): Sim", en: "Consent to data processing (application review): Yes" },
   "msg.sim":           { pt: "Sim", en: "Yes" },
   "msg.origem":        { pt: "Origem", en: "Source" },
+  // Última linha da mensagem (dono, 21/11, §7.3).
+  "msg.fim":           { pt: "Quero marcar a chamada. Que dias tens?", en: "I'd like to book the call. Which days work for you?" },
 
   /* Botão fixo do WhatsApp (só no telemóvel) */
   "wa.aria":     { pt: "Falar comigo no WhatsApp", en: "Chat with me on WhatsApp" },

@@ -44,17 +44,7 @@
   function textos() { return window.TEXTOS || {}; }
   function cada(sel, fn) { document.querySelectorAll(sel).forEach(fn); }
 
-  /* ---------- Formatação ---------- */
-  function fmtNumero(v) {
-    var n = Math.round(v * 100) / 100;
-    var s = n % 1 === 0 ? String(n) : n.toFixed(2);
-    return L === "pt" ? s.replace(".", ",") : s;
-  }
-  function fmtValor(v) {
-    var moeda = cfg().moeda || "€";
-    return L === "en" ? moeda + fmtNumero(v) : fmtNumero(v) + " " + moeda;
-  }
-  function precoBase() { var p = cfg().preco; return p != null ? +p : 150; }
+  /* ---------- Línguas do acompanhamento (sem preço no site: dono, 21/11) ---------- */
   function linguasAtendimento() {
     var l = Array.isArray(cfg().linguas) ? cfg().linguas : ["pt"];
     return l.filter(function (x) { return LINGUAS_SITE.indexOf(x) !== -1; });
@@ -81,13 +71,12 @@
     var v = bruto(chave);
     return typeof v === "string" ? subst(v, vars) : v;
   }
-  // Substitui os marcadores {preco}, {marca}, {instagram}, {linguas} (e outros passados em vars).
+  // Substitui os marcadores {marca}, {instagram}, {linguas} (e outros passados em vars).
   function subst(v, vars) {
     var c = cfg();
     var ig = (c.instagram || "").replace(/^@/, "");
     var base = {
       marca: escapar(c.marca || ""),
-      preco: t2("preco.mes", { valor: fmtValor(precoBase()) }),
       instagram: '<a href="https://instagram.com/' + encodeURIComponent(ig) + '" target="_blank" rel="noopener">@' + escapar(ig) + "</a>"
     };
     return v.replace(/\{(\w+)\}/g, function (m, k) {
@@ -95,10 +84,6 @@
       if (k === "linguas") return nomesLinguas(L === "pt");
       return base[k] != null ? base[k] : m;
     });
-  }
-  // Versão simples (sem marcadores base), para evitar recursão no {preco}.
-  function t2(chave, vars) {
-    return String(bruto(chave)).replace(/\{(\w+)\}/g, function (m, k) { return vars[k] != null ? vars[k] : m; });
   }
   function textoSimples(html) {
     var d = document.createElement("div");
@@ -113,8 +98,6 @@
     var ig = (c.instagram || "").replace(/^@/, "");
     if (c.marca) cada('[data-config="marca"]', function (el) { el.textContent = c.marca; });
     if (c.nome) cada('[data-config="nome"]', function (el) { el.textContent = c.nome; });
-    cada('[data-config="preco"]', function (el) { el.textContent = fmtNumero(precoBase()); });
-    cada('[data-config="moeda"]', function (el) { el.textContent = c.moeda || "€"; });
     if (ig) {
       cada('[data-config="instagram-link"]', function (el) {
         el.href = "https://instagram.com/" + encodeURIComponent(ig);
@@ -161,14 +144,6 @@
   }
 
   /* ---------- Opções de resposta ---------- */
-  // Planos com desconto (config.js → duracoes), com o total calculado a partir do preço.
-  function itensPlanos() {
-    var ds = Array.isArray(cfg().duracoes) ? cfg().duracoes : [];
-    return ds.filter(function (d) { return d && +d.meses > 1 && !d.maisDe && +d.desconto > 0; }).map(function (d) {
-      var total = precoBase() * d.meses * (1 - d.desconto / 100);
-      return t("preco.plano", { rotulo: t("dur.meses", { n: d.meses }), total: fmtValor(total), d: d.desconto });
-    });
-  }
   function itensOpcoes(chave) {
     if (chave === "lingua") return linguasAtendimento().map(function (c) { return { rotulo: t("lingua." + c), codigo: c }; });
     return lista(chave).map(function (r) { return { rotulo: r }; });
@@ -234,12 +209,6 @@
         ul.appendChild(li);
       });
     });
-    var planos = document.getElementById("preco-planos");
-    if (planos) {
-      var itens = itensPlanos();
-      planos.textContent = itens.length ? textoSimples(t("preco.planos", { lista: (itens.length > 1 ? itens.slice(0, -1).join("; ") + t("lista.e") + itens[itens.length - 1] : itens.join("")) })) : "";
-      planos.hidden = !itens.length;
-    }
     cada("[data-i18n-passos]", function (ol) {
       ol.innerHTML = "";
       lista(ol.getAttribute("data-i18n-passos")).forEach(function (p) {
@@ -287,8 +256,6 @@
     cada("[data-lingua]", function (b) {
       if (b.getAttribute("data-lingua") === L) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
     });
-    var pv = document.getElementById("preco-valor");
-    if (pv) pv.classList.toggle("preco__valor--moeda-antes", L === "en");
 
     // "Qual?" visível se "Outro" estiver escolhido; erros antigos ficam noutra língua, por isso limpam-se.
     cada(".campo[data-outro]", atualizarOutro);
@@ -415,6 +382,7 @@
     });
     linhas.push(textoSimples(t("msg.consentimento")));
     if (ORIGEM) linhas.push(linhaOrigem());
+    linhas.push("", textoSimples(t("msg.fim")));
     return linhas.join("\n");
   }
 
@@ -547,8 +515,8 @@
     var b = document.getElementById("wa-fixo");
     if (!b) return;
     if (!urlWhatsappFixo() || !("IntersectionObserver" in window)) { b.hidden = true; return; }
-    // Esconde-se enquanto se vê o topo da página, o teste de nível, um botão "Candidata-te" grande, o formulário ou o rodapé.
-    var alvos = document.querySelectorAll(".hero, #teste, #preco .botao, #candidatura, .rodape");
+    // Esconde-se enquanto se vê o topo da página, o teste de nível, um botão "Marcar chamada" grande, o formulário ou o rodapé.
+    var alvos = document.querySelectorAll(".hero, #teste, .seccao__cta, #candidatura, .rodape");
     var visiveis = new Set();
     var obs = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (e) { if (e.isIntersecting) visiveis.add(e.target); else visiveis.delete(e.target); });
