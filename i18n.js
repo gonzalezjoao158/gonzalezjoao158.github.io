@@ -16,14 +16,14 @@ window.TEXTOS = {
   "meta.titulo":    { pt: "Coach de calistenia online em Portugal | {marca}", en: "Online calisthenics coach | {marca}" },
   // Descrição para o Google (até ~155 caracteres): frase de oferta da bio, sem preço (dono, 21/11).
   "meta.descricao": {
-    pt: "Ajudo quem vem do ginásio a desbloquear a planche e o handstand sem saltar de ebook em ebook. Coaching online de calistenia e ginásio. Marca uma chamada.",
-    en: "I help gym-goers unlock the planche and handstand without jumping from ebook to ebook. Online calisthenics and gym coaching. Book a call."
+    pt: "Ajudo quem treina há anos e não sai do sítio a desbloquear a planche, o front lever e o handstand sem overthinking. Coaching online de calistenia. Marca uma chamada.",
+    en: "I help people who've trained for years and still feel stuck unlock the planche, front lever and handstand without overthinking. Online coaching. Book a call."
   },
   // Pré-visualização quando o link é partilhado (WhatsApp, Instagram…).
   "meta.og.titulo": { pt: "{marca}, coaching online de calistenia e ginásio", en: "{marca}, online calisthenics and gym coaching" },
   "meta.og.descricao": {
-    pt: "Ajudo quem vem do ginásio a desbloquear a planche e o handstand sem saltar de ebook em ebook. Marca uma chamada.",
-    en: "I help gym-goers unlock the planche and handstand without jumping from ebook to ebook. Book a call."
+    pt: "Ajudo quem treina há anos e não sai do sítio a desbloquear a planche, o front lever e o handstand sem overthinking. Marca uma chamada.",
+    en: "I help people who've trained for years and still feel stuck unlock the planche, front lever and handstand without overthinking. Book a call."
   },
   "saltar":         { pt: "Saltar para a marcação da chamada", en: "Skip to booking a call" },
   // Botão principal (dono, 21/11, método do Anton): marcar a chamada, sem preço no site.
@@ -41,8 +41,8 @@ window.TEXTOS = {
   },
   // Frase de oferta da bio (dono, 21/11, docs/plano-modelo-anton.md §7.4).
   "hero.titulo": {
-    pt: "Ajudo quem vem do ginásio a desbloquear a planche e o handstand sem saltar de ebook em ebook.",
-    en: "I help gym-goers unlock the planche and handstand without jumping from ebook to ebook."
+    pt: "Ajudo quem treina há anos e não sai do sítio a desbloquear a planche, o front lever e o handstand sem overthinking.",
+    en: "I help people who've trained for years and still feel stuck unlock the planche, front lever and handstand without overthinking."
   },
   "hero.texto": {
     pt: "Reviso os teus vídeos 3 vezes por semana e ajusto o plano ao teu nível, ao teu objetivo e ao tempo que tens. Contacto direto por WhatsApp.",
@@ -110,10 +110,10 @@ window.TEXTOS = {
   /* ---------- Sobre mim ---------- */
   "sobre.titulo": { pt: "Sobre mim", en: "About me" },
   // A história do João em 4 frases (dono, 21/11, método do Anton). Só factos de docs/historia-joao.md:
-  // sem o número de ebooks, sem o nome do atleta, nunca "ensina há 6 anos".
+  // sem o número de ebooks, sem o nome do atleta, nunca "ensina há 6 anos"; cerca de 2 anos sem skill e cerca de 10 coaches (21/11).
   "sobre.texto": {
-    pt: "Vim do ginásio e fiz 1 ano de dips e elevações com peso. Mesmo assim, passei 6 meses sem uma única skill, a perguntar-me se era capaz, a comprar ebooks atrás de ebooks e a trocar de método. Tudo mudou quando fiz coaching com um atleta que admiro: combos, visualização e parar de pensar para passar a fazer. Hoje faço full planche, full front lever e handstand livre, e é esse método que ensino.",
-    en: "I came from the gym and did 1 year of weighted dips and pull-ups. Even so, I spent 6 months without a single skill, wondering if I was capable, buying ebook after ebook and switching methods. Everything changed when I was coached by an athlete I admire: combos, visualisation and to stop overthinking and start doing. Today I do the full planche, full front lever and freestanding handstand, and that's the method I teach."
+    pt: "Vim do ginásio e fiz 1 ano de dips e elevações com peso. Mesmo assim, passei cerca de 2 anos sem uma única skill, a saltar de coach em coach (foram cerca de 10), a comprar ebooks atrás de ebooks e a perguntar-me se era capaz. Tudo mudou quando fiz coaching com um atleta que admiro: combos, visualização e parar de pensar para passar a fazer. Hoje faço full planche, full front lever e handstand livre, e é esse método que ensino.",
+    en: "I came from the gym and did 1 year of weighted dips and pull-ups. Even so, I spent about 2 years without a single skill, jumping from coach to coach (around 10 of them), buying ebook after ebook and wondering if I was capable. Everything changed when I was coached by an athlete I admire: combos, visualisation and to stop overthinking and start doing. Today I do the full planche, full front lever and freestanding handstand, and that's the method I teach."
   },
 
   /* ---------- Feedbacks e FAQ ---------- */
@@ -121,24 +121,24 @@ window.TEXTOS = {
   "faq.titulo": { pt: "Perguntas frequentes", en: "FAQ" },
   "faq.itens": {
     pt: [
-      { p: "Preciso de equipamento? Posso treinar em casa?", r: "Não precisas de ginásio. O plano é feito com o que tens: ginásio completo, uma barra de elevações, paralelas, elásticos ou só o peso do corpo, em casa ou num parque. Para algumas skills de calistenia, uma barra ajuda bastante — se for o caso, digo-te o mínimo necessário." },
-      { p: "Quanto tempo preciso por semana?", r: "Depende do objetivo, mas normalmente entre 3 e 5 sessões de 45 a 75 minutos. Mais importante do que treinar muito é treinar com consistência — o plano é ajustado à tua disponibilidade real." },
+      { p: "Preciso de equipamento? Posso treinar em casa?", r: "Não precisas de ginásio. O plano é feito com o que tens: ginásio completo, uma barra de elevações, paralelas, elásticos ou só o peso do corpo, em casa ou num parque. Para algumas skills de calistenia, uma barra ajuda bastante. Se for o caso, digo-te o mínimo necessário." },
+      { p: "Quanto tempo preciso por semana?", r: "Depende do objetivo, mas normalmente entre 3 e 5 sessões de 45 a 75 minutos. Mais importante do que treinar muito é treinar com consistência. O plano é ajustado à tua disponibilidade real." },
       { p: "Como envio os vídeos?", r: "Por WhatsApp, em privado. No início mandas-me vídeos dos movimentos que eu te pedir, para analisar o teu ponto de partida e definirmos os primeiros objetivos. Depois, durante o acompanhamento, filmas partes dos teus treinos e eu reviso-os 3 vezes por semana. Os vídeos servem apenas para análise e nunca são partilhados." },
       { p: "Quanto custa?", r: "Depende do que precisas. Falamos do valor no fim da chamada." },
       { p: "Em que língua é o acompanhamento?", r: "Em {linguas}. Diz-me na chamada qual preferes." },
       { p: "Tenho menos de 18 anos. Posso marcar a chamada?", r: "Sim, desde que tenhas autorização dos teus pais ou do encarregado de educação, e a chamada é feita com um deles. O formulário pede-te essa confirmação." },
       { p: "Posso cancelar?", r: "Sim. Pagas à cabeça o período que escolheres e no fim renovas só se quiseres. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado." },
-      { p: "Há resultados garantidos?", r: "Não prometo resultados garantidos — dependem da tua consistência, do sono, da alimentação e do teu ponto de partida. O que garanto é um plano estruturado, acompanhamento próximo e ajustes sempre que necessário." }
+      { p: "Há resultados garantidos?", r: "Não prometo resultados garantidos: dependem da tua consistência, do sono, da alimentação e do teu ponto de partida. O que garanto é um plano estruturado, acompanhamento próximo e ajustes sempre que necessário." }
     ],
     en: [
-      { p: "Do I need equipment? Can I train at home?", r: "You don't need a gym. The plan is built around what you have: a full gym, a pull-up bar, dip bars, resistance bands or just your bodyweight, at home or in a park. For some calisthenics skills a bar helps a lot — if that's the case, I'll tell you the minimum you need." },
-      { p: "How much time do I need each week?", r: "It depends on your goal, but usually 3 to 5 sessions of 45 to 75 minutes. Training consistently matters more than training a lot — the plan fits the time you really have." },
+      { p: "Do I need equipment? Can I train at home?", r: "You don't need a gym. The plan is built around what you have: a full gym, a pull-up bar, dip bars, resistance bands or just your bodyweight, at home or in a park. For some calisthenics skills a bar helps a lot. If that's the case, I'll tell you the minimum you need." },
+      { p: "How much time do I need each week?", r: "It depends on your goal, but usually 3 to 5 sessions of 45 to 75 minutes. Training consistently matters more than training a lot. The plan fits the time you really have." },
       { p: "How do I send the videos?", r: "Privately, on WhatsApp. At the start you send me videos of the movements I ask for, so I can analyse your starting point and we can set your first goals. Then, during the coaching, you film parts of your sessions and I review them 3 times a week. Videos are only used for analysis and are never shared." },
       { p: "How much does it cost?", r: "It depends on what you need. We go through the price at the end of the call." },
       { p: "What language is the coaching in?", r: "{linguas}. Tell me on the call which one you prefer." },
       { p: "I'm under 18. Can I book the call?", r: "Yes, as long as you have permission from your parents or legal guardian, and one of them joins the call. The form asks you to confirm this." },
       { p: "Can I cancel?", r: "Yes. You pay upfront for the period you choose, and at the end you only renew if you want to. On any plan you have 14 days to cancel, paying only for the time already used." },
-      { p: "Are results guaranteed?", r: "I don't promise guaranteed results — they depend on your consistency, sleep, nutrition and starting point. What I do guarantee is a structured plan, close support and adjustments whenever they're needed." }
+      { p: "Are results guaranteed?", r: "I don't promise guaranteed results: they depend on your consistency, sleep, nutrition and starting point. What I do guarantee is a structured plan, close support and adjustments whenever they're needed." }
     ]
   },
 
@@ -192,8 +192,8 @@ window.TEXTOS = {
 
   /* Opções de resposta */
   "op.seguir": {
-    pt: ["Menos de 1 mês", "1–6 meses", "Mais de 6 meses"],
-    en: ["Less than 1 month", "1–6 months", "More than 6 months"]
+    pt: ["Menos de 1 mês", "Alguns meses", "Mais de meio ano"],
+    en: ["Less than 1 month", "A few months", "More than half a year"]
   },
 
   /* Envio e confirmação */
@@ -219,7 +219,7 @@ window.TEXTOS = {
   "aviso.copiar":   { pt: "Copiar respostas", en: "Copy answers" },
   "aviso.rotulo":   { pt: "As tuas respostas", en: "Your answers" },
   "copiar.ok":      { pt: "Respostas copiadas!", en: "Answers copied!" },
-  "copiar.erro":    { pt: "Não foi possível copiar automaticamente — seleciona o texto abaixo e copia-o.", en: "Couldn't copy automatically — select the text below and copy it." },
+  "copiar.erro":    { pt: "Não foi possível copiar automaticamente. Seleciona o texto abaixo e copia-o.", en: "Couldn't copy automatically. Select the text below and copy it." },
 
   /* Erros de validação */
   "err.obrigatorio":   { pt: "Este campo é obrigatório.", en: "This field is required." },
