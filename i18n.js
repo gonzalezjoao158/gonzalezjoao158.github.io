@@ -16,14 +16,14 @@ window.TEXTOS = {
   "meta.titulo":    { pt: "Coach de calistenia online em Portugal | {marca}", en: "Online calisthenics coach | {marca}" },
   // Descrição para o Google (até ~155 caracteres): frase de oferta da bio, sem preço (dono, 21/11).
   "meta.descricao": {
-    pt: "Ajudo quem treina há anos e não sai do sítio a desbloquear a planche, o front lever e o handstand sem overthinking. Coaching online de calistenia. Marca uma chamada.",
-    en: "I help people who've trained for years and still feel stuck unlock the planche, front lever and handstand without overthinking. Online coaching. Book a call."
+    pt: "Ajudo quem treina há anos a sair do plateau: planche, front lever e handstand. Coaching online de calistenia. Marca uma chamada.",
+    en: "I help people who've trained for years break through the plateau: planche, front lever and handstand. Online coaching. Book a call."
   },
   // Pré-visualização quando o link é partilhado (WhatsApp, Instagram…).
   "meta.og.titulo": { pt: "{marca}, coaching online de calistenia e ginásio", en: "{marca}, online calisthenics and gym coaching" },
   "meta.og.descricao": {
-    pt: "Ajudo quem treina há anos e não sai do sítio a desbloquear a planche, o front lever e o handstand sem overthinking. Marca uma chamada.",
-    en: "I help people who've trained for years and still feel stuck unlock the planche, front lever and handstand without overthinking. Book a call."
+    pt: "Ajudo quem treina há anos a sair do plateau: planche, front lever e handstand. Marca uma chamada.",
+    en: "I help people who've trained for years break through the plateau: planche, front lever and handstand. Book a call."
   },
   "saltar":         { pt: "Saltar para a marcação da chamada", en: "Skip to booking a call" },
   // Botão principal (dono, 21/11, método do Anton): marcar a chamada, sem preço no site.
@@ -41,8 +41,8 @@ window.TEXTOS = {
   },
   // Frase de oferta da bio (dono, 21/11, docs/plano-modelo-anton.md §7.4).
   "hero.titulo": {
-    pt: "Ajudo quem treina há anos e não sai do sítio a desbloquear a planche, o front lever e o handstand sem overthinking.",
-    en: "I help people who've trained for years and still feel stuck unlock the planche, front lever and handstand without overthinking."
+    pt: "Ajudo quem treina há anos a sair do plateau: planche, front lever e handstand.",
+    en: "I help people who've trained for years break through the plateau: planche, front lever and handstand."
   },
   "hero.texto": {
     pt: "Reviso os teus vídeos 3 vezes por semana e ajusto o plano ao teu nível, ao teu objetivo e ao tempo que tens. Contacto direto por WhatsApp.",
