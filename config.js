@@ -30,6 +30,11 @@ window.CONFIG = {
   // Língua do site: o endereço manda (/ = português, /en/ = inglês). Fica "pt" só como referência.
   linguaPorOmissao: "pt",
 
+  // Vídeo central do YouTube (dono 24/11, estrutura do site do Anton). Cola aqui o link do vídeo
+  // (ex.: "https://www.youtube.com/watch?v=XXXXXXXXXXX" ou "https://youtu.be/XXXXXXXXXXX").
+  // Enquanto estiver vazio, a secção do vídeo fica escondida.
+  videoCentral: "",
+
   // Testemunhos de clientes (APENAS com autorização escrita de cada cliente).
   // Enquanto a lista estiver vazia, a secção "Feedbacks" fica escondida.
   // Exemplo de item:

@@ -222,35 +222,6 @@
         ol.appendChild(li);
       });
     });
-    cada("[data-i18n-cartoes]", function (g) {
-      g.innerHTML = "";
-      lista(g.getAttribute("data-i18n-cartoes")).forEach(function (p, i) {
-        var a = document.createElement("article");
-        a.className = "cartao";
-        var h = document.createElement("h3");
-        h.textContent = p.titulo || "";
-        var tx = document.createElement("p");
-        tx.textContent = p.texto || "";
-        a.appendChild(h);
-        a.appendChild(tx);
-        g.appendChild(a);
-      });
-    });
-    cada("[data-i18n-faq]", function (f) {
-      var abertos = Array.prototype.map.call(f.querySelectorAll("details"), function (d) { return d.open; });
-      f.innerHTML = "";
-      lista(f.getAttribute("data-i18n-faq")).forEach(function (item, i) {
-        var d = document.createElement("details");
-        if (abertos[i]) d.open = true;
-        var s = document.createElement("summary");
-        s.textContent = item.p || "";
-        var r = document.createElement("p");
-        r.innerHTML = subst(item.r || "");
-        d.appendChild(s);
-        d.appendChild(r);
-        f.appendChild(d);
-      });
-    });
     cada(".opcoes[data-opcoes]", renderOpcoes);
     // PT/EN são ligações para a outra página; a língua atual fica marcada.
     cada("[data-lingua]", function (b) {
@@ -402,6 +373,65 @@
     }
   }
 
+  /* ---------- Botão principal: abre a DM do Instagram e copia "SKILL" (dono 24/11) ---------- */
+  var PALAVRA = "SKILL";
+  function copiarPalavra() {
+    function antigo() {
+      var ta = document.createElement("textarea");
+      ta.value = PALAVRA;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    }
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(PALAVRA).catch(antigo);
+        return true;
+      }
+    } catch (e) { /* segue para o método antigo */ }
+    return antigo();
+  }
+  var temporizadorAviso;
+  function iniciarSkill() {
+    var ig = (cfg().instagram || "").replace(/^@/, "");
+    var aviso = document.getElementById("skill-aviso");
+    cada("[data-skill]", function (a) {
+      if (ig) a.href = "https://ig.me/m/" + encodeURIComponent(ig);
+      a.addEventListener("click", function () {
+        // Não se cancela o clique: o Instagram abre na mesma; a palavra fica copiada para colar.
+        if (!copiarPalavra() || !aviso) return;
+        aviso.textContent = t("skill.copiado");
+        aviso.classList.add("skill-aviso--ativo");
+        clearTimeout(temporizadorAviso);
+        temporizadorAviso = setTimeout(function () { aviso.classList.remove("skill-aviso--ativo"); aviso.textContent = ""; }, 4000);
+      });
+    });
+  }
+
+  /* ---------- Vídeo central do YouTube (só com o link em config.js) ---------- */
+  function iniciarVideo() {
+    var url = String(cfg().videoCentral || "").trim();
+    var m = /(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/)([\w-]{11})/.exec(url);
+    var seccao = document.getElementById("video");
+    var alvo = document.getElementById("video-central");
+    if (!m || !seccao || !alvo) return;
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + m[1];
+    f.title = textoSimples(t("video.titulo"));
+    f.loading = "lazy";
+    f.allow = "accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+    f.setAttribute("allowfullscreen", "");
+    f.referrerPolicy = "strict-origin-when-cross-origin";
+    alvo.appendChild(f);
+    seccao.hidden = false;
+  }
+
   /* ---------- "Outro" e autorização parental ---------- */
   function atualizarOutro(campo) {
     var o = campo.querySelector("input[data-outro-opcao]");
@@ -500,5 +530,7 @@
 
   aplicarDados();
   aplicarLingua();
+  iniciarSkill();
+  iniciarVideo();
   iniciarFormulario();
 })();

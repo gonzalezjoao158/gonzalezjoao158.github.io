@@ -449,6 +449,33 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 }
 
 
+/* ---------- Estrutura de página única (dono 24/11): SKILL, vídeo, problema, não é para ti ---------- */
+.hero__ajuda { max-width: 38rem; margin: 0 0 .9rem; color: var(--texto-2); font-size: .95rem; }
+.hero__chamada { margin: 0; }
+.hero__chamada .botao { min-height: 44px; }
+.video { position: relative; aspect-ratio: 16 / 9; max-width: 56rem; margin-top: 1.25rem; border-radius: 12px; overflow: hidden; background: var(--cartao); }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.mitos { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 1.1rem; max-width: 42rem; }
+.mitos li { padding-top: 1.1rem; border-top: 1px solid var(--linha); }
+.mitos li:first-child { padding-top: 0; border-top: 0; }
+.mitos h3 { margin-bottom: .3em; }
+.mitos p { margin: 0; color: var(--texto-2); }
+.problema__chave { margin: 1.75rem 0 0; max-width: 34rem; font-weight: 900; font-size: clamp(1.2rem, 1.05rem + .8vw, 1.6rem); line-height: 1.3; }
+.naoepara__titulo { margin: 2rem 0 .5rem; }
+.naoepara { margin: 0; padding-left: 1.2rem; color: var(--texto-2); max-width: 42rem; }
+.naoepara li + li { margin-top: .3rem; }
+.cand__passo { font-weight: 700; }
+.cand__regras { color: var(--texto-2); font-size: .95rem; }
+.skill-aviso {
+  position: fixed; left: 50%; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 60;
+  transform: translateX(-50%); width: max-content; max-width: calc(100% - 2rem);
+  margin: 0; padding: .7rem 1rem; border-radius: 10px; background: var(--destaque); color: #0c0e11; font-weight: 700;
+  opacity: 0; visibility: hidden; transition: opacity .2s ease;
+}
+.skill-aviso--ativo { opacity: 1; visibility: visible; }
+@media (prefers-reduced-motion: reduce) { .skill-aviso { transition: none; } }
+
+
 /* ---------- Modo de alto contraste (Windows) ---------- */
 @media (forced-colors: active) {
   .botao, .linguas, .opcao span, .cartao, .passos li, .faq details, fieldset, .resultado { border: 2px solid CanvasText; }
@@ -494,7 +521,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid transparent; outl
 @media print {
   :root { color-scheme: light; }
   body { background: #fff; color: #000; font-size: 11pt; }
-  .topo, .saltar, .hero__acoes, #candidatura, .botao { display: none !important; }
+  .topo, .saltar, .hero__acoes, #candidatura, .botao, .skill-aviso, #video { display: none !important; }
   .hero, .seccao, .seccao--alt { background: none !important; padding: 16pt 0 !important; border: 0 !important; }
   .cartao, .passos li, .faq details { background: none !important; border: 1px solid #999 !important; box-shadow: none !important; color: #000; break-inside: avoid; }
   .destaque, .etiqueta, a { color: #000 !important; }

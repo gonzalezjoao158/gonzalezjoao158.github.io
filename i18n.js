@@ -16,18 +16,24 @@ window.TEXTOS = {
   "meta.titulo":    { pt: "Coach de calistenia online em Portugal | {marca}", en: "Online calisthenics coach | {marca}" },
   // Descrição para o Google (até ~155 caracteres): frase de oferta da bio, sem preço (dono, 21/11).
   "meta.descricao": {
-    pt: "Ajudo quem treina há anos a sair do plateau: planche, front lever e handstand. Coaching online de calistenia. Marca uma chamada.",
-    en: "I help people who've trained for years break through the plateau: planche, front lever and handstand. Online coaching. Book a call."
+    pt: "Ajudo quem treina há anos a sair do plateau: planche, front lever e handstand. Coaching online de calistenia. Manda SKILL no Instagram.",
+    en: "I help people who've trained for years break through the plateau: planche, front lever and handstand. Online coaching. DM SKILL on Instagram."
   },
   // Pré-visualização quando o link é partilhado (WhatsApp, Instagram…).
   "meta.og.titulo": { pt: "{marca}, coaching online de calistenia e ginásio", en: "{marca}, online calisthenics and gym coaching" },
   "meta.og.descricao": {
-    pt: "Ajudo quem treina há anos a sair do plateau: planche, front lever e handstand. Marca uma chamada.",
-    en: "I help people who've trained for years break through the plateau: planche, front lever and handstand. Book a call."
+    pt: "Ajudo quem treina há anos a sair do plateau: planche, front lever e handstand. Manda SKILL no Instagram.",
+    en: "I help people who've trained for years break through the plateau: planche, front lever and handstand. DM SKILL on Instagram."
   },
   "saltar":         { pt: "Saltar para a marcação da chamada", en: "Skip to booking a call" },
   // Botão principal (dono, 21/11, método do Anton): marcar a chamada, sem preço no site.
   "topo.cta":       { pt: "Marcar chamada", en: "Book a call" },
+  // Botão principal (dono 24/11, estrutura do site do Anton): abre a DM do Instagram e copia a palavra SKILL.
+  "skill.cta":      { pt: "Manda SKILL no Instagram", en: "DM SKILL on Instagram" },
+  "skill.curto":    { pt: "Manda SKILL", en: "DM SKILL" }, // versão curta para o topo (cabe numa linha no telemóvel)
+  "skill.copiado":  { pt: "SKILL copiado. Cola na mensagem e envia.", en: "SKILL copied. Paste it in the message and send." },
+  "skill.ajuda":    { pt: "Respondo-te por mensagem. Se fizer sentido para os dois, marcamos uma chamada.", en: "I'll reply by message. If we're a good fit, we book a call." },
+  "chamada.cta":    { pt: "Já falámos? Marca a chamada", en: "Already talked? Book the call" },
   "lingua.grupo":   { pt: "Língua do site", en: "Site language" },
   "e":              { pt: "e", en: "and" },
   "lingua.pt":      { pt: "Português", en: "Portuguese" },
@@ -44,106 +50,77 @@ window.TEXTOS = {
     pt: "Ajudo quem treina há anos a sair do plateau: planche, front lever e handstand.",
     en: "I help people who've trained for years break through the plateau: planche, front lever and handstand."
   },
-  "hero.texto": {
-    pt: "Reviso os teus vídeos 3 vezes por semana e ajusto o plano ao teu nível, ao teu objetivo e ao tempo que tens. Contacto direto por WhatsApp.",
-    en: "I review your videos 3 times a week and adjust the plan to your level, your goal and the time you have. Direct contact on WhatsApp."
-  },
-  // Provas logo abaixo do título (dono, 11/11): só factos confirmados.
   "hero.provas": {
     pt: "Full planche, full front lever e handstand livre. 6 anos a treinar pessoas num ginásio.",
     en: "Full planche, full front lever and freestanding handstand. 6 years coaching people in a gym."
   },
 
   /* ---------- Para quem é ---------- */
-  "paraquem.titulo": { pt: "Para quem é e o que inclui", en: "Who it's for and what's included" },
+  "paraquem.titulo": { pt: "Para quem é", en: "Who it's for" },
   "paraquem.intro": {
-    pt: "Para quem quer treinar com intenção (no ginásio, na barra ou nos dois) e está cansado de improvisar.",
-    en: "For people who want to train with purpose (in the gym, on the bar or both) and are tired of making it up as they go."
+    pt: "Para quem treina há anos e está parado (plateau) numa destas skills:",
+    en: "For people who have trained for years and are stuck (plateau) on one of these skills:"
   },
-  "paraquem.aria": { pt: "Objetivos", en: "Goals" },
+  "paraquem.aria": { pt: "Skills", en: "Skills" },
   "paraquem.chips": {
-    pt: ["Ganhar massa muscular", "Perder gordura", "Ganhar força", "Planche", "Front lever", "Muscle-up", "Handstand", "Primeiras elevações", "Sair da estagnação"],
-    en: ["Build muscle", "Lose fat", "Get stronger", "Planche", "Front lever", "Muscle-up", "Handstand", "Your first pull-ups", "Break through a plateau"]
+    pt: ["Planche", "Front lever", "Handstand"],
+    en: ["Planche", "Front lever", "Handstand"]
   },
   "paraquem.nota": {
-    pt: "Do iniciante a quem já treina há anos: o plano parte do teu ponto de partida real.",
-    en: "From beginners to people with years of training: the plan starts from where you really are."
+    pt: "Se já tentaste de tudo (programas, ebooks, coaches) e continuas no mesmo sítio, eu estive aí.",
+    en: "If you've already tried everything (programs, ebooks, coaches) and you're still in the same place, I've been there."
+  },
+  "naoepara.titulo": { pt: "Não é para ti se…", en: "It's not for you if…" },
+  "naoepara.lista": {
+    pt: ["Estás a começar agora.", "Queres resultados rápidos.", "Trocas de método todas as semanas e não queres parar."],
+    en: ["You're just starting out.", "You want quick results.", "You switch methods every week and don't want to stop."]
   },
 
-  /* ---------- Como funciona ---------- */
-  "como.titulo": { pt: "Como funciona", en: "How it works" },
-  "como.intro": {
-    pt: "Começa por uma chamada. Se fizer sentido para os dois, o acompanhamento segue estes passos:",
-    en: "It starts with a call. If we're a good fit, the coaching follows these steps:"
-  },
-  // Passos (pela ordem). Podes acrescentar ou remover passos — mantém o mesmo número em pt e en.
-  "como.passos": {
+  /* ---------- Vídeo central (só aparece com o link em config.js) ---------- */
+  "video.titulo": { pt: "Vê isto primeiro", en: "Watch this first" },
+
+  /* ---------- O problema: 3 mitos em 1.ª pessoa (só factos de docs/historia-joao.md) ---------- */
+  "problema.titulo": { pt: "O problema", en: "The problem" },
+  "problema.mitos": {
     pt: [
-      { titulo: "Chamada de 30 minutos", texto: "Falamos sobre onde estás, o que te tem travado e o que queres conseguir. No fim, se fizer sentido para os dois, explico como funciona o acompanhamento." },
-      { titulo: "Videochamada de arranque", texto: "Depois de entrares, fazemos uma videochamada para te avaliar ao vivo, ver os teus movimentos e corrigir a técnica." },
-      { titulo: "Plano personalizado", texto: "Em 1 a 2 dias úteis depois da videochamada recebes o teu plano de treino. O acompanhamento só começa a contar a partir desse momento." },
-      { titulo: "Revisão 3 vezes por semana", texto: "Envias vídeos dos teus treinos por WhatsApp e eu reviso-os 3 vezes por semana, com correções e ajustes ao plano." }
+      { titulo: "Achava que me faltava informação.", texto: "Comprava ebooks atrás de ebooks e procurava mais na internet. Afinal tinha era informação a mais." },
+      { titulo: "Achava que me faltava força.", texto: "Vim do ginásio e fiz 1 ano de dips e elevações com peso. Mesmo assim, passei cerca de 2 anos sem uma skill." },
+      { titulo: "Achava que o próximo método é que era.", texto: "Passei por cerca de 10 coaches à procura de um método secreto. Saltava de coach em coach." }
     ],
     en: [
-      { titulo: "30-minute call", texto: "We talk about where you are, what has been holding you back and what you want to achieve. At the end, if we're a good fit, I explain how the coaching works." },
-      { titulo: "Kick-off video call", texto: "Once you're in, we have a video call to assess you live, look at your movements and fix your technique." },
-      { titulo: "Personalised plan", texto: "You get your training plan within 1 to 2 working days after the video call. Your coaching only starts counting from that moment." },
-      { titulo: "Reviews 3 times a week", texto: "You send videos of your sessions on WhatsApp and I review them 3 times a week, with corrections and plan adjustments." }
+      { titulo: "I thought I was missing information.", texto: "I bought ebook after ebook and kept searching online. It turned out I had too much information." },
+      { titulo: "I thought I was missing strength.", texto: "I came from the gym and did 1 year of weighted dips and pull-ups. Even so, I spent about 2 years without a single skill." },
+      { titulo: "I thought the next method was the one.", texto: "I went through about 10 coaches looking for a secret method. I jumped from coach to coach." }
     ]
   },
-  /* O que inclui (na mesma secção do "Para quem é") */
-  "inclui.cartoes": {
-    pt: [
-      { titulo: "Ginásio, calistenia ou ambos", texto: "Escolhes o caminho; eu organizo o treino para que tudo encaixe no teu dia a dia." },
-      { titulo: "Progressões claras", texto: "Etapas concretas até à skill ou ao objetivo físico que procuras." },
-      { titulo: "Ajustes contínuos", texto: "O plano muda com o teu progresso, o teu cansaço e o teu feedback." },
-      { titulo: "Alimentação, mentalidade e hábitos", texto: "Orientações gerais de alimentação (dentro das minhas qualificações) e apoio para criares rotina." }
-    ],
-    en: [
-      { titulo: "Gym, calisthenics or both", texto: "You choose the path; I put the training together so it all fits into your week." },
-      { titulo: "Clear progressions", texto: "Concrete steps towards the skill or physique goal you're after." },
-      { titulo: "Ongoing adjustments", texto: "The plan changes with your progress, your fatigue and your feedback." },
-      { titulo: "Nutrition, mindset and habits", texto: "General nutrition guidance (within my qualifications) and support to build a routine." }
-    ]
+  "problema.chave": {
+    pt: "Não me faltava informação. Era impaciência disfarçada de vontade de aprender.",
+    en: "I wasn't missing information. It was impatience disguised as wanting to learn."
   },
 
   /* ---------- Sobre mim ---------- */
-  "sobre.titulo": { pt: "Sobre mim", en: "About me" },
+  "sobre.titulo": { pt: "Quem sou", en: "Who I am" },
   // A história do João em 4 frases (dono, 21/11, método do Anton). Só factos de docs/historia-joao.md:
   // sem o número de ebooks, sem o nome do atleta, nunca "ensina há 6 anos"; cerca de 2 anos sem skill e cerca de 10 coaches (21/11).
   "sobre.texto": {
-    pt: "Vim do ginásio e fiz 1 ano de dips e elevações com peso. Mesmo assim, passei cerca de 2 anos sem uma única skill, a saltar de coach em coach (foram cerca de 10), a comprar ebooks atrás de ebooks e a perguntar-me se era capaz. Tudo mudou quando fiz coaching com um atleta que admiro: combos, visualização e parar de pensar para passar a fazer. Hoje faço full planche, full front lever e handstand livre, e é esse método que ensino.",
-    en: "I came from the gym and did 1 year of weighted dips and pull-ups. Even so, I spent about 2 years without a single skill, jumping from coach to coach (around 10 of them), buying ebook after ebook and wondering if I was capable. Everything changed when I was coached by an athlete I admire: combos, visualisation and to stop overthinking and start doing. Today I do the full planche, full front lever and freestanding handstand, and that's the method I teach."
+    pt: "Tudo mudou quando fiz coaching com um atleta que admiro. Aprendi a treinar por combos, a treinar by feeling (a rotina adapta-se a mim, não eu à rotina) e a visualizar cada movimento. E aprendi a ter paciência. Hoje faço full planche, full front lever e handstand livre, e é esse método que ensino.",
+    en: "Everything changed when I was coached by an athlete I admire. I learned to train in combos, to train by feeling (the routine adapts to me, not me to the routine) and to visualise every movement. And I learned to be patient. Today I do the full planche, full front lever and freestanding handstand, and that's the method I teach."
   },
 
-  /* ---------- Feedbacks e FAQ ---------- */
+
+  /* ---------- Feedbacks (escondido até haver testemunhos autorizados) ---------- */
   "feedbacks.titulo": { pt: "Feedbacks", en: "Feedback" },
-  "faq.titulo": { pt: "Perguntas frequentes", en: "FAQ" },
-  "faq.itens": {
-    pt: [
-      { p: "Preciso de equipamento? Posso treinar em casa?", r: "Não precisas de ginásio. O plano é feito com o que tens: ginásio completo, uma barra de elevações, paralelas, elásticos ou só o peso do corpo, em casa ou num parque. Para algumas skills de calistenia, uma barra ajuda bastante. Se for o caso, digo-te o mínimo necessário." },
-      { p: "Quanto tempo preciso por semana?", r: "Depende do objetivo, mas normalmente entre 3 e 5 sessões de 45 a 75 minutos. Mais importante do que treinar muito é treinar com consistência. O plano é ajustado à tua disponibilidade real." },
-      { p: "Como envio os vídeos?", r: "Por WhatsApp, em privado. No início mandas-me vídeos dos movimentos que eu te pedir, para analisar o teu ponto de partida e definirmos os primeiros objetivos. Depois, durante o acompanhamento, filmas partes dos teus treinos e eu reviso-os 3 vezes por semana. Os vídeos servem apenas para análise e nunca são partilhados." },
-      { p: "Quanto custa?", r: "Depende do que precisas. Falamos do valor no fim da chamada." },
-      { p: "Em que língua é o acompanhamento?", r: "Em {linguas}. Diz-me na chamada qual preferes." },
-      { p: "Tenho menos de 18 anos. Posso marcar a chamada?", r: "Sim, desde que tenhas autorização dos teus pais ou do encarregado de educação, e a chamada é feita com um deles. O formulário pede-te essa confirmação." },
-      { p: "Posso cancelar?", r: "Sim. Pagas à cabeça o período que escolheres e no fim renovas só se quiseres. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado." },
-      { p: "Há resultados garantidos?", r: "Não prometo resultados garantidos: dependem da tua consistência, do sono, da alimentação e do teu ponto de partida. O que garanto é um plano estruturado, acompanhamento próximo e ajustes sempre que necessário." }
-    ],
-    en: [
-      { p: "Do I need equipment? Can I train at home?", r: "You don't need a gym. The plan is built around what you have: a full gym, a pull-up bar, dip bars, resistance bands or just your bodyweight, at home or in a park. For some calisthenics skills a bar helps a lot. If that's the case, I'll tell you the minimum you need." },
-      { p: "How much time do I need each week?", r: "It depends on your goal, but usually 3 to 5 sessions of 45 to 75 minutes. Training consistently matters more than training a lot. The plan fits the time you really have." },
-      { p: "How do I send the videos?", r: "Privately, on WhatsApp. At the start you send me videos of the movements I ask for, so I can analyse your starting point and we can set your first goals. Then, during the coaching, you film parts of your sessions and I review them 3 times a week. Videos are only used for analysis and are never shared." },
-      { p: "How much does it cost?", r: "It depends on what you need. We go through the price at the end of the call." },
-      { p: "What language is the coaching in?", r: "{linguas}. Tell me on the call which one you prefer." },
-      { p: "I'm under 18. Can I book the call?", r: "Yes, as long as you have permission from your parents or legal guardian, and one of them joins the call. The form asks you to confirm this." },
-      { p: "Can I cancel?", r: "Yes. You pay upfront for the period you choose, and at the end you only renew if you want to. On any plan you have 14 days to cancel, paying only for the time already used." },
-      { p: "Are results guaranteed?", r: "I don't promise guaranteed results: they depend on your consistency, sleep, nutrition and starting point. What I do guarantee is a structured plan, close support and adjustments whenever they're needed." }
-    ]
-  },
-
   /* ---------- Candidatura: textos gerais ---------- */
   "cand.titulo": { pt: "Marcar chamada", en: "Book a call" },
+  "cand.passo": {
+    pt: "Este é o passo depois de falarmos por mensagem e antes da chamada.",
+    en: "This is the step after we've talked by message and before the call."
+  },
+  // Antes estava na FAQ (saiu a 24/11): menores, saúde, 14 dias e línguas, em texto curto junto do formulário.
+  "cand.regras": {
+    pt: "Se tens menos de 18 anos, precisas da autorização dos teus pais ou do encarregado de educação, e a chamada é feita com um deles. Se tens uma lesão ou um problema de saúde, procura também a avaliação de um profissional de saúde. Em qualquer plano tens 14 dias para desistir, pagando só o tempo já usado. O acompanhamento é em {linguas}.",
+    en: "If you're under 18, you need permission from your parents or legal guardian, and the call is done with one of them. If you have an injury or a health condition, also get it checked by a health professional. On any plan you have 14 days to cancel, paying only for the time already used. Coaching is available in {linguas}."
+  },
   "cand.intro": {
     pt: "Leva cerca de 1 minuto. Depois combinamos o dia no WhatsApp. Os campos com <span class=\"obrig\" aria-hidden=\"true\">*</span> são obrigatórios.",
     en: "It takes about 1 minute. Then we pick the day on WhatsApp. Fields marked <span class=\"obrig\" aria-hidden=\"true\">*</span> are required."
@@ -173,7 +150,9 @@ window.TEXTOS = {
   "m.local":       { pt: "De onde é", en: "From" },
   "q.obstaculo":   { pt: "Que skill queres conseguir, e onde estás nela agora?", en: "Which skill do you want to get, and where are you with it now?" },
   "m.obstaculo":   { pt: "Skill e nível atual", en: "Skill and current level" },
-  "p.obstaculo":   { pt: "Ex.: quero o primeiro muscle-up; faço 8 elevações", en: "E.g. I want my first muscle-up; I can do 8 pull-ups" },
+  "p.obstaculo":   { pt: "Ex.: estou parado na tuck planche há meses", en: "E.g. I've been stuck on the tuck planche for months" },
+  "q.tentaste":    { pt: "O que já tentaste até agora (programas, ebooks, coaches)?", en: "What have you already tried (programs, ebooks, coaches)?" },
+  "m.tentaste":    { pt: "O que já tentou", en: "What they've already tried" },
   "q.seguir":      { pt: "Há quanto tempo vês os meus vídeos?", en: "How long have you been watching my videos?" },
   "m.seguir":      { pt: "Há quanto tempo vê os vídeos", en: "How long they've watched the videos" },
   "q.agora":       { pt: "O que te fez escrever agora?", en: "What made you get in touch now?" },
